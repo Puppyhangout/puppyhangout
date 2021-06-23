@@ -9,8 +9,8 @@ class GlobalState {
     }
 
 
-    post = async (body) => {
-        await axios.post(this.api_url, body)
+    post = async (url, body) => {
+        await axios.post(this.api_url + url, body)
             .catch(err => {
                 console.log(err)
             })
