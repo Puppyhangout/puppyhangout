@@ -1,22 +1,52 @@
 {
-  "name": "puppyhangout",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/olixbridge/puppyhangout.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/olixbridge/puppyhangout/issues"
-  },
-  "homepage": "https://github.com/olixbridge/puppyhangout#readme",
+  "name": "hatzoloh",
+  "version": "0.1.1",
+  "private": true,
   "dependencies": {
-    "firebase": "^8.6.8"
+    "@material-ui/core": "^4.11.2",
+    "@material-ui/lab": "^4.0.0-alpha.57",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "axios": "^0.21.1",
+    "classnames": "^2.2.6",
+    "mobx": "^6.0.4",
+    "mobx-react-lite": "^3.1.6",
+    "moment": "^2.29.1",
+    "nanoid": "^3.1.16",
+    "primeflex": "^2.0.0-rc.1",
+    "primeicons": "^4.0.0",
+    "primereact": "^4.2.2",
+    "ramda": "^0.27.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-json-view": "^1.20.2",
+    "react-places-autocomplete": "^7.3.0",
+    "react-scripts": "^4.0.0",
+    "react-transition-group": "^4.4.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "firebase-tools": "^9.1.0"
   }
 }
