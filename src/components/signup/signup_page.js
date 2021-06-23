@@ -1,4 +1,4 @@
-import { Button, Fab } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import { action } from 'mobx';
@@ -64,7 +64,7 @@ export const Signup = observer(() => {
                     <h2>+</h2>
                 </Button>
 
-                <img style={{objectFit: 'contain', width: '100px', height: '100px',}} src={signup_store.picture || ''} alt="picture" />
+                <img style={{objectFit: 'contain', width: '100px', height: '100px',}} src={signup_store.picture || ''} alt="cherry" />
 
                 <LoadingButton
                     color="primary"
