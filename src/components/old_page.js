@@ -6,7 +6,7 @@ import { signup_store } from "./signup/signup_store"
 
 export const OldPage = observer(() => {
     return <>
-        <div class="header">
+        <div className="header">
             <h1>Puppy Hangout</h1>
             <p>Do you feel guilty to leave your dog at home alone? Do you want to hang out with a dog in your neighbourhood? Puppymatch provides a platform that connects dog walkers and dog owners based on distance.
             </p>
@@ -15,8 +15,8 @@ export const OldPage = observer(() => {
 
 
 
-        <div class="row" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))' }}>
-            <div class="Column1" style={{ "background-color": "lavenderblush" }}>
+        <div className="row" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))' }}>
+            <div className="Column1" style={{ backgroundColor: "lavenderblush" }}>
                 <p>You are a dog walker! click here to register as a dog owner</p>
 
 
@@ -37,31 +37,31 @@ export const OldPage = observer(() => {
                     <input type="submit" value="Submit" />
                 </form>
                 <p><br></br>Messages</p>
-                <p class="one">?</p>
-                <p class="one">You sent LuckyTheLab a like</p>
-                <p class="one">You sent chiyaya a like</p>
+                <p className="one">?</p>
+                <p className="one">You sent LuckyTheLab a like</p>
+                <p className="one">You sent chiyaya a like</p>
 
 
             </div>
-            <div class="Column2" style={{ "background-color": "ivory" }}>
-                <div class="container">
+            <div className="Column2" style={{ "backgroundColor": "ivory" }}>
+                <div className="container">
                     <img src="https://www.segerios.com/wp-content/uploads/2016/08/Innocent-Black-Labrador-Retriever-Dog-Image.jpg" alt="dog1" height="450" width="400" />
 
-                    <div class="bottom-left">
+                    <div className="bottom-left">
                         <p>Luna</p>
                         <p>2km</p>
                         <p>Does anyone want to keep my dog this weekend? </p>
                     </div>
                 </div>
-                <i class="fas fa-angle-left"
+                <i className="fas fa-angle-left"
                     style={{ position: 'relative', float: 'left', width: '8em', overflow: 'hidden', fontSize: '20px', color: '#2196F3' }}
                 ></i>
-                <i class="fas fa-heart"
+                <i className="fas fa-heart"
                     style={{ position: 'relative', float: 'left', width: '8em', overflow: 'hidden', fontSize: '20px', color: '#2196F3' }}></i>
             </div>
         </div>
 
-        <div class="footer">
+        <div className="footer">
             <p>Copyright Olivia website, Inc. All Rights Researved.</p>
             <ul>
                 <li><a href="default.asp">Home</a></li>
