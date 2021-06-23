@@ -1,5 +1,5 @@
 import { get_loader_for_class_instance, setup_async_loaders } from '../../helpers/async_loaders';
-
+import { global_store } from '../../stores/global_store';
 const { makeAutoObservable } = require("mobx");
 class Login {
     constructor() {
@@ -14,6 +14,7 @@ class Login {
     }
     get_loading = (class_function, ...args) => get_loader_for_class_instance(this, class_function, ...args)
     
+    show_page = false
     username = ''
     password = ''
     token = ''
@@ -23,8 +24,12 @@ class Login {
     set_token = (str) => this.token = str
 
     login = async () => {
+        // this.show_page = false
         try {
-            // const { data: login_response } = await axios.get(global_store.api_url + 'login', { params: { username: this.username, password: this.password } })
+            const { data: login_response } = await global_store.post({ 
+                username: this.username, 
+                password: this.password 
+            })
             const token = 'this is a token'
             this.set_token(token)
             localStorage.setItem('token', token)

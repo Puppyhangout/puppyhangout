@@ -2,15 +2,15 @@ import { makeAutoObservable, toJS } from 'mobx';
 import axios from 'axios';
 
 class GlobalState { 
-    api_url = 'https://hatzoloh-backend.herokuapp.com/'
+    api_url = window.location.host === 'localhost:3000' ? 'http://localhost:3004' : 'http://app.herokuapp.com/'
 
     constructor() {
         makeAutoObservable(this)
     }
 
 
-    send_message = async (phone_number, message) => {
-        await axios.post(this.api_url, { phone_number, message })
+    post = async (body) => {
+        await axios.post(this.api_url, body)
             .catch(err => {
                 console.log(err)
             })
