@@ -26,7 +26,7 @@ class Login {
     login = async () => {
         this.show_page = false
         try {
-            const { data: login_response } = await global_store.post({ 
+            const { data: login_response } = await global_store.post('signup', { 
                 username: this.username, 
                 password: this.password 
             })
