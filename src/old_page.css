@@ -1,0 +1,101 @@
+
+body {
+  background-color: #FFFFE0;
+  /*font-family: 'Lucida Console', Monospace;*/
+  font-family: "Gill Sans", sans-serif;
+}
+
+h1 {
+  color: rgb(44, 30, 59);
+  /*margin-left: 40px;*/
+} c
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: inline;
+}
+
+
+
+/* Style the header */
+.header {
+background-color: #D5F3FE;      
+padding-left: 20px;
+padding-right: 20px;
+padding-top: 5px;
+padding-bottom: 5px;
+margin-left: 0px;
+margin-right: 0px;
+margin-top: 0px;
+margin-bottom: 0px;
+/*text-align: center;*/
+}
+
+/* Create three equal columns that floats next to each other */
+.column1 {    
+float: left;
+width: 30%;
+padding: 30px;
+height: 460px; /* Should be removed. Only for demonstration */
+}
+
+.column2 {    
+float: left;
+width: 50%;
+padding: 30px;
+height: 460px; /* Should be removed. Only for demonstration */
+}
+/*
+.column3 {    
+float: left;
+width: 40%;
+padding: 10px;
+height: 60px; 
+}
+
+.column4 {    
+float: left;
+width: 50%;
+padding: 10px;
+height: 60px; 
+}
+*/
+
+/* Clear floats after the columns */
+
+.container {
+  position: relative;
+  text-align: left;
+  color: SteelBlue;
+}
+
+/* Bottom left text */
+.bottom-left {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+  color:SteelBlue;
+}
+
+.row:after { 
+content: "";
+display: table;
+clear: both;
+}
+
+.footer {
+background-color: Aliceblue;
+font-size: 14px;
+padding: 1px;
+text-align: center;
+}
+
+p.one {
+border-left: 6px solid #D5F3FE;
+background-color: ghostwhite;
+}

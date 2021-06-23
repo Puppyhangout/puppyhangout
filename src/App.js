@@ -10,7 +10,7 @@ import { login_store } from './components/login/login_store';
 import { PostCallReport } from './components/post_call_report/post_call_report';
 import logo from './logo.png';
 import { active_calls_store } from './stores/active_calls_store';
-
+import {OldPage} from './components/old_page'
 export const color_palette = {
   blue: '#007ad9',
   green: '#34a835'
@@ -55,9 +55,11 @@ const MainPage = observer(() => <>
 const App = observer(() => {
 
   return (
-    login_store.token  // || true
-      ? <MainPage />
-      : <Login />
+    <OldPage />
+    // login_store.token  // || true
+
+    //   ? <MainPage />
+    //   : <Login />
 
   )
 
