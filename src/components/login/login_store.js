@@ -1,6 +1,5 @@
-import { global_store } from '../../stores/global_store'
-import axios from 'axios'
 import { get_loader_for_class_instance, setup_async_loaders } from '../../helpers/async_loaders';
+
 const { makeAutoObservable } = require("mobx");
 class Login {
     constructor() {
