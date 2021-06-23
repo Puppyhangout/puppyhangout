@@ -34,7 +34,7 @@ class Login {
             this.set_token(token)
             localStorage.setItem('token', token)
             localStorage.setItem('username', this.username)
-            console.log(token)
+            console.log(login_response)
 
         } catch (error) {
             console.error(error.response.data)
