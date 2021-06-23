@@ -2,7 +2,9 @@ import { observer } from 'mobx-react-lite';
 import React from 'react';
 import './app.css';
 import { Login } from './components/login/login_page'
+import { Signup } from './components/signup/signup_page'
 import { login_store } from './components/login/login_store';
+import { signup_store } from './components/signup/signup_store'
 import { OldPage } from './components/old_page';
 export const color_palette = {
   blue: '#007ad9',
@@ -48,9 +50,12 @@ export const color_palette = {
 const App = observer(() => {
 
   return (
-    login_store.show_page ?
-      <Login /> :
-      <OldPage />
+    <>
+    
+    {login_store.show_page && <Login />}
+    {signup_store.show_page && <Signup />}
+    {!signup_store.show_page && !login_store.show_page && <OldPage />}
+    </>
     // login_store.token  // || true
 
     //   ? <MainPage />

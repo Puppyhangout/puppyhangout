@@ -1,7 +1,7 @@
 import { get_loader_for_class_instance, setup_async_loaders } from '../../helpers/async_loaders';
 import { global_store } from '../../stores/global_store';
 const { makeAutoObservable } = require("mobx");
-class Login {
+class signup {
     constructor() {
         setup_async_loaders(this)
         makeAutoObservable(this)
@@ -23,10 +23,10 @@ class Login {
     set_password = (str) => this.password = str
     set_token = (str) => this.token = str
 
-    login = async () => {
-        this.show_page = false
+    signup = async () => {
+        // this.show_page = false
         try {
-            const { data: login_response } = await global_store.post({ 
+            const { data: signup_response } = await global_store.post({ 
                 username: this.username, 
                 password: this.password 
             })
@@ -34,7 +34,7 @@ class Login {
             this.set_token(token)
             localStorage.setItem('token', token)
             localStorage.setItem('username', this.username)
-            console.log(login_response)
+            console.log(signup_response)
 
         } catch (error) {
             console.error(error.response.data)
@@ -48,5 +48,5 @@ class Login {
 
 }
 
-export const login_store = new Login()
-window.login_store = login_store
+export const signup_store = new signup()
+window.signup_store = signup_store

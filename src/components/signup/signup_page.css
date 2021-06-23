@@ -1,0 +1,15 @@
+.signup-container {
+    gap: 10px;
+    display: grid;
+    place-items: center;
+    border-radius: 40px;
+    background-color: rgb(238, 238, 238);
+    margin: 20px;
+    padding: 50px;
+}
+
+.signup-root {
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}

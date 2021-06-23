@@ -2,6 +2,7 @@ import { Button } from "@material-ui/core"
 import { action } from "mobx"
 import { observer } from "mobx-react-lite"
 import { login_store } from "./login/login_store"
+import { signup_store } from "./signup/signup_store"
 
 export const OldPage = observer(() => {
     return <>
@@ -28,7 +29,7 @@ export const OldPage = observer(() => {
 
 
                 <Button color='primary' variant='contained'
-                    onClick={action(() => login_store.show_page = true)}>Signup</Button>
+                    onClick={action(() => signup_store.show_page = true)}>Signup</Button>
 
                 <p><br />Maximum distance</p>
                 <form action="http://www.cs.mcgill.ca/~zshi11/cgi-bin/answer.cgi" method="get">
