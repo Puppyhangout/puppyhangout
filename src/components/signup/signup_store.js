@@ -17,22 +17,20 @@ class signup {
     show_page = false
     username = ''
     password = ''
-    token = ''
+    picture = ''
 
     set_username = (str) => this.username = str
     set_password = (str) => this.password = str
-    set_token = (str) => this.token = str
+    set_picture = (str) => this.picture = str
 
     signup = async () => {
         // this.show_page = false
         try {
             const { data: signup_response } = await global_store.post({ 
                 username: this.username, 
-                password: this.password 
+                password: this.password,
+                picture: this.picture
             })
-            const token = 'this is a token'
-            this.set_token(token)
-            localStorage.setItem('token', token)
             localStorage.setItem('username', this.username)
             console.log(signup_response)
 
