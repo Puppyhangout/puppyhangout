@@ -25,11 +25,14 @@ export const OldPage = observer(() => {
                     onClick={action(() => login_store.show_page = true)}>Login</Button>
 
 
-
-
-
                 <Button color='primary' variant='contained'
                     onClick={action(() => signup_store.show_page = true)}>Signup</Button>
+
+                <Button color='primary' variant='contained'
+                    onClick={action(() => signup_store.show_page = true)}>SETTING</Button>
+
+                <Button color='primary' variant='contained'
+                    onClick={action(() => signup_store.show_page = true)}>MESSAGES</Button>
 
                 <p><br />Maximum distance</p>
                 <form action="http://www.cs.mcgill.ca/~zshi11/cgi-bin/answer.cgi" method="get">
