@@ -37,10 +37,8 @@ export const Setting = observer(() => {
                     Setting
                 </LoadingButton>
                 <p><br />Maximum distance</p>
-                <form action="http://www.cs.mcgill.ca/~zshi11/cgi-bin/answer.cgi" method="get">
-                    <input type="text" name="name" />
-                    <input type="submit" value="Submit" />
-                </form>
+
+                
                 
             </div>
         </div>

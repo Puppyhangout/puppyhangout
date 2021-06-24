@@ -61,10 +61,10 @@ export const Signup = observer(() => {
                 <Button
                 //  style={{ position: 'absolute', bottom: '5%', right: '10%' }}
                   onClick={() => document.getElementById('image_uploader').click()}>
-                    <h2>+</h2>
+                    <h2>Click here to add Image</h2>
                 </Button>
 
-                <img style={{objectFit: 'contain', width: '100px', height: '100px',}} src={signup_store.picture || ''} alt="cherry" />
+                <img style={{objectFit: 'contain', width: '100px', height: '100px',}} src={signup_store.picture || ''} alt="empty" />
 
                 <LoadingButton
                     color="primary"

@@ -22,38 +22,39 @@ export const Message = observer(() => {
 
     return (
         <div className="message-root">
-            <div className="header">
-                <h1>Puppy Hangout</h1>
+            <div className='message-container'>
+                <div className="header">
+                    <h1>Puppy Hangout</h1>
+                </div>
+
+                <div className="Column1" style={{ backgroundColor: "lavenderblush" }}>  
+                    <Button color='primary' variant='contained'
+                        onClick={action(() => login_store.show_page = true)}>Login</Button>
+
+
+                    <Button color='primary' variant='contained'
+                        onClick={action(() => signup_store.show_page = true)}>Signup</Button>
+
+                    <Button color='primary' variant='contained'
+                        onClick={action(() => setting_store.show_page = true)}>SETTING</Button>
+
+                    <Button color='primary' variant='contained'
+                        onClick={action(() => signup_store.show_page = true)}>MESSAGES</Button>
+
+                    <p><br></br>Messages</p>
+                    <p className="one">?</p>
+                    <p className="one">You sent LuckyTheLab a like</p>
+                    <p className="one">You sent chiyaya a like</p>
+                </div>
+
+                <LoadingButton
+                        color="primary"
+                        variant="outlined"
+                        onClick={() => message_store.message()}
+                        loading={message_store.get_loading(message_store.message)}
+                    >
+                </LoadingButton>
             </div>
-
-            <div className="Column1" style={{ backgroundColor: "lavenderblush" }}>  
-                <Button color='primary' variant='contained'
-                    onClick={action(() => login_store.show_page = true)}>Login</Button>
-
-
-                <Button color='primary' variant='contained'
-                    onClick={action(() => signup_store.show_page = true)}>Signup</Button>
-
-                <Button color='primary' variant='contained'
-                    onClick={action(() => setting_store.show_page = true)}>SETTING</Button>
-
-                <Button color='primary' variant='contained'
-                    onClick={action(() => signup_store.show_page = true)}>MESSAGES</Button>
-
-                <p><br></br>Messages</p>
-                <p className="one">?</p>
-                <p className="one">You sent LuckyTheLab a like</p>
-                <p className="one">You sent chiyaya a like</p>
-            </div>
-
-            <LoadingButton
-                    color="primary"
-                    variant="outlined"
-                    onClick={() => message_store.message()}
-                    loading={message_store.get_loading(message_store.message)}
-                >
-
-
         </div>);
 
 })
