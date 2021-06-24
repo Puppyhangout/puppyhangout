@@ -4,8 +4,8 @@ import { observer } from "mobx-react-lite";
 import React from 'react';
 import logo from '../../logo.png';
 import { LoadingButton } from "../reusables/loading_button";
-import './login_page.css';
-import { login_store } from './login_store';
+import './setting_page.css';
+import { setting_store } from './setting_store';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -21,21 +21,26 @@ export const Login = observer(() => {
     const classes = useStyles();
 
     return (
-        <div className="login-root">
+        <div className="setting-root">
 
-            <div className='login-container'>
+            <div className='setting-container'>
                 <img style={{ marginBottom: '15px' }} width={150} src={logo} alt="Hatzoloh Logo"></img>
-                <TextField autoComplete="new-password" onKeyPress={e => e.key === 'Enter' ? login_store.login() : ''} id="outlined-basic" label="Username" variant="outlined" onChange={e => login_store.set_username(e.target.value)} />
+                <TextField autoComplete="new-password" onKeyPress={e => e.key === 'Enter' ? setting_store.setting() : ''} id="outlined-basic" label="Username" variant="outlined" onChange={e => setting_store.set_username(e.target.value)} />
 
-                <TextField autoComplete="new-password" onKeyPress={e => e.key === 'Enter' ? login_store.login() : ''} id="outlined-basic" label="Password" variant="outlined" type="Password" onChange={e => login_store.set_password(e.target.value)} />
+                <TextField autoComplete="new-password" onKeyPress={e => e.key === 'Enter' ? setting_store.setting() : ''} id="outlined-basic" label="Password" variant="outlined" type="Password" onChange={e => setting_store.set_password(e.target.value)} />
                 <LoadingButton
                     color="primary"
                     variant="outlined"
-                    onClick={() => login_store.login()}
-                    loading={login_store.get_loading(login_store.login)}
+                    onClick={() => setting_store.setting()}
+                    loading={setting_store.get_loading(setting_store.setting)}
                 >
                     Login
                 </LoadingButton>
+                <p><br />Maximum distance</p>
+                <form action="http://www.cs.mcgill.ca/~zshi11/cgi-bin/answer.cgi" method="get">
+                    <input type="text" name="name" />
+                    <input type="submit" value="Submit" />
+                </form>
                 
             </div>
         </div>

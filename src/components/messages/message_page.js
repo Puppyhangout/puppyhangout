@@ -36,6 +36,10 @@ export const Message = observer(() => {
                 >
                     Message
                 </LoadingButton>
+                <p><br></br>Messages</p>
+                <p className="one">?</p>
+                <p className="one">You sent LuckyTheLab a like</p>
+                <p className="one">You sent chiyaya a like</p>
                 
             </div>
         </div>

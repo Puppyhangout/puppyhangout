@@ -34,15 +34,8 @@ export const OldPage = observer(() => {
                 <Button color='primary' variant='contained'
                     onClick={action(() => signup_store.show_page = true)}>MESSAGES</Button>
 
-                <p><br />Maximum distance</p>
-                <form action="http://www.cs.mcgill.ca/~zshi11/cgi-bin/answer.cgi" method="get">
-                    <input type="text" name="name" />
-                    <input type="submit" value="Submit" />
-                </form>
-                <p><br></br>Messages</p>
-                <p className="one">?</p>
-                <p className="one">You sent LuckyTheLab a like</p>
-                <p className="one">You sent chiyaya a like</p>
+
+
 
 
             </div>
