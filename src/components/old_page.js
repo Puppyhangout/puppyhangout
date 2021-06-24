@@ -17,7 +17,7 @@ export const OldPage = observer(() => {
 
         <div className="row" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))' }}>
             <div className="Column1" style={{ backgroundColor: "lavenderblush" }}>
-                <p>You are a dog walker! click here to register as a dog owner</p>
+                <p>Interested in being a dog walker? click here to register</p>
 
 
 
@@ -29,7 +29,7 @@ export const OldPage = observer(() => {
                     onClick={action(() => signup_store.show_page = true)}>Signup</Button>
 
                 <Button color='primary' variant='contained'
-                    onClick={action(() => signup_store.show_page = true)}>SETTING</Button>
+                    onClick={action(() => setting_store.show_page = true)}>SETTING</Button>
 
                 <Button color='primary' variant='contained'
                     onClick={action(() => signup_store.show_page = true)}>MESSAGES</Button>
