@@ -22,26 +22,32 @@ export const Message = observer(() => {
 
     return (
         <div className="message-root">
+            <div className="header">
+                <h1>Puppy Hangout</h1>
+            </div>
 
-            <div className='message-container'>
-                <img style={{ marginBottom: '15px' }} width={150} src={logo} alt="Hatzoloh Logo"></img>
-                <TextField autoComplete="new-password" onKeyPress={e => e.key === 'Enter' ? message_store.message() : ''} id="outlined-basic" label="Username" variant="outlined" onChange={e => message_store.set_username(e.target.value)} />
+            <div className="Column1" style={{ backgroundColor: "lavenderblush" }}>  
+                <Button color='primary' variant='contained'
+                    onClick={action(() => login_store.show_page = true)}>Login</Button>
 
-                <TextField autoComplete="new-password" onKeyPress={e => e.key === 'Enter' ? message_store.message() : ''} id="outlined-basic" label="Password" variant="outlined" type="Password" onChange={e => message_store.set_password(e.target.value)} />
-                <LoadingButton
-                    color="primary"
-                    variant="outlined"
-                    onClick={() => message_store.message()}
-                    loading={message_store.get_loading(message_store.message)}
-                >
-                    Message
-                </LoadingButton>
+
+                <Button color='primary' variant='contained'
+                    onClick={action(() => signup_store.show_page = true)}>Signup</Button>
+
+                <Button color='primary' variant='contained'
+                    onClick={action(() => setting_store.show_page = true)}>SETTING</Button>
+
+                <Button color='primary' variant='contained'
+                    onClick={action(() => signup_store.show_page = true)}>MESSAGES</Button>
+
                 <p><br></br>Messages</p>
                 <p className="one">?</p>
                 <p className="one">You sent LuckyTheLab a like</p>
                 <p className="one">You sent chiyaya a like</p>
-                
             </div>
-        </div>
-    );
+
+
+        </div>);
+
 })
+
