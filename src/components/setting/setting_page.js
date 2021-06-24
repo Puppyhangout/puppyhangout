@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export const Login = observer(() => {
+export const Setting = observer(() => {
     /* eslint-disable-next-line*/
     const classes = useStyles();
 
@@ -24,7 +24,7 @@ export const Login = observer(() => {
         <div className="setting-root">
 
             <div className='setting-container'>
-                <img style={{ marginBottom: '15px' }} width={150} src={logo} alt="Hatzoloh Logo"></img>
+                <img style={{ marginBottom: '15px' }} width={150} src={logo} alt="Logo"></img>
                 <TextField autoComplete="new-password" onKeyPress={e => e.key === 'Enter' ? setting_store.setting() : ''} id="outlined-basic" label="Username" variant="outlined" onChange={e => setting_store.set_username(e.target.value)} />
 
                 <TextField autoComplete="new-password" onKeyPress={e => e.key === 'Enter' ? setting_store.setting() : ''} id="outlined-basic" label="Password" variant="outlined" type="Password" onChange={e => setting_store.set_password(e.target.value)} />
@@ -34,7 +34,7 @@ export const Login = observer(() => {
                     onClick={() => setting_store.setting()}
                     loading={setting_store.get_loading(setting_store.setting)}
                 >
-                    Login
+                    Setting
                 </LoadingButton>
                 <p><br />Maximum distance</p>
                 <form action="http://www.cs.mcgill.ca/~zshi11/cgi-bin/answer.cgi" method="get">

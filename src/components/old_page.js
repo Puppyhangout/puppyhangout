@@ -3,7 +3,7 @@ import { action } from "mobx"
 import { observer } from "mobx-react-lite"
 import { login_store } from "./login/login_store"
 import { signup_store } from "./signup/signup_store"
-import { message_store } from "./messages/message_store"
+import { message_store } from "./message/message_store"
 import { setting_store } from "./setting/setting_store"
 
 export const OldPage = observer(() => {
