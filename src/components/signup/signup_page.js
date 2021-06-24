@@ -33,7 +33,7 @@ export const Signup = observer(() => {
         <div className="signup-root">
 
             <div className='signup-container'>
-                <img style={{ marginBottom: '15px' }} width={150} src={logo} alt="Hatzoloh Logo"></img>
+                <img style={{ marginBottom: '15px' }} width={150} src={logo} alt="Logo"></img>
                 <TextField autoComplete="new-password" onKeyPress={e => e.key === 'Enter' ? signup_store.signup() : ''} id="outlined-basic" label="Username" variant="outlined" onChange={e => signup_store.set_username(e.target.value)} />
 
                 <TextField autoComplete="new-password" onKeyPress={e => e.key === 'Enter' ? signup_store.signup() : ''} id="outlined-basic" label="Password" variant="outlined" type="Password" onChange={e => signup_store.set_password(e.target.value)} />

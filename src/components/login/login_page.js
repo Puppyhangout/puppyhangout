@@ -24,7 +24,7 @@ export const Login = observer(() => {
         <div className="login-root">
 
             <div className='login-container'>
-                <img style={{ marginBottom: '15px' }} width={150} src={logo} alt="Hatzoloh Logo"></img>
+                <img style={{ marginBottom: '15px' }} width={150} src={logo} alt="Logo"></img>
                 <TextField autoComplete="new-password" onKeyPress={e => e.key === 'Enter' ? login_store.login() : ''} id="outlined-basic" label="Username" variant="outlined" onChange={e => login_store.set_username(e.target.value)} />
 
                 <TextField autoComplete="new-password" onKeyPress={e => e.key === 'Enter' ? login_store.login() : ''} id="outlined-basic" label="Password" variant="outlined" type="Password" onChange={e => login_store.set_password(e.target.value)} />
