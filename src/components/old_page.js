@@ -3,6 +3,8 @@ import { action } from "mobx"
 import { observer } from "mobx-react-lite"
 import { login_store } from "./login/login_store"
 import { signup_store } from "./signup/signup_store"
+import { message_store } from "./messages/message_store"
+import { setting_store } from "./setting/setting_store"
 
 export const OldPage = observer(() => {
     return <>
@@ -32,7 +34,7 @@ export const OldPage = observer(() => {
                     onClick={action(() => setting_store.show_page = true)}>SETTING</Button>
 
                 <Button color='primary' variant='contained'
-                    onClick={action(() => signup_store.show_page = true)}>MESSAGES</Button>
+                    onClick={action(() => message_store.show_page = true)}>MESSAGES</Button>
 
 
 

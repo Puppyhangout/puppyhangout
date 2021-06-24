@@ -46,6 +46,13 @@ export const Message = observer(() => {
                 <p className="one">You sent chiyaya a like</p>
             </div>
 
+            <LoadingButton
+                    color="primary"
+                    variant="outlined"
+                    onClick={() => message_store.message()}
+                    loading={message_store.get_loading(message_store.message)}
+                >
+
 
         </div>);
 
