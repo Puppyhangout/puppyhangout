@@ -59,17 +59,16 @@ const App = observer(() => {
 
   return (
     <>
-    
     {login_store.show_page && <Login />}
     {signup_store.show_page && <Signup />}
     {setting_store.show_page && <Setting />}
     {message_store.show_page && <Message />}
     {!signup_store.show_page && !login_store.show_page && <OldPage />}
     </>
-    // login_store.token  // || true
+     //login_store.token  // || true
 
-    //   ? <MainPage />
-    //   : <Login />
+       //? <MainPage />
+       //: <Login />
 
   )
 

@@ -6,6 +6,14 @@ import logo from '../../logo.png';
 import { LoadingButton } from "../reusables/loading_button";
 import './message_page.css';
 import { message_store } from './message_store';
+import { Button } from "@material-ui/core"
+import { action } from "mobx"
+
+
+import { login_store } from "../login/login_store"
+import { signup_store } from "../signup/signup_store"
+
+import { setting_store } from "../setting/setting_store"
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -54,8 +62,11 @@ export const Message = observer(() => {
                         loading={message_store.get_loading(message_store.message)}
                     >
                 </LoadingButton>
+                <TextField autoComplete="new-password" onKeyPress={e => e.key === 'Enter' ? login_store.login() : ''} id="outlined-basic" label="Username" variant="outlined" onChange={e => login_store.set_username(e.target.value)} />
+                <img style={{ marginBottom: '15px' }} width={150} src={logo} alt="Logo"></img>
             </div>
-        </div>);
+        </div>
+        );
 
 })
 
