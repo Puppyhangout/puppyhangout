@@ -17,17 +17,19 @@ class Setting {
     show_page = false
     username = ''
     password = ''
+    distance = ''
     token = ''
 
     set_username = (str) => this.username = str
     set_password = (str) => this.password = str
+    set_distance = (str) => this.distance = str
     set_token = (str) => this.token = str
 
     setting = async () => {
         this.show_page = false
         try {
             const { data: setting_response } = await global_store.post('setting', { 
-                username: this.username, 
+                distance: this.distance, 
                 password: this.password 
             })
             const token = 'this is a token'

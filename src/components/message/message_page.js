@@ -33,7 +33,6 @@ export const Message = observer(() => {
 
                 <div className="header">
                     <h1>Puppy Hangout</h1>
-                    <img style={{ marginBottom: '15px' }} width={100} src={logo} alt="Logo"></img>
                 </div>
 
                 <div className="Column1" style={{ backgroundColor: "lavenderblush" }}>  
@@ -51,8 +50,9 @@ export const Message = observer(() => {
                         onClick={action(() => signup_store.show_page = true)}>MESSAGES</Button>
 
                     <p><br></br>Messages</p>
+
                     <p className="one">?</p>
-                    <p className="one">You sent LuckyTheLab a like</p>
+                    <p className="one"><img class="a" src={logo} width="9" height="9" alt="user1">You sent LuckyTheLab a like</img></p>
                     <p className="one">You sent chiyaya a like</p>
                 </div>
 

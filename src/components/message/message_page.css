@@ -1,3 +1,5 @@
+
+
 .message-container {
     gap: 10px;
     display: grid;
@@ -31,6 +33,11 @@ h1 {
     color: rgb(44, 30, 59);
     /*margin-left: 40px;*/
 } 
+
+
+img.a {
+    vertical-align: baseline;
+  }
 
 .column1 {    
     float: left;
