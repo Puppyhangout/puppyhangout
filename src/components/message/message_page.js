@@ -30,7 +30,7 @@ export const Message = observer(() => {
 
     return (
         <div className="message-root">
-
+            <div className='message-container'>
                 <div className="header">
                     <h1>Puppy Hangout</h1>
                 </div>
@@ -63,9 +63,9 @@ export const Message = observer(() => {
                     >
                 </LoadingButton>
                 <TextField autoComplete="new-password" onKeyPress={e => e.key === 'Enter' ? login_store.login() : ''} id="outlined-basic" label="Username" variant="outlined" onChange={e => login_store.set_username(e.target.value)} />
-                
+                <img style={{ marginBottom: '15px' }} width={150} src={logo} alt="Logo"></img>
             </div>
-
+        </div>
         );
 
 })
