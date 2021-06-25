@@ -35,6 +35,7 @@ class Login {
             localStorage.setItem('token', token)
             localStorage.setItem('username', this.username)
             console.log(login_response)
+            window.alert(login_response)
 
         } catch (error) {
             console.error(error.response.data)

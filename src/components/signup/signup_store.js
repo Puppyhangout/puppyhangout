@@ -33,6 +33,7 @@ class signup {
             })
             localStorage.setItem('username', this.username)
             console.log(signup_response)
+            window.alert(signup_response)
 
         } catch (error) {
             console.error(error.response.data)

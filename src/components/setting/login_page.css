@@ -1,4 +1,4 @@
-.signup-container {
+.setting-container {
     gap: 10px;
     display: grid;
     place-items: center;
@@ -8,9 +8,8 @@
     padding: 50px;
 }
 
-.signup-root {
+.setting-root {
     height: 100vh;
     display: grid;
     place-items: center;
 }
-

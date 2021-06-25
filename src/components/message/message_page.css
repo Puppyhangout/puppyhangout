@@ -5,7 +5,7 @@
     display: grid;
     place-items: left;
     border-radius: 40px;
-    background-color: rgb(238, 238, 238);
+    background-color: #D5F3FE; 
     margin: 20px;
     padding: 50px;
 }

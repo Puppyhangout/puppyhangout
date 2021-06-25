@@ -25,10 +25,10 @@ export const OldPage = observer(() => {
                     onClick={action(() => signup_store.show_page = true)}>Signup</Button>
 
                 <Button color='primary' variant='contained'
-                    onClick={action(() => setting_store.show_page = true)}>SETTING</Button>
+                    onClick={action(() => setting_store.show_page = true)}>Setting</Button>
 
                 <Button color='primary' variant='contained'
-                    onClick={action(() => message_store.show_page = true)}>MESSAGES</Button>
+                    onClick={action(() => message_store.show_page = true)}>Messages</Button>
 
 
 

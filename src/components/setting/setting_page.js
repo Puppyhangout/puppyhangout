@@ -22,8 +22,10 @@ export const Setting = observer(() => {
 
     return (
         <div className="setting-root">
-                <img style={{ marginBottom: '15px' }} width={150} src={logo} alt="Logo"></img>
-
+            <div className="header">
+            <h1>Puppy Hangout</h1>
+            <img style={{ marginBottom: '15px' }} width={100} src={logo} alt="Logo"></img>
+            </div>
                 <p><br />Maximum distance</p>
                 <TextField autoComplete="new-password" onKeyPress={e => e.key === 'Enter' ? setting_store.setting() : ''} id="outlined-basic" label="Unit: km" variant="outlined" onChange={e => setting_store.set_distance(e.target.value)} />
                 <LoadingButton
