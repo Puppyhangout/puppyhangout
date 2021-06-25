@@ -10,18 +10,12 @@ export const OldPage = observer(() => {
     return <>
         <div className="header">
             <h1>Puppy Hangout</h1>
-            <p>Do you feel guilty to leave your dog at home alone? Do you want to hang out with a dog in your neighbourhood? Puppymatch provides a platform that connects dog walkers and dog owners based on distance.
+            <p>Do you need a dog sitter? Do you want to hang out with a dog in your neighbourhood? Sign up today!
             </p>
         </div>
 
-
-
-
         <div className="row" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))' }}>
             <div className="Column1" style={{ backgroundColor: "lavenderblush" }}>
-                <p>Interested in being a dog walker? click here to register</p>
-
-
 
                 <Button color='primary' variant='contained'
                     onClick={action(() => login_store.show_page = true)}>Login</Button>
@@ -63,7 +57,6 @@ export const OldPage = observer(() => {
             <p>Copyright Olivia website, Inc. All Rights Researved.</p>
             <ul>
                 <li><a href="default.asp">Home</a></li>
-                <li><a href="news.asp">My Account</a></li>
                 <li><a href="contact.asp">Contact</a></li>
                 <li><a href="about.asp">About</a></li>
             </ul>

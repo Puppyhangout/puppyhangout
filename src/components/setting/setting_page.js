@@ -22,25 +22,18 @@ export const Setting = observer(() => {
 
     return (
         <div className="setting-root">
-
-            <div className='setting-container'>
                 <img style={{ marginBottom: '15px' }} width={150} src={logo} alt="Logo"></img>
-                <TextField autoComplete="new-password" onKeyPress={e => e.key === 'Enter' ? setting_store.setting() : ''} id="outlined-basic" label="Username" variant="outlined" onChange={e => setting_store.set_username(e.target.value)} />
 
-                <TextField autoComplete="new-password" onKeyPress={e => e.key === 'Enter' ? setting_store.setting() : ''} id="outlined-basic" label="Password" variant="outlined" type="Password" onChange={e => setting_store.set_password(e.target.value)} />
+                <p><br />Maximum distance</p>
+                <TextField autoComplete="new-password" onKeyPress={e => e.key === 'Enter' ? setting_store.setting() : ''} id="outlined-basic" label="Unit: km" variant="outlined" onChange={e => setting_store.set_distance(e.target.value)} />
                 <LoadingButton
                     color="primary"
                     variant="outlined"
                     onClick={() => setting_store.setting()}
                     loading={setting_store.get_loading(setting_store.setting)}
                 >
-                    Setting
+                    Apply
                 </LoadingButton>
-                <p><br />Maximum distance</p>
-
-                
-                
-            </div>
         </div>
     );
 })
