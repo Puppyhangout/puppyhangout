@@ -30,6 +30,9 @@ class Login {
                 username: this.username, 
                 password: this.password 
             })
+            .catch(err => {
+                console.error(err)
+            })
             const token = 'this is a token'
             this.set_token(token)
             localStorage.setItem('token', token)
