@@ -33,8 +33,8 @@ export const Signup = observer(() => {
         <div className="signup-root">
 
             <div className='signup-container'>
-                <img style={{ marginBottom: '15px' }} width={150} src={logo} alt="Hatzoloh Logo"></img>
-                <TextField autoComplete="new-password" onKeyPress={e => e.key === 'Enter' ? signup_store.signup() : ''} id="outlined-basic" label="Dispatcher Number" variant="outlined" onChange={e => signup_store.set_username(e.target.value)} />
+                <img style={{ marginBottom: '15px' }} width={150} src={logo} alt="Logo"></img>
+                <TextField autoComplete="new-password" onKeyPress={e => e.key === 'Enter' ? signup_store.signup() : ''} id="outlined-basic" label="Username" variant="outlined" onChange={e => signup_store.set_username(e.target.value)} />
 
                 <TextField autoComplete="new-password" onKeyPress={e => e.key === 'Enter' ? signup_store.signup() : ''} id="outlined-basic" label="Password" variant="outlined" type="Password" onChange={e => signup_store.set_password(e.target.value)} />
 
@@ -61,10 +61,10 @@ export const Signup = observer(() => {
                 <Button
                 //  style={{ position: 'absolute', bottom: '5%', right: '10%' }}
                   onClick={() => document.getElementById('image_uploader').click()}>
-                    <h2>+</h2>
+                    <h2>Click here to add Image</h2>
                 </Button>
 
-                <img style={{objectFit: 'contain', width: '100px', height: '100px',}} src={signup_store.picture || ''} alt="cherry" />
+                <img style={{objectFit: 'contain', width: '100px', height: '100px',}} src={signup_store.picture || ''} alt="empty" />
 
                 <LoadingButton
                     color="primary"
