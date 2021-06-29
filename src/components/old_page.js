@@ -7,12 +7,14 @@ import { signup_store } from "./signup/signup_store"
 import { message_store } from "./message/message_store"
 import { setting_store } from "./setting/setting_store"
 
-
+/*
 import { PersonIcon } from "@material-ui/icons/Person"
 import { Forum } from "@material-ui/icons/Forum"
 import { IconButton } from "@material-ui/core/IconButton"
 
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+
+*/
 import TinderCards  from './TinderCards';
 
 

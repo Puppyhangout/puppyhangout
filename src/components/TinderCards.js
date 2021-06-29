@@ -4,7 +4,8 @@ import './TinderCards.css';
 
 
 function TinderCards() {
-    const [people,setPeople]=useState([
+    /*const [people,setPeople]=useState([*/
+    const [people]=useState([
         {
             name:'olya',
             url:'https://upload.wikimedia.org/wikipedia/commons/9/94/My_dog.jpg'  },
