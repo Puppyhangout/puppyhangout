@@ -1,3 +1,4 @@
+import React from 'react';
 import { Button } from "@material-ui/core"
 import { action } from "mobx"
 import { observer } from "mobx-react-lite"
@@ -5,6 +6,16 @@ import { login_store } from "./login/login_store"
 import { signup_store } from "./signup/signup_store"
 import { message_store } from "./message/message_store"
 import { setting_store } from "./setting/setting_store"
+
+
+import { PersonIcon } from "@material-ui/icons/Person"
+import { Forum } from "@material-ui/icons/Forum"
+import { IconButton } from "@material-ui/core/IconButton"
+
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import TinderCards  from './TinderCards';
+
+
 
 export const OldPage = observer(() => {
     return <>
@@ -36,14 +47,9 @@ export const OldPage = observer(() => {
 
             </div>
             <div className="Column2" style={{ "backgroundColor": "ivory" }}>
-                <div className="container">
-                    <img src="https://www.segerios.com/wp-content/uploads/2016/08/Innocent-Black-Labrador-Retriever-Dog-Image.jpg" alt="dog1" height="450" width="400" />
+                <div className="container">                   
+                <TinderCards />
 
-                    <div className="bottom-left">
-                        <p>Luna</p>
-                        <p>2km</p>
-                        <p>Does anyone want to keep my dog this weekend? </p>
-                    </div>
                 </div>
                 <i className="fas fa-angle-left"
                     style={{ position: 'relative', float: 'left', width: '8em', overflow: 'hidden', fontSize: '20px', color: '#2196F3' }}

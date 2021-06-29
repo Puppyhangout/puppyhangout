@@ -1,5 +1,6 @@
 import { observer } from 'mobx-react-lite';
 import React from 'react';
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import './app.css';
 import { Login } from './components/login/login_page'
 import { login_store } from './components/login/login_store';
