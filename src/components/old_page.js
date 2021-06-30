@@ -6,15 +6,6 @@ import { login_store } from "./login/login_store"
 import { signup_store } from "./signup/signup_store"
 import { message_store } from "./message/message_store"
 import { setting_store } from "./setting/setting_store"
-
-/*
-import { PersonIcon } from "@material-ui/icons/Person"
-import { Forum } from "@material-ui/icons/Forum"
-import { IconButton } from "@material-ui/core/IconButton"
-
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
-
-*/
 import TinderCards  from './TinderCards';
 
 
@@ -25,12 +16,7 @@ export const OldPage = observer(() => {
             <h1>Puppy Hangout</h1>
             <p>Do you need a dog sitter? Do you want to hang out with a dog in your neighbourhood? Sign up today!
             </p>
-        </div>
-
-        <div className="row" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))' }}>
-            <div className="Column1" style={{ backgroundColor: "lavenderblush" }}>
-
-                <Button color='primary' variant='contained'
+            <Button color='primary' variant='contained'
                     onClick={action(() => login_store.show_page = true)}>Login</Button>
 
 
@@ -44,21 +30,11 @@ export const OldPage = observer(() => {
                     onClick={action(() => message_store.show_page = true)}>Messages</Button>
 
 
-
-
-
-            </div>
+        </div>
             <div className="Column2" style={{ "backgroundColor": "ivory" }}>
                 <div className="container">                   
                 <TinderCards />
-
-                </div>
-                <i className="fas fa-angle-left"
-                    style={{ position: 'relative', float: 'left', width: '8em', overflow: 'hidden', fontSize: '20px', color: '#2196F3' }}
-                ></i>
-                <i className="fas fa-heart"
-                    style={{ position: 'relative', float: 'left', width: '8em', overflow: 'hidden', fontSize: '20px', color: '#2196F3' }}></i>
-            </div>
+        </div>
         </div>
 
         <div className="footer">

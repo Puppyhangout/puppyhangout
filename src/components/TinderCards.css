@@ -11,7 +11,7 @@
 }
 
 .card >h3{
-    position:absolution;
+    position:absolute;
     bottom:10px;
     color:white;
 }

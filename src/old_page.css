@@ -32,23 +32,7 @@ margin-bottom: 0px;
 /*text-align: center;*/
 }
 
-/* Create three equal columns that floats next to each other */
-.column1 {    
-float: left;
-width: 40%;
-padding-left: 20px;
-padding-right: 20px;
-padding-top: 5px;
-padding-bottom: 5px;
-height: 460px; /* Should be removed. Only for demonstration */
-}
 
-.column2 {    
-float: left;
-width: 50%;
-padding: 30px;
-height: 460px; /* Should be removed. Only for demonstration */
-}
 
 .container {
   position: relative;
@@ -64,17 +48,13 @@ height: 460px; /* Should be removed. Only for demonstration */
   color:SteelBlue;
 }
 
-.row:after { 
-content: "";
-display: table;
-clear: both;
-}
 
 .footer {
 background-color: Aliceblue;
 font-size: 14px;
 padding: 1px;
 text-align: center;
+margin-top:450px;
 }
 
 p.one {
