@@ -1,23 +1,74 @@
-import { observer } from 'mobx-react-lite';
+//import { observer } from 'mobx-react-lite';
 import React from 'react';
 import './app.css';
 import { Login } from './components/login/login_page'
-import { login_store } from './components/login/login_store';
+//import { login_store } from './components/login/login_store';
 
 import { Signup } from './components/signup/signup_page'
-import { signup_store } from './components/signup/signup_store'
+import { Chats } from './components/chats/Chats'
+//import { signup_store } from './components/signup/signup_store'
 
-import { Setting } from './components/setting/setting_page'
-import { setting_store } from './components/setting/setting_store';
+//import { Setting } from './components/setting/setting_page'
+//import { setting_store } from './components/setting/setting_store';
 
-import { Message } from './components/message/message_page'
-import { message_store } from './components/message/message_store'
 import { OldPage } from './components/old_page';
 
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+
+
+
+function App() {
+
+return (
+<div className="App">
+<Router>
+  <Switch> 
+    <Route path="/signup">
+      <Signup/>
+    </Route>
+    
+    <Route path="/login">
+      <Login/>
+    </Route>
+
+
+    <Route exact path="/">
+      <OldPage/>
+    </Route>
+
+    <Route exact path="/chats">
+      <Chats/>
+    </Route>
+
+  </Switch>
+
+
+</Router>
+
+
+
+
+
+
+</div>
+);
+}
+export default App;
+
+
+
+
+
+
+
+/*
 export const color_palette = {
   blue: '#007ad9',
   green: '#34a835'
 }
+
+
+
 
 const App = observer(() => {
 
@@ -38,4 +89,4 @@ const App = observer(() => {
 
 })
 
-export default App
+export default App*/

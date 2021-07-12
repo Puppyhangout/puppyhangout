@@ -12,7 +12,6 @@ import { action } from "mobx"
 
 import { login_store } from "../login/login_store"
 import { signup_store } from "../signup/signup_store"
-
 import { setting_store } from "../setting/setting_store"
 
 const useStyles = makeStyles((theme) => ({
@@ -38,8 +37,7 @@ export const Message = observer(() => {
                 <div className="Column1" style={{ backgroundColor: "lavenderblush" }}>  
                     <Button color='primary' variant='contained'
                         onClick={action(() => login_store.show_page = true)}>Login</Button>
-
-
+                        
                     <Button color='primary' variant='contained'
                         onClick={action(() => signup_store.show_page = true)}>Signup</Button>
 

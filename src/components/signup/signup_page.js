@@ -9,6 +9,7 @@ import { LoadingButton } from "../reusables/loading_button";
 import './signup_page.css';
 import { signup_store } from './signup_store';
 
+
 const useStyles = makeStyles((theme) => ({
     root: {
         '& > *': {
