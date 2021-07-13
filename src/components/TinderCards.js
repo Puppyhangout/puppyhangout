@@ -7,10 +7,10 @@ function TinderCards() {
     /*const [people,setPeople]=useState([*/
     const [people]=useState([
         {
-            name:'olya',
+            name:'Lucky',
             url:'https://upload.wikimedia.org/wikipedia/commons/9/94/My_dog.jpg'  },
         {
-            name:'asdf',
+            name:'Dora',
             url:'https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-800x825.jpg'
         }
     ]);

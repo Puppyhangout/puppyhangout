@@ -6,7 +6,9 @@ import { Login } from './components/login/login_page'
 
 import { Signup } from './components/signup/signup_page'
 import { Chats } from './components/chats/Chats'
+import { Setting } from './components/setting/setting_page'
 import { ChatScreen } from "./components/chats/ChatScreen";
+import {Header} from "./Header"
 //import { signup_store } from './components/signup/signup_store'
 
 //import { Setting } from './components/setting/setting_page'
@@ -25,10 +27,12 @@ return (
 <Router>
   <Switch> 
     <Route exact path="/signup">
+    <Header/>
       <Signup/>
     </Route>
     
     <Route exact path="/login">
+    <Header/>
       <Login/>
     </Route>
 
@@ -37,7 +41,13 @@ return (
     </Route>
 
     <Route exact path="/chats">
+    <Header/>
       <Chats/>
+    </Route>
+
+    <Route exact path="/setting">
+      <Header/>
+      <Setting/>
     </Route>
 
     <Route exact path="/">

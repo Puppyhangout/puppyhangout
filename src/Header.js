@@ -2,19 +2,20 @@ import React from 'react';
 import { Button } from "@material-ui/core"
 import { action } from "mobx"
 import { observer } from "mobx-react-lite"
-import { login_store } from "./login/login_store"
-import { Chats } from './chats/Chats'
-import { signup_store } from "./signup/signup_store"
+import { login_store } from "./components/login/login_store"
+import { Chats } from './components/chats/Chats'
+import { signup_store } from "./components/signup/signup_store"
+import {OldPage} from "./components/old_page"
+import { setting_store } from "./components/setting/setting_store"
+import logo from './logo.png';
 
-import { setting_store } from "./setting/setting_store"
-import TinderCards  from './TinderCards';
 //import { Link,useHistory } from "react-router-dom";
 import { Link} from "react-router-dom";
 
-export const OldPage = observer(() => {
+export const Header = observer(() => {
     return <>
         <div className="header">
-            <h1>Puppy Hangout</h1>
+            <h1>Puppy Hangout <img style={{ marginBottom: '0px' }} width={50} src={logo} alt="Logo"></img></h1>
             <p>Do you need a dog sitter? Do you want to hang out with a dog in your neighbourhood? Sign up today!
             </p>
 
@@ -49,19 +50,6 @@ export const OldPage = observer(() => {
 </Link>  
 
         </div>
-            <div className="Column2" style={{ "backgroundColor": "ivory" }}>
-                <div className="container">                   
-                <TinderCards />
-        </div>
-        </div>
 
-        <div className="footer">
-            <p>Copyright Olivia website, Inc. All Rights Researved.</p>
-            <ul>
-                <li><a href="default.asp">Home</a></li>
-                <li><a href="contact.asp">Contact</a></li>
-                <li><a href="about.asp">About</a></li>
-            </ul>
-        </div>
     </>
 })
