@@ -1,33 +1,38 @@
 import React,{ useState } from "react";
 import Avatar from "@material-ui/core/Avatar";
+import { observer } from "mobx-react-lite"
+
 import "./ChatScreen.css";
 
 
-function ChatScreen(){
-    const [input,setInput] = useState('');
-    const [messages,setMessages]=useState([
-        {
-            name:'Ellen',
-            image:'https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-800x825.jpg',
-            message:'Whats up'
-        },
-        {
-            name:'Ellen',
-            image:'https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-800x825.jpg',
-            message:'Hows it going?'
-        },
-        {
-            message:'Hey Ellen'
-        }
-    ])
 
-    const handleSend = e => {
-        e.preventDefaut();
-        setMessages([...messages,{message:input}]);
-        setInput('');
-    };
 
-    return(
+    export const ChatScreen = observer(() => {
+        const [input,setInput] = useState('');
+        const [messages,setMessages]=useState([
+            {
+                name:'Ellen',
+                image:'https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-800x825.jpg',
+                message:'Whats up'
+            },
+            {
+                name:'Ellen',
+                image:'https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-800x825.jpg',
+                message:'Hows it going?'
+            },
+            {
+                message:'Hey Ellen'
+            }
+        ])
+        
+        const handleSend = e => {
+            e.preventDefaut();
+            setMessages([...messages,{message:input}]);
+            setInput('');
+        };
+
+
+        return <>
         <div className="chatScreen">
             <p>You matched with Ellen on </p>
             {messages.map((message) =>
@@ -54,7 +59,5 @@ function ChatScreen(){
             </form>
         </div>
         </div>
-    );
-}
-
-export default ChatScreen;
+    </>
+})

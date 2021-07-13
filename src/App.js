@@ -6,6 +6,7 @@ import { Login } from './components/login/login_page'
 
 import { Signup } from './components/signup/signup_page'
 import { Chats } from './components/chats/Chats'
+import { ChatScreen } from "./components/chats/ChatScreen";
 //import { signup_store } from './components/signup/signup_store'
 
 //import { Setting } from './components/setting/setting_page'
@@ -23,22 +24,27 @@ return (
 <div className="App">
 <Router>
   <Switch> 
-    <Route path="/signup">
+    <Route exact path="/signup">
       <Signup/>
     </Route>
     
-    <Route path="/login">
+    <Route exact path="/login">
       <Login/>
     </Route>
 
-
-    <Route exact path="/">
-      <OldPage/>
+    <Route path="/chat/:person"> 
+      <ChatScreen/>
     </Route>
 
     <Route exact path="/chats">
       <Chats/>
     </Route>
+
+    <Route exact path="/">
+      <OldPage/>
+    </Route>
+
+
 
   </Switch>
 
