@@ -11,13 +11,13 @@ const useStyles = makeStyles((theme) => ({
     root: {
         '& > *': {
             margin: theme.spacing(1),
-            width: '25ch',
+            width: '5ch',
         },
     },
 }));
 
 export const Login = observer(() => {
-    /* eslint-disable-next-line*/
+        /* eslint-disable-next-line*/
     const classes = useStyles();
 
     return (

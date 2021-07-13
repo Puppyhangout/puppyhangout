@@ -3,13 +3,13 @@
     display: grid;
     place-items: left;
     border-radius: 40px;
-    background-color: #D5F3FE; 
+    background-color: lavenderblush; 
     margin: 20px;
     padding: 50px;
 }
 
 .setting-root {
-    height: 100vh;
+    height: 10vh;
     display: grid;
     place-items: left;
 }

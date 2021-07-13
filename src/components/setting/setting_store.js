@@ -6,7 +6,7 @@ class Setting {
         setup_async_loaders(this)
         makeAutoObservable(this)
         const token = localStorage.getItem('token') || ''
-        const username = localStorage.getItem('username') || ''
+        const username = localStorage.getItem('username') || 'username'
         if (token.slice(0,2) === 'ey' && username) {
             this.token = token
             this.username = username

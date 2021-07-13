@@ -4,7 +4,6 @@ import TextField from '@material-ui/core/TextField';
 import { action } from 'mobx';
 import { observer } from "mobx-react-lite";
 import React from 'react';
-import logo from '../../logo.png';
 import { LoadingButton } from "../reusables/loading_button";
 import './signup_page.css';
 import { signup_store } from './signup_store';
@@ -14,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
         '& > *': {
             margin: theme.spacing(1),
-            width: '25ch',
+            width: '5ch',
         },
     },
 }));
@@ -34,9 +33,7 @@ export const Signup = observer(() => {
         <div className="signup-root">
 
             <div className='signup-container'>
-                <img style={{ marginBottom: '15px' }} width={150} src={logo} alt="Logo"></img>
                 <TextField autoComplete="new-password" onKeyPress={e => e.key === 'Enter' ? signup_store.signup() : ''} id="outlined-basic" label="Username" variant="outlined" onChange={e => signup_store.set_username(e.target.value)} />
-
                 <TextField autoComplete="new-password" onKeyPress={e => e.key === 'Enter' ? signup_store.signup() : ''} id="outlined-basic" label="Password" variant="outlined" type="Password" onChange={e => signup_store.set_password(e.target.value)} />
 
                 <input
@@ -49,23 +46,15 @@ export const Signup = observer(() => {
                         const new_pictures = await Promise.all(Array.from(e.target.files).map(file => toBase64(file)))
                         console.log(new_pictures)
                         signup_store.set_picture(new_pictures[0])
-                        // store.ws_send(new_pictures.map((base_64) => {
-                        //     return {
-                        //         base_64,
-                        //         gallery_name: store.gallery_name,
-                        //         tombstoned: false
-                        //     }
-                        // }))
                     })}
                 />
 
                 <Button
                 //  style={{ position: 'absolute', bottom: '5%', right: '10%' }}
                   onClick={() => document.getElementById('image_uploader').click()}>
-                    <h2>Click here to add Image</h2>
+                    <img style={{objectFit: 'contain', width: '100px', height: '100px',}} src={signup_store.picture || ''} alt="click to add" />
                 </Button>
 
-                <img style={{objectFit: 'contain', width: '100px', height: '100px',}} src={signup_store.picture || ''} alt="empty" />
 
                 <LoadingButton
                     color="primary"

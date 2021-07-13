@@ -8,8 +8,6 @@ import { signup_store } from "./components/signup/signup_store"
 import {OldPage} from "./components/old_page"
 import { setting_store } from "./components/setting/setting_store"
 import logo from './logo.png';
-
-//import { Link,useHistory } from "react-router-dom";
 import { Link} from "react-router-dom";
 
 export const Header = observer(() => {

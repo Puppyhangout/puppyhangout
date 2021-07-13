@@ -3,13 +3,13 @@
     display: grid;
     place-items: center;
     border-radius: 40px;
-    background-color: rgb(238, 238, 238);
+    background-color: lavenderblush;
     margin: 20px;
     padding: 50px;
 }
 
 .signup-root {
-    height: 100vh;
+    height: 10vh;
     display: grid;
     place-items: center;
 }

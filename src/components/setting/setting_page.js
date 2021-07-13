@@ -11,24 +11,24 @@ const useStyles = makeStyles((theme) => ({
     root: {
         '& > *': {
             margin: theme.spacing(1),
-            width: '25ch',
+            width: '5ch',
         },
     },
 }));
 
 export const Setting = observer(() => {
-    /* eslint-disable-next-line*/
+        /* eslint-disable-next-line*/
     const classes = useStyles();
 
     return ( 
 
         <div className="setting-root">
-            <div className="header">
+            <div className="setting-container">
 
-            </div>
                 <p>Welcome, {setting_store.username}</p>
-                <p><br />Maximum distance</p>
-                <TextField autoComplete="new-password" onKeyPress={e => e.key === 'Enter' ? setting_store.setting() : ''} id="outlined-basic" label="Unit: km" variant="outlined" onChange={e => setting_store.set_distance(e.target.value)} />
+                <p><br /> Maximum distance:    
+                <TextField onKeyPress={e => e.key === 'Enter' ? setting_store.setting() : ''} id="outlined-basic" label="Unit: km" variant="outlined" onChange={e => setting_store.set_distance(e.target.value)} />
+                </p>
                 <LoadingButton
                     color="primary"
                     variant="outlined"
@@ -37,6 +37,7 @@ export const Setting = observer(() => {
                 >
                     Apply
                 </LoadingButton>
+                </div>
         </div>
 
     );

@@ -9,7 +9,7 @@
 }
 
 .setting-root {
-    height: 100vh;
+    height: 10vh;
     display: grid;
     place-items: center;
 }
