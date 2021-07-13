@@ -37,6 +37,7 @@ return (
     </Route>
 
     <Route path="/chat/:person"> 
+    <Header/>
       <ChatScreen/>
     </Route>
 

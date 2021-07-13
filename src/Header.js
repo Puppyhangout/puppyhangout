@@ -16,8 +16,6 @@ export const Header = observer(() => {
     return <>
         <div className="header">
             <h1>Puppy Hangout <img style={{ marginBottom: '0px' }} width={50} src={logo} alt="Logo"></img></h1>
-            <p>Do you need a dog sitter? Do you want to hang out with a dog in your neighbourhood? Sign up today!
-            </p>
 
 <Link to="/login">            
             <Button color='primary' variant='contained'

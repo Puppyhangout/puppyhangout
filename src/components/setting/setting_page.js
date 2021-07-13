@@ -2,7 +2,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import { observer } from "mobx-react-lite";
 import React from 'react';
-import logo from '../../logo.png';
 import { LoadingButton } from "../reusables/loading_button";
 import './setting_page.css';
 import { setting_store } from './setting_store';
