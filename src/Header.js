@@ -36,7 +36,7 @@ export const Header = observer(() => {
 <Link to="/chats">
             
                 <Button color='primary' variant='contained'
-                onClick={action(() => Chats.show_page = true)}>Messages</Button>
+                onClick={action(() => Chats.show_page = true)}>MSG</Button>
 </Link>  
 
 <Link to="/">
