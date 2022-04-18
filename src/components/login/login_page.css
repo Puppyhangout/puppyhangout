@@ -1,15 +1,18 @@
 .login-container {
-    gap: 10px;
+    gap: 5px;
     display: grid;
     place-items: center;
+    justify-content:center;
     border-radius: 40px;
     background-color: lavenderblush;
-    margin: 20px;
-    padding: 50px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    padding: 40px;
 }
 
+
 .login-root {
-    height: 10vh;
+    height: 5vh;
     display: grid;
     place-items: center;
 }

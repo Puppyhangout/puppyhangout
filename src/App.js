@@ -8,13 +8,17 @@ import { Signup } from './components/signup/signup_page'
 import { Chats } from './components/chats/Chats'
 import { Setting } from './components/setting/setting_page'
 import { ChatScreen } from "./components/chats/ChatScreen";
-import {Header} from "./Header"
+import { Header} from "./Header"
+import { Footer} from "./Footer"
+import { Contact } from "./components/contact/Contact";
+import { About } from "./components/about/About";
+import TinderCards  from './components/TinderCards';
 //import { signup_store } from './components/signup/signup_store'
 
 //import { Setting } from './components/setting/setting_page'
 //import { setting_store } from './components/setting/setting_store';
 
-import { OldPage } from './components/old_page';
+// import { OldPage } from './components/old_page';
 
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
@@ -27,35 +31,41 @@ return (
 <Router>
   <Switch> 
     <Route exact path="/signup">
-    <Header/>
-      <Signup/>
+    <Header/><Signup/><Footer/>
     </Route>
     
     <Route exact path="/login">
-    <Header/>
-      <Login/>
+    <Header/><Login/><Footer/>
     </Route>
 
     <Route path="/chat/:person"> 
-    <Header/>
-      <ChatScreen/>
+    <Header/><ChatScreen/><Footer/>
     </Route>
 
     <Route exact path="/chats">
-    <Header/>
-      <Chats/>
+    <Header/><Chats/><Footer/>
     </Route>
 
     <Route exact path="/setting">
-      <Header/>
-      <Setting/>
+    <Header/><Setting/><Footer/>
     </Route>
 
     <Route exact path="/">
-      <OldPage/>
+      {/* <OldPage/> */}
+      <Header/><TinderCards /><Footer/>
     </Route>
 
+    <Route exact path="/contact">
+      <Header/>
+      <Contact/>
+      <Footer/>
+    </Route>
 
+    <Route exact path="/about">
+      <Header/>
+      <About/>
+      <Footer/>
+    </Route>
 
   </Switch>
 

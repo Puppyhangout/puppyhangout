@@ -1,0 +1,52 @@
+.setting-container {
+    gap: 5px;
+    display: grid;
+    place-items: center;
+    justify-content:center;
+    border-radius: 40px;
+    background-color: lavenderblush;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    padding: 40px;
+}
+
+
+.setting-root {
+    height: 5vh;
+    display: grid;
+    place-items: center;
+}
+
+
+
+
+
+.header {
+    background-color: #D5F3FE;      
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    /*text-align: center;*/
+    }
+
+h1 {
+    color: rgb(44, 30, 59);
+    /*margin-left: 40px;*/
+} 
+
+
+img.a {
+    vertical-align: baseline;
+  }
+
+.column1 {    
+    float: left;
+    width: 30%;
+    padding: 30px;
+    height: 460px; /* Should be removed. Only for demonstration */
+    }

@@ -13,11 +13,11 @@ export const Chats = observer(() => {
     message="Hey! how are you?"
     timestamp="35 minutes ago"
     profilePic="https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-800x825.jpg"/>
-    <Chat 
+    {/* <Chat 
     name = "Ellen"
     message="Hey! how are you?"
     timestamp="35 minutes ago"
-    profilePic="https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-800x825.jpg"/>
+    profilePic="https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-800x825.jpg"/> */}
     </div>
     
     </>

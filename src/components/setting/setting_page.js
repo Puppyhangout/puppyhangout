@@ -17,14 +17,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export const Setting = observer(() => {
-        /* eslint-disable-next-line*/
     const classes = useStyles();
 
     return ( 
-
         <div className="setting-root">
             <div className="setting-container">
-
                 <p>Welcome, {setting_store.username}</p>
                 <p><br /> Maximum distance:    
                 <TextField onKeyPress={e => e.key === 'Enter' ? setting_store.setting() : ''} id="outlined-basic" label="Unit: km" variant="outlined" onChange={e => setting_store.set_distance(e.target.value)} />
@@ -34,11 +31,8 @@ export const Setting = observer(() => {
                     variant="outlined"
                     onClick={() => setting_store.setting()}
                     loading={setting_store.get_loading(setting_store.setting)}
-                >
-                    Apply
-                </LoadingButton>
+                >Apply</LoadingButton>
                 </div>
         </div>
-
     );
 })
