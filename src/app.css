@@ -1,5 +1,30 @@
 .main-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    gap: 5px;
 }
+
+body {
+    background-color: #D5F3FE; /* #FFFFE0 */
+    /*font-family: 'Lucida Console', Monospace;*/
+    font-family: "Gill Sans", sans-serif;
+  }
+
+
+.container {
+position: relative;
+text-align: left;
+color: SteelBlue;
+}
+
+
+
+.footer {
+    background-color: Aliceblue;
+    font-size: 14px;
+    padding: 1px;
+    text-align: center;
+    margin-top:400px;
+    }
+
+

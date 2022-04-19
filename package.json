@@ -26,7 +26,8 @@
     "react-router-dom": "^5.3.1",
     "react-scripts": "^4.0.0",
     "react-tinder-card": "^1.4.0",
-    "react-transition-group": "^4.4.1"
+    "react-transition-group": "^4.4.1",
+    "lint": ""
   },
   "scripts": {
     "start": "react-scripts start",

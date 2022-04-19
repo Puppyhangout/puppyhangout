@@ -2,8 +2,6 @@
 import React from 'react';
 import './app.css';
 import { Login } from './components/login/login_page'
-//import { login_store } from './components/login/login_store';
-
 import { Signup } from './components/signup/signup_page'
 import { Chats } from './components/chats/Chats'
 import { Setting } from './components/setting/setting_page'
@@ -13,13 +11,6 @@ import { Footer} from "./Footer"
 import { Contact } from "./components/contact/Contact";
 import { About } from "./components/about/About";
 import TinderCards  from './components/TinderCards';
-//import { signup_store } from './components/signup/signup_store'
-
-//import { Setting } from './components/setting/setting_page'
-//import { setting_store } from './components/setting/setting_store';
-
-// import { OldPage } from './components/old_page';
-
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
 
@@ -51,8 +42,7 @@ return (
     </Route>
 
     <Route exact path="/">
-      {/* <OldPage/> */}
-      <Header/><TinderCards /><Footer/>
+    <Header/><TinderCards /><Footer/>
     </Route>
 
     <Route exact path="/contact">
@@ -68,8 +58,6 @@ return (
     </Route>
 
   </Switch>
-
-
 </Router>
 
 

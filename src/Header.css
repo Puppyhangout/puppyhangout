@@ -1,7 +1,7 @@
 .header{
     display:flex;
     justify-content:space-between;
-    border-bottom:0px solid #f9f9f9;
+    border-bottom:100px solid #f9f9f9;
     background-color: #D5F3FE;
 }
 
