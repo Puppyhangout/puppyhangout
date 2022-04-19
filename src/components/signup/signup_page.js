@@ -8,6 +8,10 @@ import { LoadingButton } from "../reusables/loading_button";
 import './signup_page.css';
 import { signup_store } from './signup_store';
 
+import {createUserWithEmailAndPassword} from 'firebase/auth'
+import {auth} from '../../firebase.js'
+
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -25,13 +29,13 @@ const toBase64 = file => new Promise((resolve, reject) => {
     reader.onerror = error => reject(error);
 });
 
+
+
 export const Signup = observer(() => {
-    /* eslint-disable-next-line*/
     const classes = useStyles();
 
     return (
         <div className="signup-root">
-
             <div className='signup-container'>
                 <TextField autoComplete="new-password" onKeyPress={e => e.key === 'Enter' ? signup_store.signup() : ''} id="outlined-basic" label="Username" variant="outlined" onChange={e => signup_store.set_username(e.target.value)} />
                 <TextField autoComplete="new-password" onKeyPress={e => e.key === 'Enter' ? signup_store.signup() : ''} id="outlined-basic" label="Password" variant="outlined" type="Password" onChange={e => signup_store.set_password(e.target.value)} />

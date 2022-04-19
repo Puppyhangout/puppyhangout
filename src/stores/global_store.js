@@ -2,7 +2,7 @@ import { makeAutoObservable, toJS } from 'mobx';
 import axios from 'axios';
 
 class GlobalState { 
-    api_url = window.location.host === 'localhost:3000' ? 'http://localhost:3004/' : 'https://puppyconnect.herokuapp.com/'
+    api_url = window.location.host === 'localhost:3001' ? 'http://localhost:3004/' : 'https://puppychangout.com/'
 
     constructor() {
         makeAutoObservable(this)

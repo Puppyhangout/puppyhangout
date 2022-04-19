@@ -18,7 +18,6 @@ const useStyles = makeStyles((theme) => ({
 
 export const Setting = observer(() => {
     const classes = useStyles();
-
     return ( 
         <div className="setting-root">
             <div className="setting-container">
@@ -32,7 +31,7 @@ export const Setting = observer(() => {
                     onClick={() => setting_store.setting()}
                     loading={setting_store.get_loading(setting_store.setting)}
                 >Apply</LoadingButton>
-                </div>
+            </div>
         </div>
     );
 })

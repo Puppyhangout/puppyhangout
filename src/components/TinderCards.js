@@ -1,11 +1,18 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import TinderCard from "react-tinder-card";
 import './TinderCards.css';
+import {database,ref,onValue} from "../firebase.js"
+// import '../App.js'
+import { collection, doc, setDoc, getDoc, query } from "firebase/firestore"; 
 
-
+// const q1 = (doc(database, "people","iIhylbtKRP4LA6SITVJo"));
 function TinderCards() {
-    /*const [people,setPeople]=useState([*/
-    const [people]=useState([
+
+    const [people,setPeople]=useState([
+        
+        // {name: q1.name,
+        // url: q1.url},
+        //peope,setPeople
         {
             name:'Lucky',
             url:'https://upload.wikimedia.org/wikipedia/commons/9/94/My_dog.jpg'  },
@@ -15,10 +22,25 @@ function TinderCards() {
         }
     ]);
 
+    
+    // useEffect is a piece of code that runs based on a condition
+    // useEffect(() => {
+    //     setPeople(
+    //         name:database.collection('people').name
+    //     )
+    //     // database
+    //     // .collection('people')
+    //     // .onSnapshot(snapshot => (
+    //     //     //send a new document everytime the database change
+    //     //     //snapshot.docs give all three of those ..?
+    //     //     //doc.data is name and url
+    //     //     setPeople(snapshot.docs.map(doc=>doc.val()))
+    //     // ))
+    // },[]);
+    
 
     return (
         <div>
-            
             {people.map(person=>(
             <TinderCard
             className="swipe"

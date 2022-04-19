@@ -1,7 +1,7 @@
 import Chat from "./Chat";
 import React from 'react';
 import { observer } from "mobx-react-lite"
-
+import './Chat.css'
 
 
 

@@ -10,6 +10,9 @@ import TinderCards  from './components/TinderCards';
 import logo from './logo.png';
 import { Link} from "react-router-dom";
 
+import { About } from './components/about/About'
+import { Contact } from "./components/contact/Contact";
+
 export const Header = observer(() => {
     return <>
         <div className="header">
@@ -47,5 +50,29 @@ onClick={action(() => TinderCards.show_page = true)}>Main</Button>
 
         </div>
 
+    </>
+})
+
+
+export const Footer = observer(() => {
+    return <>
+        <div className="footer">
+        <p>Copyright Olivia website, Inc. All Rights Researved.</p>
+<Link to="/">
+<Button color='secondary' variant='light'
+onClick={action(() => TinderCards.show_page = true)}>Home</Button>
+</Link>  
+
+<Link to="/contact">
+<Button color='secondary' variant='light'
+onClick={action(() => Contact.show_page = true)}>Contact</Button>
+</Link>
+
+
+<Link to="/about">
+<Button color='secondary' variant='light'
+onClick={action(() => About.show_page = true)}>About</Button>
+</Link>  
+        </div>
     </>
 })

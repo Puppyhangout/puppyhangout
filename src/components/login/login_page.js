@@ -6,6 +6,7 @@ import logo from '../../logo.png';
 import { LoadingButton } from "../reusables/loading_button";
 import './login_page.css';
 import { login_store } from './login_store';
+import database from "../../firebase.js"
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -15,14 +16,12 @@ const useStyles = makeStyles((theme) => ({
         },
     },
 }));
-
+// console(database.url)
+// document.write(database.url)
 export const Login = observer(() => {
-        /* eslint-disable-next-line*/
     const classes = useStyles();
-
     return (
         <div className="login-root">
-
             <div className='login-container'>
                 <img style={{ marginBottom: '15px' }} width={150} src={logo} alt="Logo"></img>
                 <TextField autoComplete="new-password" onKeyPress={e => e.key === 'Enter' ? login_store.login() : ''} id="outlined-basic" label="Username" variant="outlined" onChange={e => login_store.set_username(e.target.value)} />

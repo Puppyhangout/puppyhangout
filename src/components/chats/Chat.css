@@ -2,9 +2,9 @@
     display:flex;
     align-items:center;
     justify-content: space-between;
-    padding:10px;
-    height:70px;
-    border-bottom:0px solid #fafafa;
+    padding:40px;
+    /* height:70px; */
+    margin-bottom:0px solid #fafafa;
 }
 
 a{
@@ -23,8 +23,6 @@ a{
 .chat_timestamp > p {
     color:lightgray;
 }
-
-
 
 .chat_image{
     margin-right:20px;
