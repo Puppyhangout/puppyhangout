@@ -30,14 +30,10 @@ need admin rights to install something with -g
 
 
 # Run locally
-> npx kill-port 3000 3001 3002
-> 
->`git pull`
->
->`npm i`
->`npm i firebase`
->
->`sudo npm start`
+1. npx kill-port 3000 3001 3002
+2. A good habit `git pull`
+3. `npm i` `npm i firebase`
+4. `sudo npm start`
  
  
 
