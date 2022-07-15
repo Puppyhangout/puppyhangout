@@ -1,3 +1,9 @@
+# Update a version
+1. `npm run build`
+2. `firebase deploy`
+
+
+
 # Setting up environment
 need admin rights to install something with -g
 1. `sudo gives admin rights`
@@ -23,12 +29,6 @@ need admin rights to install something with -g
 3. Now it is hosted in 
 > https://puppyhangout-9cde0.web.app
 4. Change the website to www.puppyhangout.com
-
-
-# update a version
-1. `npm run build`
-2. `firebase deploy`
-
 
 
 
