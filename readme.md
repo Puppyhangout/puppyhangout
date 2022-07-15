@@ -25,6 +25,9 @@ need admin rights to install something with -g
 4. Change the website to www.puppyhangout.com
 
 
+# update a version
+1. `npm run build`
+2. `firebase deploy`
 
 
 
