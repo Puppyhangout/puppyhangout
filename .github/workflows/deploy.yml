@@ -48,7 +48,7 @@ jobs:
             if: github.ref == 'refs/heads/main'
             uses: w9jds/firebase-action@master
             with:
-                args: deploy --project puppyhangout
+                args: deploy --project puppyhangout-9cde0
             env:
                 FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
                 PROJECT_PATH: ./frontend
