@@ -1,0 +1,11 @@
+{
+    "dev": {
+        "driver": "pg",
+        "user": "olivia",
+        "password": "fJF5kqBo2IY0wjVovXHuYg",
+        "host": "free-tier14.aws-us-east-1.cockroachlabs.cloud",
+        "database": "siege-wisp-3623.defaultdb",
+        "port": "26257",
+        "ssl": "true"
+    }
+}
