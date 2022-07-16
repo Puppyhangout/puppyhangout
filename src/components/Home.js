@@ -15,7 +15,7 @@ const Home = () => {
         <p>
           <Link to="/login">Log In</Link> or <Link to="/signup">Sign Up</Link> 
         </p>
-      )}
+      )} 
     </>
   );
 };

@@ -25,6 +25,9 @@ export const Setting = observer(() => {
                 <p><br /> Maximum distance:    
                 <TextField onKeyPress={e => e.key === 'Enter' ? setting_store.setting() : ''} id="outlined-basic" label="Unit: km" variant="outlined" onChange={e => setting_store.set_distance(e.target.value)} />
                 </p>
+                <p><br /> Available time:    
+                <TextField onKeyPress={e => e.key === 'Enter' ? setting_store.setting() : ''} id="outlined-basic" label="" variant="outlined" onChange={e => setting_store.set_distance(e.target.value)} />
+                </p>
                 <LoadingButton
                     color="primary"
                     variant="outlined"

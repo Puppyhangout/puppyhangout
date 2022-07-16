@@ -3,7 +3,7 @@ import { Redirect } from "react-router-dom";
 import {database,firebaseApp,collection, auth,createUserWithEmailAndPassword,set,ref} from "../../firebase.js";
 
 export const SignUp = () => {
-    // const userCollection=collection(database,'users/');
+    // const userCollection=collection(database,'users/');a
   const [currentUser, setCurrentUser] = useState(null);    
   const handleSubmit = (e) => {
     e.preventDefault();    

@@ -1,11 +1,11 @@
-.header{
+ /* .header{
     display:flex;
     justify-content:space-between;
     border-bottom:100px solid #f9f9f9;
     background-color: #D5F3FE;
-}
+} */
 
-
+/*
 .header_logo{
     height:30px;
     object-fit:contain;
@@ -13,4 +13,19 @@
 
 .header_icon{
     padding:0px;
+} */
+
+.header{
+    font-family:'Porcelain', sans-serif;
+    color: #513214;
+    background-color: #D5F3FE;
+}
+
+.h1{
+    font-family:'Porcelain', sans-serif;
+    color: #513214;
+}
+
+.p{
+    font-family:'Porcelain', sans-serif;
 }
