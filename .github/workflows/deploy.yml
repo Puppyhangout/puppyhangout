@@ -44,13 +44,14 @@ jobs:
           - name: Build
             working-directory: ./frontend
             run: npm run build
-         
-          - uses: FirebaseExtended/action-hosting-deploy@v0
+          - name: Deploy to Firebase PRODUCTION
+            if: github.ref == 'refs/heads/main'
+            uses: w9jds/firebase-action@master
             with:
-              repoToken: '${{ secrets.GITHUB_TOKEN }}'
-              firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PUPPYHANGOUT_9CDE0 }}'
-              channelId: live
-              projectId: puppyhangout-9cde0
+                args: deploy --project puppyhangout
+            env:
+                FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+                PROJECT_PATH: ./frontend
 
 
     backend:
