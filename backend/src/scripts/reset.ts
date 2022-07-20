@@ -7,7 +7,7 @@ export const reset = async () => {
             config: {
                 dev: {
                     driver: 'pg',
-                    connectionString: env.pg,
+                    connectionString: process.env.pg,
                     ssl: true
                 }
             }

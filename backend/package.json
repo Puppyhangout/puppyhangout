@@ -7,8 +7,8 @@
         "start": "node -r ts-node/register -e \"require('./src/api/server.ts').start('production')\"",
         "reset": "node -r ts-node/register -e \"require('./src/scripts/reset.ts').reset()\"",
         "dev": "nodemon --exec npm run start",
-        "sp": "nodemon --exec \"node -r ts-node/register -e \\\"require('./src/api/server.ts').start('production')\\\"\"",
-        "sd": "nodemon --exec \"node -r ts-node/register -e \\\"require('./src/api/server.ts').start('development')\\\"\"",
+        "sp": "nodemon --exec \"node -r dotenv/config -r ts-node/register -e \\\"require('./src/api/server.ts').start('production')\\\"\"",
+        "sd": "nodemon --exec \"node -r dotenv/config -r ts-node/register -e \\\"require('./src/api/server.ts').start('development')\\\"\"",
         "dp": "node -r ts-node/register -e \"require('./src/scripts/dehydrate').dehydrate('production')\"",
         "hd": "node -r ts-node/register -e \"require('./src/scripts/hydrate').hydrate('development')\"",
         "rd": "node -r ts-node/register -e \"require('./src/scripts/reset.ts').reset()\"",
@@ -16,7 +16,7 @@
         "test-coverage": "nodemon --signal SIGKILL --exec nyc --reporter=lcov mocha --package package.json",
         "test": "nodemon --signal SIGKILL --exec mocha --package package.json",
         "coverage-watch": "live-server coverage/lcov-report",
-        "deploy": "git subtree push --prefix frontend/dist origin gh-pages"
+        "deploy": "node -r ts-node/register -e \"require('./src/hosting/deploy.ts').deploy()\""
     },
     "nodemonConfig": {
         "verbose": true,
@@ -43,10 +43,12 @@
     "author": "",
     "license": "ISC",
     "devDependencies": {
-        "@types/node": "^18.0.0",
+        "@types/node": "^18.0.6",
         "chai": "^4.3.6",
         "db-migrate": "^0.11.13",
         "db-migrate-pg": "^1.2.2",
+        "dotenv": "^16.0.1",
+        "git-rev-sync": "^3.0.2",
         "live-server": "^1.2.2",
         "mocha": "^10.0.0",
         "nodemon": "^2.0.18",
