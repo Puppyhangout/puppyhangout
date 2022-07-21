@@ -1,9 +1,8 @@
-// @ts-nocheck
 import React, { useState } from 'react'
-import Avatar from '@material-ui/core/Avatar'
 import { observer } from 'mobx-react-lite'
 
 import './ChatScreen.css'
+import { Avatar } from '@mui/material'
 
 export const ChatScreen = observer(() => {
     const [input, setInput] = useState('')

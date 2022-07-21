@@ -1,80 +1,48 @@
-// @ts-nocheck
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { Tab, Tabs, Typography } from '@mui/material'
 import './app.css'
 import { About } from './components/about/About'
+import { Center } from './components/center'
 import { Chats } from './components/chats/Chats'
-import { ChatScreen } from './components/chats/ChatScreen'
-import { Contact } from './components/contact/Contact'
-import Dashboard from './components/Dashboard'
+import { Contact } from './pages/Contact'
 import { Login } from './components/login/login_page'
 import { Setting } from './components/setting/setting_page'
-import { SignUp } from './components/signup/SignUp.js'
+import { Toasts } from './components/toasts'
+import { commonTabGroupProps, commonTabProps } from './helpers/helpers'
+import { store } from './store'
 import TinderCards from './components/TinderCards'
-import { Footer, Header } from './Header'
+import { observer } from 'mobx-react-lite'
+import { Signup } from './components/signup/signup_page'
+import { toJS } from 'mobx'
 
-function App() {
-    // const { currentUser } = useContext(AuthContext);
+export const App = observer(() => {
     return (
-        <div className='App'>
-            <Router>
-                <Switch>
-                    <Route exact path='/signup'>
-                        <Header />
-                        <SignUp />
-                        <Footer />
-                    </Route>
+        <Center>
+            <Typography variant={'h4'}>Puppy Hangout</Typography>
 
-                    <Route exact path='/dashboard'>
-                        <Header />
-                        <Dashboard />
-                        <Footer />
-                    </Route>
-
-                    <Route exact path='/login'>
-                        <Header />
-                        <Login />
-                        <Footer />
-                    </Route>
-
-                    <Route path='/chat/:person'>
-                        <Header />
-                        <ChatScreen />
-                        <Footer />
-                    </Route>
-
-                    <Route exact path='/chats'>
-                        <Header />
-                        <Chats />
-                        <Footer />
-                    </Route>
-
-                    <Route exact path='/setting'>
-                        <Header />
-                        <Setting />
-                        <Footer />
-                    </Route>
-
-                    <Route exact path='/'>
-                        <Header />
-                        <TinderCards />
-                        <Footer />
-                    </Route>
-                    {/* <Route exact path="/" component={Home} /> */}
-
-                    <Route exact path='/contact'>
-                        <Header />
-                        <Contact />
-                        <Footer />
-                    </Route>
-
-                    <Route exact path='/about'>
-                        <Header />
-                        <About />
-                        <Footer />
-                    </Route>
-                </Switch>
-            </Router>
-        </div>
+            <Tabs {...commonTabGroupProps(store, ['tab'])}>
+                {store.shared.token.length === 0 && <Tab {...commonTabProps('Signup')} />}
+                {store.shared.token.length === 0 && <Tab {...commonTabProps('Login')} />}
+                <Tab {...commonTabProps('Home')} />
+                <Tab {...commonTabProps('Settings')} />
+                <Tab {...commonTabProps('Chat')} />
+                <Tab {...commonTabProps('Contact')} />
+                <Tab {...commonTabProps('About')} />
+            </Tabs>
+            <div>
+                {store.tab === 'Login' && <Login />}
+                {store.tab === 'Home' && <TinderCards />}
+                {store.tab === 'Signup' && <Signup />}
+                {store.tab === 'Settings' && <Setting />}
+                {store.tab === 'Chat' && <Chats />}
+                {store.tab === 'Contact' && <Contact />}
+                {store.tab === 'About' && <About />}
+            </div>
+            <Toasts />
+        </Center>
     )
-}
-export default App
+})
+
+// @ts-ignore
+window.store = store
+// @ts-ignore
+window.toJS = toJS

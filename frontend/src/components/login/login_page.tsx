@@ -1,50 +1,47 @@
-// @ts-nocheck
-import { makeStyles } from '@material-ui/core/styles'
-import TextField from '@material-ui/core/TextField'
+import { TextField } from '@mui/material'
+import { action } from 'mobx'
 import { observer } from 'mobx-react-lite'
-import logo from '../../logo.png'
-import { LoadingButton } from '../reusables/loading_button'
+// @ts-ignore
+import logo from '../../assets/logo.png'
+import { is_loading } from '../../helpers/is_loading'
+import { login } from '../../helpers/login_helpers'
+import { store } from '../../store'
+import { LoadingButton } from '../loading_button'
 import './login_page.css'
-import { login_store } from './login_store'
 
-const useStyles = makeStyles(theme => ({
-    root: {
-        '& > *': {
-            margin: theme.spacing(1),
-            width: '5ch'
-        }
-    }
-}))
-// console(database.url)
-// document.write(database.url)
 export const Login = observer(() => {
-    const classes = useStyles()
     return (
         <div className='login-root'>
             <div className='login-container'>
                 <img style={{ marginBottom: '15px' }} width={150} src={logo} alt='Logo'></img>
                 <TextField
                     autoComplete='new-password'
-                    onKeyPress={e => (e.key === 'Enter' ? login_store.login() : '')}
+                    onKeyPress={e =>
+                        e.key === 'Enter' ? login(store.login.email, store.login.password) : ''
+                    }
                     id='outlined-basic'
-                    label='Username'
+                    label='Email'
                     variant='outlined'
-                    onChange={e => login_store.set_username(e.target.value)}
+                    value={store.login.email}
+                    onChange={action((e: any) => (store.login.email = e.target.value))}
                 />
                 <TextField
                     autoComplete='new-password'
-                    onKeyPress={e => (e.key === 'Enter' ? login_store.login() : '')}
+                    onKeyPress={e =>
+                        e.key === 'Enter' ? login(store.login.email, store.login.password) : ''
+                    }
                     id='outlined-basic'
                     label='Password'
                     variant='outlined'
                     type='Password'
-                    onChange={e => login_store.set_password(e.target.value)}
+                    value={store.login.password}
+                    onChange={action((e: any) => (store.login.password = e.target.value))}
                 />
                 <LoadingButton
                     color='primary'
                     variant='outlined'
-                    onClick={() => login_store.login()}
-                    loading={login_store.get_loading(login_store.login)}
+                    onClick={() => login(store.login.email, store.login.password)}
+                    loading={is_loading(login, [store.login.email, store.login.password])}
                 >
                     Login
                 </LoadingButton>

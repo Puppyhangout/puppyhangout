@@ -1,8 +1,21 @@
-// @ts-nocheck
-import { Button, CircularProgress } from '@material-ui/core'
+import { Button, CircularProgress } from '@mui/material'
 import React from 'react'
 
-export const LoadingButton = ({ loading, children, onClick, style, color, variant }) => (
+export const LoadingButton = ({
+    loading,
+    children,
+    onClick,
+    style,
+    color,
+    variant
+}: {
+    loading: boolean
+    children: any
+    onClick: any
+    style?: Object
+    color: 'inherit' | 'primary' | 'secondary' | 'default'
+    variant: 'text' | 'outlined' | 'contained' | undefined
+}) => (
     <Button
         color={color}
         variant={variant}

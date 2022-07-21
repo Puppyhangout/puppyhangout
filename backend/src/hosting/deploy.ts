@@ -20,12 +20,12 @@ export const deploy = async () => {
 const heroku = async version => {
     const dev_app_name = 'puppyconnect'
     const docker_image_path2 = `registry.heroku.com/${dev_app_name}/web`
-    const heroku_username = 'mendel.jacks@no3rd.ca'
+    const heroku_email = 'mendel.jacks@no3rd.ca'
 
     const heroku_login = await run_process([
         'docker',
         'login',
-        `--username=${heroku_username}`,
+        `--email=${heroku_email}`,
         `--password=${process.env.HEROKU_API_KEY}`,
         'registry.heroku.com'
     ])

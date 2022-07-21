@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { useState } from 'react'
 import TinderCard from 'react-tinder-card'
 import './TinderCards.css'

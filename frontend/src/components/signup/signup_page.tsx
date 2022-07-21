@@ -1,23 +1,13 @@
-// @ts-nocheck
-import { Button } from '@material-ui/core'
-import { makeStyles } from '@material-ui/core/styles'
-import TextField from '@material-ui/core/TextField'
+import { Button, TextField } from '@mui/material'
 import { action } from 'mobx'
 import { observer } from 'mobx-react-lite'
-import { LoadingButton } from '../reusables/loading_button'
+import { is_loading } from '../../helpers/is_loading'
+import { signup } from '../../helpers/signup_helpers'
+import { store } from '../../store'
+import { LoadingButton } from '../loading_button'
 import './signup_page.css'
-import { signup_store } from './signup_store'
 
-const useStyles = makeStyles(theme => ({
-    root: {
-        '& > *': {
-            margin: theme.spacing(1),
-            width: '5ch'
-        }
-    }
-}))
-
-const toBase64 = file =>
+const toBase64 = (file: any) =>
     new Promise((resolve, reject) => {
         const reader = new FileReader()
         reader.readAsDataURL(file)
@@ -26,61 +16,61 @@ const toBase64 = file =>
     })
 
 export const Signup = observer(() => {
-    const classes = useStyles()
-
     return (
         <div className='signup-root'>
             <div className='signup-container'>
                 <TextField
                     autoComplete='new-password'
-                    onKeyPress={e => (e.key === 'Enter' ? signup_store.signup() : '')}
+                    onKeyPress={e => (e.key === 'Enter' ? signup() : '')}
                     id='outlined-basic'
-                    label='Username'
+                    label='Email'
                     variant='outlined'
-                    onChange={e => signup_store.set_username(e.target.value)}
+                    value={store.signup.email}
+                    onChange={action((e: any) => (store.signup.email = e.target.value))}
                 />
                 <TextField
                     autoComplete='new-password'
-                    onKeyPress={e => (e.key === 'Enter' ? signup_store.signup() : '')}
+                    onKeyPress={e => (e.key === 'Enter' ? signup() : '')}
                     id='outlined-basic'
                     label='Password'
                     variant='outlined'
                     type='Password'
-                    onChange={e => signup_store.set_password(e.target.value)}
+                    value={store.signup.password}
+                    onChange={action((e: any) => (store.signup.password = e.target.value))}
                 />
 
-                <input
+                {/* <input
                     id='image_uploader'
                     accept='image/*'
-                    capture='camera'
+                    // capture='camera'
                     // multiple
                     hidden
                     type='file'
-                    onChange={action(async e => {
-                        const new_pictures = await Promise.all(
-                            Array.from(e.target.files).map(file => toBase64(file))
-                        )
-                        console.log(new_pictures)
-                        signup_store.set_picture(new_pictures[0])
-                    })}
-                />
+                    // onChange={action(async e => {
+                    //     const new_pictures = await Promise.all(
+                    //         Array.from(e.target.files).map(file => toBase64(file))
+                    //     )
+                    //     console.log(new_pictures)
+                    //     signup_store.set_picture(new_pictures[0])
+                    // })}
+                /> */}
 
-                <Button
-                    //  style={{ position: 'absolute', bottom: '5%', right: '10%' }}
-                    onClick={() => document.getElementById('image_uploader').click()}
+                {/* <Button
+                //  style={{ position: 'absolute', bottom: '5%', right: '10%' }}
+                // onClick={() => document.getElementById('image_uploader').click()}
                 >
                     <img
                         style={{ objectFit: 'contain', width: '100px', height: '100px' }}
                         src={signup_store.picture || ''}
                         alt='click to add'
                     />
-                </Button>
+                </Button> */}
 
                 <LoadingButton
                     color='primary'
                     variant='outlined'
-                    onClick={() => signup_store.signup()}
-                    loading={signup_store.get_loading(signup_store.signup)}
+                    onClick={() => signup()}
+                    loading={is_loading(signup, [])}
                 >
                     Signup
                 </LoadingButton>
