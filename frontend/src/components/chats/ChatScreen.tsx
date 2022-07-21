@@ -22,7 +22,7 @@ export const ChatScreen = observer(() => {
         }
     ])
 
-    const handleSend = e => {
+    const handleSend = (e: any) => {
         e.preventDefaut()
         setMessages([...messages, { message: input }])
         setInput('')
@@ -37,7 +37,7 @@ export const ChatScreen = observer(() => {
                         <Avatar
                             className='chatScreen_image'
                             alt={message.name}
-                            src={messages.image}
+                            src={message.image}
                         />
                         <p className='chatScreen_text'>{message.message} </p>
                     </div>

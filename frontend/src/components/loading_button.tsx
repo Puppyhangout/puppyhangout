@@ -17,7 +17,7 @@ export const LoadingButton = ({
     variant: 'text' | 'outlined' | 'contained' | undefined
 }) => (
     <Button
-        color={color}
+        color={color as any}
         variant={variant}
         style={style} //green : blue
         onClick={onClick}

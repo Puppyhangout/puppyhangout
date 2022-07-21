@@ -1,11 +1,8 @@
+import { Button } from '@mui/material'
 import { action } from 'mobx'
 import { observer } from 'mobx-react-lite'
-import { About } from '../components/about/About'
-import TinderCards from '../components/TinderCards'
-import { Contact } from './Contact'
 import './Header.css'
 // @ts-ignore
-import { Button } from '@mui/material'
 import logo from '../assets/logo.png'
 import { store } from '../store'
 
