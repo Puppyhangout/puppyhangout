@@ -25,10 +25,13 @@ const heroku = async version => {
     const heroku_login = await run_process([
         'docker',
         'login',
-        `--email=${heroku_email}`,
-        `--password=${process.env.HEROKU_API_KEY}`,
+        `-u=${heroku_email}`,
+        `-p=${process.env.HEROKU_API_KEY}`,
         'registry.heroku.com'
-    ])
+    ]).catch(err => {
+        console.error(err)
+        debugger
+    })
     const heroku_build = await run_process([
         'docker',
         'build',
