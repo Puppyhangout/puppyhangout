@@ -1,5 +1,5 @@
 import { Button, TextField } from '@mui/material'
-import { action } from 'mobx'
+import { action, runInAction } from 'mobx'
 import { observer } from 'mobx-react-lite'
 import { is_loading } from '../../helpers/is_loading'
 import { signup } from '../../helpers/signup_helpers'
@@ -25,8 +25,8 @@ export const Signup = observer(() => {
                     id='outlined-basic'
                     label='Email'
                     variant='outlined'
-                    value={store.signup.email}
-                    onChange={action((e: any) => (store.signup.email = e.target.value))}
+                    value={store.signup.users[0].email}
+                    onChange={action((e: any) => (store.signup.users[0].email = e.target.value))}
                 />
                 <TextField
                     autoComplete='new-password'
@@ -35,36 +35,72 @@ export const Signup = observer(() => {
                     label='Password'
                     variant='outlined'
                     type='Password'
-                    value={store.signup.password}
-                    onChange={action((e: any) => (store.signup.password = e.target.value))}
+                    value={store.signup.users[0].password}
+                    onChange={action((e: any) => (store.signup.users[0].password = e.target.value))}
                 />
 
-                {/* <input
+                <TextField
+                    autoComplete='new-password'
+                    onKeyPress={e => (e.key === 'Enter' ? signup() : '')}
+                    id='outlined-basic'
+                    label='Puppy Name'
+                    variant='outlined'
+                    value={store.signup.users[0].puppies[0].name}
+                    onChange={action(
+                        (e: any) => (store.signup.users[0].puppies[0].name = e.target.value)
+                    )}
+                />
+                <TextField
+                    autoComplete='new-password'
+                    onKeyPress={e => (e.key === 'Enter' ? signup() : '')}
+                    id='outlined-basic'
+                    label='Puppy Breed'
+                    variant='outlined'
+                    value={store.signup.users[0].puppies[0].breed}
+                    onChange={action(
+                        (e: any) => (store.signup.users[0].puppies[0].breed = e.target.value)
+                    )}
+                />
+                <TextField
+                    autoComplete='new-password'
+                    onKeyPress={e => (e.key === 'Enter' ? signup() : '')}
+                    id='outlined-basic'
+                    label='Puppy Size'
+                    variant='outlined'
+                    value={store.signup.users[0].puppies[0].size}
+                    onChange={action(
+                        (e: any) => (store.signup.users[0].puppies[0].size = e.target.value)
+                    )}
+                />
+                <Button onClick={() => document.getElementById('image_uploader')?.click()}>
+                    <img
+                        style={{ objectFit: 'contain', width: '100px', height: '100px' }}
+                        src={
+                            store.signup.users[0]?.puppies[0]?.photos[0].url ||
+                            'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png'
+                        }
+                        alt='click to add'
+                    />
+                </Button>
+
+                <input
                     id='image_uploader'
                     accept='image/*'
-                    // capture='camera'
+                    capture='environment'
                     // multiple
                     hidden
                     type='file'
-                    // onChange={action(async e => {
-                    //     const new_pictures = await Promise.all(
-                    //         Array.from(e.target.files).map(file => toBase64(file))
-                    //     )
-                    //     console.log(new_pictures)
-                    //     signup_store.set_picture(new_pictures[0])
-                    // })}
-                /> */}
-
-                {/* <Button
-                //  style={{ position: 'absolute', bottom: '5%', right: '10%' }}
-                // onClick={() => document.getElementById('image_uploader').click()}
-                >
-                    <img
-                        style={{ objectFit: 'contain', width: '100px', height: '100px' }}
-                        src={signup_store.picture || ''}
-                        alt='click to add'
-                    />
-                </Button> */}
+                    onChange={action(async (e: any) => {
+                        const new_pictures = await Promise.all(
+                            Array.from(e.target.files).map(file => toBase64(file))
+                        )
+                        console.log(new_pictures)
+                        runInAction(() => {
+                            store.signup.users[0].puppies[0].photos[0].url =
+                                new_pictures[0] as string
+                        })
+                    })}
+                />
 
                 <LoadingButton
                     color='primary'

@@ -6,7 +6,7 @@ import { show_toast } from './helpers'
 export const signup = wrap_loading(async () => {
     const response = orma_mutate({
         $operation: 'create',
-        users: [{ email: store.signup.email, password: store.signup.password }]
+        users: store.signup.users
     })
 
     show_toast('success', 'Signup successful!')

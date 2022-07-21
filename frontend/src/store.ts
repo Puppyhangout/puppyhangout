@@ -17,7 +17,26 @@ export const store = observable({
         password: ''
     },
     signup: {
-        email: '',
-        password: ''
+        users: [
+            {
+                email: '',
+                password: '',
+                puppies: [
+                    {
+                        name: '',
+                        breed: '',
+                        size: '',
+                        photos: [
+                            {
+                                url: ''
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    home: {
+        puppies: []
     }
 })
