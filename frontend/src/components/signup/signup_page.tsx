@@ -86,7 +86,7 @@ export const Signup = observer(() => {
                 <input
                     id='image_uploader'
                     accept='image/*'
-                    capture='environment'
+                    // capture='environment'
                     // multiple
                     hidden
                     type='file'

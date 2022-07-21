@@ -36,7 +36,7 @@ export const start = async (env: 'production' | 'development') => {
     )
 
     await new Promise(r => app.listen(port, r as any))
-    console.log(`Listening at http://localhost:${port}`)
+    console.log(`Listening started on port ${port}`)
 }
 
 // Override default nodejs default uncaught exception behaviour
