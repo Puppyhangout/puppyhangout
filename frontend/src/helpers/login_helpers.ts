@@ -8,13 +8,15 @@ import { show_toast } from './helpers'
 export const login = wrap_loading(async (email: string, password: string) => {
     try {
         const {
-            data: { token, user_id }
+            data: { token, user }
         } = await axios.post(get_base_url(window.location.host) + '/login', {
             email,
             password
         })
         runInAction(() => {
             store.shared.token = token
+            store.login.user = user
+            store.tab = 'Home'
         })
 
         localStorage.setItem('token', token)

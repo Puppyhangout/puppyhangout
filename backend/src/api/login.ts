@@ -18,6 +18,9 @@ export const login_user = async (email, password) => {
             id: true,
             email: true,
             password: true,
+            user_info: {
+                photo_url: true
+            },
             $where
         }
     }
@@ -45,5 +48,5 @@ export const login_user = async (email, password) => {
         )
     })
 
-    return { token, user_id: users[0].id }
+    return { token, user: users[0] }
 }

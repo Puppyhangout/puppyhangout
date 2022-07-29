@@ -12,7 +12,8 @@ import { store } from './store'
 import { TinderCards } from './components/TinderCards'
 import { observer } from 'mobx-react-lite'
 import { Signup } from './components/signup/signup_page'
-import { toJS } from 'mobx'
+import { action, toJS } from 'mobx'
+import { ChatScreen } from './components/chats/ChatScreen'
 
 export const App = observer(() => {
     return (
@@ -24,7 +25,10 @@ export const App = observer(() => {
                 {store.shared.token.length === 0 && <Tab {...commonTabProps('Login')} />}
                 <Tab {...commonTabProps('Home')} />
                 <Tab {...commonTabProps('Settings')} />
-                <Tab {...commonTabProps('Chat')} />
+                <Tab
+                    {...commonTabProps('Chat')}
+                    onClick={action(() => (store.chat.to_user_id = null))}
+                />
                 <Tab {...commonTabProps('Contact')} />
                 <Tab {...commonTabProps('About')} />
             </Tabs>
@@ -33,7 +37,9 @@ export const App = observer(() => {
                 {store.tab === 'Home' && <TinderCards />}
                 {store.tab === 'Signup' && <Signup />}
                 {store.tab === 'Settings' && <Setting />}
-                {store.tab === 'Chat' && <Chats />}
+                {store.tab === 'Chat' && (
+                    <>{!!store.chat.to_user_id ? <ChatScreen /> : <Chats />}</>
+                )}
                 {store.tab === 'Contact' && <Contact />}
                 {store.tab === 'About' && <About />}
             </div>

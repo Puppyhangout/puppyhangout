@@ -14,7 +14,8 @@ export const store = observable({
     },
     login: {
         email: '',
-        password: ''
+        password: '',
+        user: null as any
     },
     signup: {
         users: [
@@ -38,5 +39,13 @@ export const store = observable({
     },
     home: {
         puppies: []
+    },
+    chats: {
+        users: [] as any[]
+    },
+    chat: {
+        to_user_id: null,
+        messages: [] as any[],
+        pending_message: ''
     }
 })

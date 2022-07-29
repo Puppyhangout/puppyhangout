@@ -1,25 +1,38 @@
-import Chat from "./Chat";
-import React from 'react';
-import { observer } from "mobx-react-lite"
+import { Avatar, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material'
+import { action } from 'mobx'
+import { observer } from 'mobx-react-lite'
+import { useEffect } from 'react'
+import { fetch_messages, fetch_users_im_talking_to } from '../../helpers/chat_helpers'
+import { store } from '../../store'
 import './Chat.css'
 
-
-
 export const Chats = observer(() => {
-    return <>
-    <div className="chats">
-    <Chat 
-    name = "Sarah"
-    message="Hey! how are you?"
-    timestamp="35 minutes ago"
-    profilePic="https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-800x825.jpg"/>
-    {/* <Chat 
-    name = "Ellen"
-    message="Hey! how are you?"
-    timestamp="35 minutes ago"
-    profilePic="https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-800x825.jpg"/> */}
-    </div>
-    
-    </>
+    useEffect(() => {
+        fetch_users_im_talking_to()
+    }, [])
+    return (
+        <Table>
+            <TableHead>
+                <TableRow>
+                    <TableCell>Profile Pic</TableCell>
+                    <TableCell>Name</TableCell>
+                </TableRow>
+            </TableHead>
+            <TableBody>
+                {store.chats.users?.map(user => (
+                    <TableRow
+                        key={user.id}
+                        onClick={action(() => {
+                            store.chat.to_user_id = user.id
+                        })}
+                    >
+                        <TableCell>
+                            <Avatar src={user.user_info?.[0]?.photo_url}></Avatar>
+                        </TableCell>
+                        <TableCell>{user.first_name + ' ' + user.last_name}</TableCell>
+                    </TableRow>
+                ))}
+            </TableBody>
+        </Table>
+    )
 })
-
