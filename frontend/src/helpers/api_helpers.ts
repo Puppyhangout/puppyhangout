@@ -10,11 +10,7 @@ export const get_base_url = (host: string) => {
         return 'http://localhost:3001'
     }
 
-    const base_urls = {
-        'puppyhangout.com': 'https://puppyconnect.herokuapp.com'
-    } as { [key: string]: string }
-
-    return base_urls[host]
+    return 'https://puppyconnect.herokuapp.com'
 }
 
 export const axios_post = wrap_loading(async (url: any, body: any) => {
