@@ -1,4 +1,4 @@
-import { Button, TextField } from '@mui/material'
+import { Button, FormControl, InputLabel, MenuItem, Select, TextField, useForkRef } from '@mui/material'
 import { action, runInAction } from 'mobx'
 import { observer } from 'mobx-react-lite'
 import { is_loading } from '../../helpers/is_loading'
@@ -19,6 +19,23 @@ export const Signup = observer(() => {
     return (
         <div className='signup-root'>
             <div className='signup-container'>
+                <FormControl fullWidth>
+                <InputLabel id="demo-simple-select-label">Are you a ...</InputLabel>
+                <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={store.signup.users[0].puppies[0].size}
+                    label="Are you a ..."
+                    onChange={action(
+                        (e: any) => (store.signup.users[0].puppies[0].size = e.target.value)
+                    )}
+                >
+                    <MenuItem value={10}>Dog walker</MenuItem>
+                    <MenuItem value={20}>Dog owner</MenuItem>
+                </Select>
+                </FormControl>
+
+
                 <TextField
                     autoComplete='new-password'
                     onKeyPress={e => (e.key === 'Enter' ? signup() : '')}
@@ -50,6 +67,7 @@ export const Signup = observer(() => {
                         (e: any) => (store.signup.users[0].puppies[0].name = e.target.value)
                     )}
                 />
+                
                 <TextField
                     autoComplete='new-password'
                     onKeyPress={e => (e.key === 'Enter' ? signup() : '')}

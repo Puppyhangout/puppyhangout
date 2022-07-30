@@ -88,14 +88,6 @@ export const orma_schema = {
     },
     "$indexes": [
       {
-        "index_name": "users_email_uq",
-        "is_unique": true,
-        "fields": [
-          "email"
-        ],
-        "invisible": false
-      },
-      {
         "index_name": "users_phone_uq",
         "is_unique": true,
         "fields": [
@@ -116,6 +108,14 @@ export const orma_schema = {
         "is_unique": true,
         "fields": [
           "id"
+        ],
+        "invisible": false
+      },
+      {
+        "index_name": "users_email_uq",
+        "is_unique": true,
+        "fields": [
+          "email"
         ],
         "invisible": false
       }
@@ -158,6 +158,14 @@ export const orma_schema = {
     },
     "$indexes": [
       {
+        "index_name": "roles_name_uq",
+        "is_unique": true,
+        "fields": [
+          "name"
+        ],
+        "invisible": false
+      },
+      {
         "index_name": "roles_resource_id_uq",
         "is_unique": true,
         "fields": [
@@ -170,14 +178,6 @@ export const orma_schema = {
         "is_unique": true,
         "fields": [
           "id"
-        ],
-        "invisible": false
-      },
-      {
-        "index_name": "roles_name_uq",
-        "is_unique": true,
-        "fields": [
-          "name"
         ],
         "invisible": false
       }
@@ -516,6 +516,14 @@ export const orma_schema = {
     },
     "$indexes": [
       {
+        "index_name": "user_info_user_id_uq",
+        "is_unique": true,
+        "fields": [
+          "user_id"
+        ],
+        "invisible": false
+      },
+      {
         "index_name": "user_info_resource_id_uq",
         "is_unique": true,
         "fields": [
@@ -528,14 +536,6 @@ export const orma_schema = {
         "is_unique": true,
         "fields": [
           "id"
-        ],
-        "invisible": false
-      },
-      {
-        "index_name": "user_info_user_id_uq",
-        "is_unique": true,
-        "fields": [
-          "user_id"
         ],
         "invisible": false
       }
@@ -601,18 +601,18 @@ export const orma_schema = {
     },
     "$indexes": [
       {
-        "index_name": "puppies_pkey",
-        "is_unique": true,
-        "fields": [
-          "id"
-        ],
-        "invisible": false
-      },
-      {
         "index_name": "puppies_resource_id_uq",
         "is_unique": true,
         "fields": [
           "resource_id"
+        ],
+        "invisible": false
+      },
+      {
+        "index_name": "puppies_pkey",
+        "is_unique": true,
+        "fields": [
+          "id"
         ],
         "invisible": false
       }
@@ -666,18 +666,18 @@ export const orma_schema = {
     },
     "$indexes": [
       {
-        "index_name": "photos_resource_id_uq",
-        "is_unique": true,
-        "fields": [
-          "resource_id"
-        ],
-        "invisible": false
-      },
-      {
         "index_name": "photos_pkey",
         "is_unique": true,
         "fields": [
           "id"
+        ],
+        "invisible": false
+      },
+      {
+        "index_name": "photos_resource_id_uq",
+        "is_unique": true,
+        "fields": [
+          "resource_id"
         ],
         "invisible": false
       }
@@ -742,18 +742,18 @@ export const orma_schema = {
     },
     "$indexes": [
       {
-        "index_name": "messages_resource_id_uq",
-        "is_unique": true,
-        "fields": [
-          "resource_id"
-        ],
-        "invisible": false
-      },
-      {
         "index_name": "messages_pkey",
         "is_unique": true,
         "fields": [
           "id"
+        ],
+        "invisible": false
+      },
+      {
+        "index_name": "messages_resource_id_uq",
+        "is_unique": true,
+        "fields": [
+          "resource_id"
         ],
         "invisible": false
       }

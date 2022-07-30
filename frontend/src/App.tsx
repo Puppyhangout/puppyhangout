@@ -27,8 +27,8 @@ export const App = observer(() => {
     return (
         <Center>
             <Typography variant={'h4'}>Puppy Hangout</Typography>
-            <AppToolbar />
 
+            <AppToolbar />
             <Tabs {...commonTabGroupProps(store, ['shared', 'tab'])}>
                 {store.shared.token.length === 0 && <Tab {...commonTabProps('Signup')} />}
                 {store.shared.token.length === 0 && <Tab {...commonTabProps('Login')} />}
