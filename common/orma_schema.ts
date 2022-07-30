@@ -158,14 +158,6 @@ export const orma_schema = {
     },
     "$indexes": [
       {
-        "index_name": "roles_resource_id_uq",
-        "is_unique": true,
-        "fields": [
-          "resource_id"
-        ],
-        "invisible": false
-      },
-      {
         "index_name": "roles_pkey",
         "is_unique": true,
         "fields": [
@@ -178,6 +170,14 @@ export const orma_schema = {
         "is_unique": true,
         "fields": [
           "name"
+        ],
+        "invisible": false
+      },
+      {
+        "index_name": "roles_resource_id_uq",
+        "is_unique": true,
+        "fields": [
+          "resource_id"
         ],
         "invisible": false
       }
@@ -236,14 +236,6 @@ export const orma_schema = {
     },
     "$indexes": [
       {
-        "index_name": "user_has_roles_pkey",
-        "is_unique": true,
-        "fields": [
-          "id"
-        ],
-        "invisible": false
-      },
-      {
         "index_name": "user_has_roles_user_id_role_id_uq",
         "is_unique": true,
         "fields": [
@@ -257,6 +249,14 @@ export const orma_schema = {
         "is_unique": true,
         "fields": [
           "resource_id"
+        ],
+        "invisible": false
+      },
+      {
+        "index_name": "user_has_roles_pkey",
+        "is_unique": true,
+        "fields": [
+          "id"
         ],
         "invisible": false
       }
@@ -298,14 +298,6 @@ export const orma_schema = {
     },
     "$indexes": [
       {
-        "index_name": "permissions_pkey",
-        "is_unique": true,
-        "fields": [
-          "id"
-        ],
-        "invisible": false
-      },
-      {
         "index_name": "permissions_name_uq",
         "is_unique": true,
         "fields": [
@@ -318,6 +310,14 @@ export const orma_schema = {
         "is_unique": true,
         "fields": [
           "resource_id"
+        ],
+        "invisible": false
+      },
+      {
+        "index_name": "permissions_pkey",
+        "is_unique": true,
+        "fields": [
+          "id"
         ],
         "invisible": false
       }
@@ -439,6 +439,14 @@ export const orma_schema = {
     },
     "$indexes": [
       {
+        "index_name": "groups_name_uq",
+        "is_unique": true,
+        "fields": [
+          "name"
+        ],
+        "invisible": false
+      },
+      {
         "index_name": "groups_resource_id_uq",
         "is_unique": true,
         "fields": [
@@ -451,14 +459,6 @@ export const orma_schema = {
         "is_unique": true,
         "fields": [
           "id"
-        ],
-        "invisible": false
-      },
-      {
-        "index_name": "groups_name_uq",
-        "is_unique": true,
-        "fields": [
-          "name"
         ],
         "invisible": false
       }
@@ -601,18 +601,18 @@ export const orma_schema = {
     },
     "$indexes": [
       {
-        "index_name": "puppies_pkey",
-        "is_unique": true,
-        "fields": [
-          "id"
-        ],
-        "invisible": false
-      },
-      {
         "index_name": "puppies_resource_id_uq",
         "is_unique": true,
         "fields": [
           "resource_id"
+        ],
+        "invisible": false
+      },
+      {
+        "index_name": "puppies_pkey",
+        "is_unique": true,
+        "fields": [
+          "id"
         ],
         "invisible": false
       }
