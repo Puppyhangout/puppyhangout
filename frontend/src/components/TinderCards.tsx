@@ -14,7 +14,17 @@ export const TinderCards = observer(() => {
         <div>
             {store.home.puppies.map((puppy: any) => (
                 // @ts-ignore
-                <TinderCard className='swipe' key={puppy.id} preventSwipe={['up', 'down']}>
+                <TinderCard
+                    onSwipe={direction => {
+                        if (['up', 'right'].includes(direction)) {
+                            store.chat.to_user = puppy.users[0]
+                            store.shared.tab = 'Chat'
+                        }
+                    }}
+                    className='swipe'
+                    key={puppy.id}
+                    preventSwipe={['up', 'down']}
+                >
                     <div
                         style={{ backgroundImage: `url(${puppy.photos[0].url})` }}
                         className='card'

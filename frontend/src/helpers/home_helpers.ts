@@ -10,6 +10,13 @@ export const fetch_puppies = wrap_loading(async () => {
             name: true,
             photos: {
                 url: true
+            },
+            users: {
+                first_name: true,
+                last_name: true,
+                user_info: {
+                    photo_url: true
+                }
             }
         }
     })

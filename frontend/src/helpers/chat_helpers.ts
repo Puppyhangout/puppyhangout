@@ -3,6 +3,21 @@ import { store } from '../store'
 import { orma_mutate, orma_query } from './api_helpers'
 import { wrap_loading } from './is_loading'
 
+export const get_users_by_id_query = (user_ids: any[]) => {
+    return {
+        users: {
+            first_name: true,
+            last_name: true,
+            user_info: {
+                photo_url: true
+            },
+            $where: {
+                $in: ['id', user_ids.map(el => ({ $escape: el }))]
+            }
+        }
+    }
+}
+
 export const fetch_messages = wrap_loading(async () => {
     const from_user_id = store.shared.user?.id
     const { messages } = await orma_query({
@@ -81,18 +96,7 @@ export const fetch_users_im_talking_to = wrap_loading(async () => {
 
     const user_ids_im_talking_to = [...new Set(user_ids)].filter(el => el !== from_user_id)
 
-    const { users } = await orma_query({
-        users: {
-            first_name: true,
-            last_name: true,
-            user_info: {
-                photo_url: true
-            },
-            $where: {
-                $in: ['id', user_ids_im_talking_to.map(el => ({ $escape: el }))]
-            }
-        }
-    })
+    const { users } = await orma_query(get_users_by_id_query(user_ids_im_talking_to))
 
     runInAction(() => {
         store.chats.users = users
