@@ -5,6 +5,7 @@ import { action, runInAction } from 'mobx'
 import { is_loading } from '../../helpers/is_loading'
 import { LoadingButton } from '../loading_button'
 import './setting_page.css'
+import { setting } from '../../helpers/setting_helpers'
 
 const toBase64 = (file: any) =>
     new Promise((resolve, reject) => {
