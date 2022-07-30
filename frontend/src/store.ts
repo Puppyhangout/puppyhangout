@@ -49,7 +49,7 @@ export const store = observable({
         }
     },
     chat: {
-        to_user_id: null,
+        to_user: null as any,
         messages: [] as any[],
         pending_message: ''
     }

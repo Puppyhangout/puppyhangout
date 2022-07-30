@@ -36,7 +36,7 @@ export const App = observer(() => {
                 <Tab {...commonTabProps('Settings')} />
                 <Tab
                     {...commonTabProps('Chat')}
-                    onClick={action(() => (store.chat.to_user_id = null))}
+                    onClick={action(() => (store.chat.to_user = null))}
                 />
                 <Tab {...commonTabProps('Contact')} />
                 <Tab {...commonTabProps('About')} />
@@ -47,7 +47,7 @@ export const App = observer(() => {
                 {store.shared.tab === 'Signup' && <Signup />}
                 {store.shared.tab === 'Settings' && <Setting />}
                 {store.shared.tab === 'Chat' && (
-                    <>{!!store.chat.to_user_id ? <ChatScreen /> : <Chats />}</>
+                    <>{!!store.chat.to_user?.id ? <ChatScreen /> : <Chats />}</>
                 )}
                 {store.shared.tab === 'Contact' && <Contact />}
                 {store.shared.tab === 'About' && <About />}

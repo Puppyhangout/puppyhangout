@@ -14,9 +14,9 @@ export const ChatScreen = observer(() => {
     return (
         <>
             <div className='chatScreen'>
-                <p>You matched with Ellen on </p>
-                {store.chat.messages.map(message => (
-                    <div className='chatScreen_message'>
+                <p>You matched with {store.chat.to_user?.first_name} on </p>
+                {store.chat.messages.map((message: any, i: number) => (
+                    <div className='chatScreen_message' key={i}>
                         <Avatar
                             className='chatScreen_image'
                             alt={message.message}

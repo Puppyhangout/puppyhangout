@@ -49,7 +49,7 @@ export const send_message = wrap_loading(async () => {
             {
                 message: store.chat.pending_message,
                 from_user_id: store.shared.user?.id,
-                to_user_id: store.chat.to_user_id
+                to_user_id: store.chat.to_user?.id
             }
         ]
     })

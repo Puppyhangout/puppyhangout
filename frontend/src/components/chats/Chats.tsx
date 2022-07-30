@@ -23,7 +23,7 @@ export const Chats = observer(() => {
                     <TableRow
                         key={user.id}
                         onClick={action(() => {
-                            store.chat.to_user_id = user.id
+                            store.chat.to_user = user
                         })}
                     >
                         <TableCell>
