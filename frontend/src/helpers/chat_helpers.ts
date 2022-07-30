@@ -4,7 +4,7 @@ import { orma_mutate, orma_query } from './api_helpers'
 import { wrap_loading } from './is_loading'
 
 export const fetch_messages = wrap_loading(async () => {
-    const from_user_id = store.login.user?.id
+    const from_user_id = store.shared.user?.id
     const { messages } = await orma_query({
         messages: {
             id: true,
@@ -48,7 +48,7 @@ export const send_message = wrap_loading(async () => {
         messages: [
             {
                 message: store.chat.pending_message,
-                from_user_id: store.login.user?.id,
+                from_user_id: store.shared.user?.id,
                 to_user_id: store.chat.to_user_id
             }
         ]
@@ -59,7 +59,7 @@ export const send_message = wrap_loading(async () => {
 })
 
 export const fetch_users_im_talking_to = wrap_loading(async () => {
-    const from_user_id = store.login.user?.id
+    const from_user_id = store.shared.user?.id
 
     const { messages } = await orma_query({
         messages: {

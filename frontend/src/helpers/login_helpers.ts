@@ -1,7 +1,7 @@
 import { get_base_url } from './api_helpers'
 import { wrap_loading } from './is_loading'
 import axios from 'axios'
-import { runInAction } from 'mobx'
+import { action, runInAction } from 'mobx'
 import { store } from '../store'
 import { show_toast } from './helpers'
 
@@ -15,8 +15,8 @@ export const login = wrap_loading(async (email: string, password: string) => {
         })
         runInAction(() => {
             store.shared.token = token
-            store.login.user = user
-            store.tab = 'Home'
+            store.shared.user = user
+            store.shared.tab = 'Home'
         })
 
         localStorage.setItem('token', token)
@@ -27,4 +27,12 @@ export const login = wrap_loading(async (email: string, password: string) => {
         console.error(error.response.data)
         show_toast('error', JSON.stringify(error.response.data))
     }
+})
+
+export const logout = action(() => {
+    store.shared.token = ''
+    store.shared.user = null
+    store.shared.tab = 'Login'
+    store.shared.email = ''
+    store.shared.password = ''
 })

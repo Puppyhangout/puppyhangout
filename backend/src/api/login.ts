@@ -1,5 +1,4 @@
 import jwt from 'jsonwebtoken'
-import * as env from '../../env.json'
 import { query_handler } from '../config/orma'
 
 export const login_user = async (email, password) => {

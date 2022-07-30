@@ -7,7 +7,7 @@ import { store } from '../../store'
 import { LoadingButton } from '../loading_button'
 import './signup_page.css'
 
-const toBase64 = (file: any) =>
+export const toBase64 = (file: any) =>
     new Promise((resolve, reject) => {
         const reader = new FileReader()
         reader.readAsDataURL(file)

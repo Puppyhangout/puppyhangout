@@ -5,22 +5,45 @@ import { action, runInAction } from 'mobx'
 import { is_loading } from '../../helpers/is_loading'
 import { LoadingButton } from '../loading_button'
 import './setting_page.css'
-import { setting } from '../../helpers/setting_helpers'
-
-const toBase64 = (file: any) =>
-    new Promise((resolve, reject) => {
-        const reader = new FileReader()
-        reader.readAsDataURL(file)
-        reader.onload = () => resolve(reader.result)
-        reader.onerror = error => reject(error)
-    })
+import { save_form } from '../../helpers/form'
+import { refresh_settings } from '../../helpers/setting_helpers'
+import { toBase64 } from '../signup/signup_page'
+import { useEffect } from 'react'
 
 export const Setting = observer(() => {
+    useEffect(() => {
+        refresh_settings()
+    }, [])
+
+    const user = store.settings.form.modified.users?.[0]
     return (
         <div className='setting-root'>
             <div className='setting-container'>
-                <p>Welcome, {store.login.email}</p>
-                <p>
+                <p>Welcome, {store.settings.form.original.users?.[0]?.email}</p>
+
+                <TextField
+                    label='First Name'
+                    value={user?.first_name || ''}
+                    onChange={action((e: any) => (user.first_name = e.target.value))}
+                />
+
+                <TextField
+                    label='Last Name'
+                    value={user?.last_name || ''}
+                    onChange={action((e: any) => (user.last_name = e.target.value))}
+                />
+                <TextField
+                    label='Email'
+                    value={user?.email || ''}
+                    onChange={action((e: any) => (user.email = e.target.value))}
+                />
+                <TextField
+                    label='Phone'
+                    value={user?.phone || ''}
+                    onChange={action((e: any) => (user.phone = e.target.value))}
+                />
+
+                {/* <p>
                     <br /> Maximum distance:
                     <TextField
                         // onKeyPress={(e: any) => (e.key === 'Enter' ? setting_store.setting() : '')}
@@ -39,15 +62,16 @@ export const Setting = observer(() => {
                         variant='outlined'
                         // onChange={(e: any) => setting_store.set_distance(e.target.value)}
                     />
-                </p>
+                </p> */}
+
                 <p>
-                <br /> Modify profile pic:
+                    <br /> Modify profile pic:
                 </p>
                 <Button onClick={() => document.getElementById('image_uploader')?.click()}>
                     <img
                         style={{ objectFit: 'contain', width: '100px', height: '100px' }}
                         src={
-                            store.signup.users[0]?.puppies[0]?.photos[0].url ||
+                            user?.user_info?.[0].photo_url ||
                             'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png'
                         }
                         alt='click to add'
@@ -66,8 +90,11 @@ export const Setting = observer(() => {
                         )
                         console.log(new_pictures)
                         runInAction(() => {
-                            store.signup.users[0].puppies[0].photos[0].url =
-                                new_pictures[0] as string
+                            if (!user.user_info) {
+                                user.user_info = [{}]
+                            }
+
+                            user.user_info[0].photo_url = new_pictures[0] as string
                         })
                     })}
                 />
@@ -75,8 +102,8 @@ export const Setting = observer(() => {
                 <LoadingButton
                     color='primary'
                     variant='outlined'
-                    onClick={() => setting()}
-                    loading={is_loading(setting, [])}
+                    onClick={() => save_form(store.settings.form, refresh_settings)}
+                    loading={is_loading(save_form, [store.settings.form, refresh_settings])}
                 >
                     Save
                 </LoadingButton>

@@ -17,31 +17,31 @@ export const Login = observer(() => {
                 <TextField
                     autoComplete='new-password'
                     onKeyPress={e =>
-                        e.key === 'Enter' ? login(store.login.email, store.login.password) : ''
+                        e.key === 'Enter' ? login(store.shared.email, store.shared.password) : ''
                     }
                     id='outlined-basic'
                     label='Email'
                     variant='outlined'
-                    value={store.login.email}
-                    onChange={action((e: any) => (store.login.email = e.target.value))}
+                    value={store.shared.email}
+                    onChange={action((e: any) => (store.shared.email = e.target.value))}
                 />
                 <TextField
                     autoComplete='new-password'
                     onKeyPress={e =>
-                        e.key === 'Enter' ? login(store.login.email, store.login.password) : ''
+                        e.key === 'Enter' ? login(store.shared.email, store.shared.password) : ''
                     }
                     id='outlined-basic'
                     label='Password'
                     variant='outlined'
                     type='Password'
-                    value={store.login.password}
-                    onChange={action((e: any) => (store.login.password = e.target.value))}
+                    value={store.shared.password}
+                    onChange={action((e: any) => (store.shared.password = e.target.value))}
                 />
                 <LoadingButton
                     color='primary'
                     variant='outlined'
-                    onClick={() => login(store.login.email, store.login.password)}
-                    loading={is_loading(login, [store.login.email, store.login.password])}
+                    onClick={() => login(store.shared.email, store.shared.password)}
+                    loading={is_loading(login, [store.shared.email, store.shared.password])}
                 >
                     Login
                 </LoadingButton>

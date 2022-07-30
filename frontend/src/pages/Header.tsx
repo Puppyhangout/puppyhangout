@@ -27,7 +27,7 @@ export const Header = observer(() => {
                 <Button
                     color='primary'
                     variant='contained'
-                    onClick={action(() => (store.tab = 'Login'))}
+                    onClick={action(() => (store.shared.tab = 'Login'))}
                 >
                     Login
                 </Button>
@@ -35,7 +35,7 @@ export const Header = observer(() => {
                 <Button
                     color='primary'
                     variant='contained'
-                    onClick={action(() => (store.tab = 'Signup'))}
+                    onClick={action(() => (store.shared.tab = 'Signup'))}
                 >
                     Signup
                 </Button>
@@ -43,7 +43,7 @@ export const Header = observer(() => {
                 <Button
                     color='primary'
                     variant='contained'
-                    onClick={action(() => (store.tab = 'Settings'))}
+                    onClick={action(() => (store.shared.tab = 'Settings'))}
                 >
                     Setting
                 </Button>
@@ -51,7 +51,7 @@ export const Header = observer(() => {
                 <Button
                     color='primary'
                     variant='contained'
-                    onClick={action(() => (store.tab = 'Chat'))}
+                    onClick={action(() => (store.shared.tab = 'Chat'))}
                 >
                     Chat
                 </Button>
@@ -65,15 +65,15 @@ export const Footer = observer(() => {
         <>
             <div className='footer'>
                 <p>Copyright Olivia website, Inc. All Rights Researved.</p>
-                <Button color='secondary' onClick={action(() => (store.tab = 'Home'))}>
+                <Button color='secondary' onClick={action(() => (store.shared.tab = 'Home'))}>
                     Home
                 </Button>
 
-                <Button color='secondary' onClick={action(() => (store.tab = 'Contact'))}>
+                <Button color='secondary' onClick={action(() => (store.shared.tab = 'Contact'))}>
                     Contact
                 </Button>
 
-                <Button color='secondary' onClick={action(() => (store.tab = 'About'))}>
+                <Button color='secondary' onClick={action(() => (store.shared.tab = 'About'))}>
                     About
                 </Button>
             </div>

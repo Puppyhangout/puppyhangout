@@ -1,4 +1,4 @@
-import { Tab, Tabs, Typography } from '@mui/material'
+import { Button, Grid, Menu, MenuItem, Tab, Tabs, Typography } from '@mui/material'
 import './app.css'
 import { About } from './components/about/About'
 import { Center } from './components/center'
@@ -7,20 +7,29 @@ import { Contact } from './pages/Contact'
 import { Login } from './components/login/login_page'
 import { Setting } from './components/setting/setting_page'
 import { Toasts } from './components/toasts'
-import { commonTabGroupProps, commonTabProps } from './helpers/helpers'
+import { commonTabGroupProps, commonTabProps, title_case } from './helpers/helpers'
 import { store } from './store'
 import { TinderCards } from './components/TinderCards'
 import { observer } from 'mobx-react-lite'
 import { Signup } from './components/signup/signup_page'
-import { action, toJS } from 'mobx'
+import { action, autorun, toJS } from 'mobx'
 import { ChatScreen } from './components/chats/ChatScreen'
+import React, { useEffect, useState } from 'react'
+import { save_to_local_storage, shared_store_prop } from './helpers/local_storage'
+import { logout } from './helpers/login_helpers'
 
 export const App = observer(() => {
+    useEffect(() => {
+        return autorun(() => {
+            save_to_local_storage(shared_store_prop, store.shared)
+        })
+    }, [])
     return (
         <Center>
             <Typography variant={'h4'}>Puppy Hangout</Typography>
+            <AppToolbar />
 
-            <Tabs {...commonTabGroupProps(store, ['tab'])}>
+            <Tabs {...commonTabGroupProps(store, ['shared', 'tab'])}>
                 {store.shared.token.length === 0 && <Tab {...commonTabProps('Signup')} />}
                 {store.shared.token.length === 0 && <Tab {...commonTabProps('Login')} />}
                 <Tab {...commonTabProps('Home')} />
@@ -33,18 +42,58 @@ export const App = observer(() => {
                 <Tab {...commonTabProps('About')} />
             </Tabs>
             <div>
-                {store.tab === 'Login' && <Login />}
-                {store.tab === 'Home' && <TinderCards />}
-                {store.tab === 'Signup' && <Signup />}
-                {store.tab === 'Settings' && <Setting />}
-                {store.tab === 'Chat' && (
+                {store.shared.tab === 'Login' && <Login />}
+                {store.shared.tab === 'Home' && <TinderCards />}
+                {store.shared.tab === 'Signup' && <Signup />}
+                {store.shared.tab === 'Settings' && <Setting />}
+                {store.shared.tab === 'Chat' && (
                     <>{!!store.chat.to_user_id ? <ChatScreen /> : <Chats />}</>
                 )}
-                {store.tab === 'Contact' && <Contact />}
-                {store.tab === 'About' && <About />}
+                {store.shared.tab === 'Contact' && <Contact />}
+                {store.shared.tab === 'About' && <About />}
             </div>
             <Toasts />
         </Center>
+    )
+})
+
+const AppToolbar = observer(() => {
+    const [anchorEl, setAnchorEl] = useState(null)
+    const path = [store.shared.tab]
+
+    return (
+        <>
+            <div>
+                <Button
+                    aria-controls='simple-menu'
+                    aria-haspopup='true'
+                    // @ts-ignore
+                    onClick={event => setAnchorEl(event.currentTarget)}
+                >
+                    {store.shared.email}
+                </Button>
+                <Menu
+                    id='simple-menu'
+                    anchorEl={anchorEl}
+                    keepMounted
+                    open={Boolean(anchorEl)}
+                    onClose={() => setAnchorEl(null)}
+                >
+                    <MenuItem
+                        onClick={() => {
+                            // @ts-ignore
+                            window.location = `#/settings`
+                            setAnchorEl(null)
+                        }}
+                    >
+                        <span style={{ marginLeft: '10px' }}>Settings</span>
+                    </MenuItem>
+                    <MenuItem onClick={e => logout()}>
+                        <span style={{ marginLeft: '10px' }}>Logout</span>
+                    </MenuItem>
+                </Menu>
+            </div>
+        </>
     )
 })
 

@@ -49,7 +49,5 @@ export const mutate_handler = mutation => {
 }
 
 export const query_handler = query => {
-    return orma_query(query, orma_schema, strings =>
-        byo_query_fn(strings.map(s => ({ sql_string: s })))
-    )
+    return orma_query(query, orma_schema, byo_query_fn)
 }

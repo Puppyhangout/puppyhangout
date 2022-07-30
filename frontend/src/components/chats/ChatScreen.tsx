@@ -21,8 +21,8 @@ export const ChatScreen = observer(() => {
                             className='chatScreen_image'
                             alt={message.message}
                             src={
-                                message.from_user_id === store.login.user?.id
-                                    ? store.login.user.user_info?.[0].photo_url
+                                message.from_user_id === store.shared.user?.id
+                                    ? store.shared.user.user_info?.[0].photo_url
                                     : message.users?.[0]?.photo_url
                             }
                         />
