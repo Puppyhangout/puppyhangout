@@ -21,6 +21,8 @@ export const store = observable({
             {
                 email: '',
                 password: '',
+                firstname:'',
+                lastname:'',
                 puppies: [
                     {
                         name: '',

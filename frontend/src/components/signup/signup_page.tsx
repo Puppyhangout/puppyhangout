@@ -20,21 +20,20 @@ export const Signup = observer(() => {
         <div className='signup-root'>
             <div className='signup-container'>
                 <FormControl fullWidth>
-                <InputLabel id="demo-simple-select-label">Are you a ...</InputLabel>
+                <InputLabel id="demo-simple-select-label">Do you have a dog?</InputLabel>
                 <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     value={store.signup.users[0].puppies[0].size}
-                    label="Are you a ..."
+                    label="Do you have a dog?"
                     onChange={action(
                         (e: any) => (store.signup.users[0].puppies[0].size = e.target.value)
                     )}
                 >
-                    <MenuItem value={10}>Dog walker</MenuItem>
-                    <MenuItem value={20}>Dog owner</MenuItem>
+                    <MenuItem value={'10'}>Yes</MenuItem>
+                    <MenuItem value={'20'}>No</MenuItem>
                 </Select>
-                </FormControl>
-
+                </FormControl>                
 
                 <TextField
                     autoComplete='new-password'
@@ -45,6 +44,27 @@ export const Signup = observer(() => {
                     value={store.signup.users[0].email}
                     onChange={action((e: any) => (store.signup.users[0].email = e.target.value))}
                 />
+
+                <TextField
+                    autoComplete='new-password'
+                    onKeyPress={e => (e.key === 'Enter' ? signup() : '')}
+                    id='outlined-basic'
+                    label='First Name'
+                    variant='outlined'
+                    value={store.signup.users[0].firstname}
+                    onChange={action((e: any) => (store.signup.users[0].firstname = e.target.value))}
+                />
+
+                <TextField
+                    autoComplete='new-password'
+                    onKeyPress={e => (e.key === 'Enter' ? signup() : '')}
+                    id='outlined-basic'
+                    label='Last Name'
+                    variant='outlined'
+                    value={store.signup.users[0].lastname}
+                    onChange={action((e: any) => (store.signup.users[0].lastname = e.target.value))}
+                />
+
                 <TextField
                     autoComplete='new-password'
                     onKeyPress={e => (e.key === 'Enter' ? signup() : '')}
@@ -56,6 +76,7 @@ export const Signup = observer(() => {
                     onChange={action((e: any) => (store.signup.users[0].password = e.target.value))}
                 />
 
+                {store.signup.users[0].puppies[0].size =='10' && 
                 <TextField
                     autoComplete='new-password'
                     onKeyPress={e => (e.key === 'Enter' ? signup() : '')}
@@ -66,8 +87,12 @@ export const Signup = observer(() => {
                     onChange={action(
                         (e: any) => (store.signup.users[0].puppies[0].name = e.target.value)
                     )}
-                />
+                />      
+                }
+
                 
+                
+                {store.signup.users[0].puppies[0].size =='10' && 
                 <TextField
                     autoComplete='new-password'
                     onKeyPress={e => (e.key === 'Enter' ? signup() : '')}
@@ -79,6 +104,9 @@ export const Signup = observer(() => {
                         (e: any) => (store.signup.users[0].puppies[0].breed = e.target.value)
                     )}
                 />
+                    }
+
+                {store.signup.users[0].puppies[0].size =='10' && 
                 <TextField
                     autoComplete='new-password'
                     onKeyPress={e => (e.key === 'Enter' ? signup() : '')}
@@ -89,7 +117,8 @@ export const Signup = observer(() => {
                     onChange={action(
                         (e: any) => (store.signup.users[0].puppies[0].size = e.target.value)
                     )}
-                />
+                />}
+
                 <Button onClick={() => document.getElementById('image_uploader')?.click()}>
                     <img
                         style={{ objectFit: 'contain', width: '100px', height: '100px' }}
