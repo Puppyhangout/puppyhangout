@@ -10,7 +10,7 @@ export const store = observable({
         toast_is_open: false
     },
     shared: load_from_local_storage(shared_store_prop, {
-        tab: 'Login' as 'Login' | 'Signup' | 'Settings' | 'Chat' | 'Contact' | 'About' | 'Home',
+        tab: 'Login' as 'Login' | 'Signup' | 'Settings' | 'Chat' | 'Contact' | 'About' | 'Sitters' |'Home',
         token: '',
         user: null as any,
         email: '',
@@ -40,6 +40,9 @@ export const store = observable({
     },
     home: {
         puppies: []
+    },
+    sitters_list: {
+        user_info: []
     },
     chats: {
         users: [] as any[]

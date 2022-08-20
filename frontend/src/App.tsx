@@ -1,6 +1,7 @@
 import { Button, Grid, Menu, MenuItem, Tab, Tabs, Typography } from '@mui/material'
 import './app.css'
 import { About } from './components/about/About'
+import { Sitters } from './components/sitters/Sitters'
 import { Center } from './components/center'
 import { Chats } from './components/chats/Chats'
 import { Contact } from './pages/Contact'
@@ -29,6 +30,7 @@ export const App = observer(() => {
             <Typography variant={'h4'}>Puppy Hangout</Typography>
 
             <AppToolbar />
+            
             <Tabs {...commonTabGroupProps(store, ['shared', 'tab'])}>
                 {store.shared.token.length === 0 && <Tab {...commonTabProps('Signup')} />}
                 {store.shared.token.length === 0 && <Tab {...commonTabProps('Login')} />}
@@ -38,6 +40,7 @@ export const App = observer(() => {
                     {...commonTabProps('Chat')}
                     onClick={action(() => (store.chat.to_user = null))}
                 />
+                <Tab {...commonTabProps('Sitters')} />
                 <Tab {...commonTabProps('Contact')} />
                 <Tab {...commonTabProps('About')} />
             </Tabs>
@@ -49,8 +52,10 @@ export const App = observer(() => {
                 {store.shared.tab === 'Chat' && (
                     <>{!!store.chat.to_user?.id ? <ChatScreen /> : <Chats />}</>
                 )}
+                {store.shared.tab === 'Sitters' && <Sitters />}
                 {store.shared.tab === 'Contact' && <Contact />}
                 {store.shared.tab === 'About' && <About />}
+                
             </div>
             <Toasts />
         </Center>
