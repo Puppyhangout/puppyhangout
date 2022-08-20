@@ -29,7 +29,7 @@ export const Sitters = observer(() => {
                         style={{ backgroundImage: `url(${abc.photo_url})` }}
                         className='card'
                     >
-                        <h3>{abc.location}</h3>
+                        <h3>{abc.users[0].first_name},{abc.location}</h3>
                     </div>
                 </TinderCard>
             ))}

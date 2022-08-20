@@ -3,7 +3,7 @@
     display: grid;
     place-items: left;
     border-radius: 40px;
-    background-color: lavenderblush; 
+    background-color: white; 
     margin: 20px;
     padding: 50px;
 }
@@ -16,7 +16,7 @@
 
 
 .header {
-    background-color: #D5F3FE;      
+    background-color: white;      
     padding-left: 20px;
     padding-right: 20px;
     padding-top: 5px;
