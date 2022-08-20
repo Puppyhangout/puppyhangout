@@ -51,20 +51,22 @@ export const App = observer(() => {
                 )}
                 {store.shared.tab === 'Sitters' && <Sitters />}
             </div>
-            <footer>
+
+            <Toasts />
+            
+
+            <div class="footer">
             <Tabs {...commonTabGroupProps(store, ['shared', 'tab'])}>
             <Tab {...commonTabProps('Contact')} />
             <Tab {...commonTabProps('About')} />
             </Tabs>
-            </footer>
+            </div>            
             <div>
             {store.shared.tab === 'Contact' && <Contact />}
             {store.shared.tab === 'About' && <About />}
             </div>
-            <Toasts />
-            
-        </Center>
 
+        </Center>
                     
 
     )

@@ -20,11 +20,12 @@ color: SteelBlue;
 
 
 .footer {
+    position:fixed;
+    bottom:0;
     background-color: white;
     font-size: 14px;
     padding: 1px;
     text-align: center;
-    margin-top:400px;
     }
 
 
