@@ -12,6 +12,7 @@
     height: 10vh;
     display: grid;
     place-items: left;
+    text-align: left;
 }
 
 
