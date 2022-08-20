@@ -55,7 +55,7 @@ export const App = observer(() => {
             <Toasts />
             
 
-            <div class="footer">
+            <div id="footer">
             <Tabs {...commonTabGroupProps(store, ['shared', 'tab'])}>
             <Tab {...commonTabProps('Contact')} />
             <Tab {...commonTabProps('About')} />
