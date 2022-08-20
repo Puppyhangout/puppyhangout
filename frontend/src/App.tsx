@@ -30,7 +30,6 @@ export const App = observer(() => {
             <Typography variant={'h4'}>Puppy Hangout</Typography>
 
             <AppToolbar />
-            
             <Tabs {...commonTabGroupProps(store, ['shared', 'tab'])}>
                 {store.shared.token.length === 0 && <Tab {...commonTabProps('Signup')} />}
                 {store.shared.token.length === 0 && <Tab {...commonTabProps('Login')} />}
@@ -41,8 +40,6 @@ export const App = observer(() => {
                     onClick={action(() => (store.chat.to_user = null))}
                 />
                 <Tab {...commonTabProps('Sitters')} />
-                <Tab {...commonTabProps('Contact')} />
-                <Tab {...commonTabProps('About')} />
             </Tabs>
             <div>
                 {store.shared.tab === 'Login' && <Login />}
@@ -53,12 +50,23 @@ export const App = observer(() => {
                     <>{!!store.chat.to_user?.id ? <ChatScreen /> : <Chats />}</>
                 )}
                 {store.shared.tab === 'Sitters' && <Sitters />}
-                {store.shared.tab === 'Contact' && <Contact />}
-                {store.shared.tab === 'About' && <About />}
-                
+            </div>
+            <footer>
+            <Tabs {...commonTabGroupProps(store, ['shared', 'tab'])}>
+            <Tab {...commonTabProps('Contact')} />
+            <Tab {...commonTabProps('About')} />
+            </Tabs>
+            </footer>
+            <div>
+            {store.shared.tab === 'Contact' && <Contact />}
+            {store.shared.tab === 'About' && <About />}
             </div>
             <Toasts />
+            
         </Center>
+
+                    
+
     )
 })
 
