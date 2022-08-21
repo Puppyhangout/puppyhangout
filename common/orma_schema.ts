@@ -601,18 +601,18 @@ export const orma_schema = {
     },
     "$indexes": [
       {
-        "index_name": "puppies_resource_id_uq",
-        "is_unique": true,
-        "fields": [
-          "resource_id"
-        ],
-        "invisible": false
-      },
-      {
         "index_name": "puppies_pkey",
         "is_unique": true,
         "fields": [
           "id"
+        ],
+        "invisible": false
+      },
+      {
+        "index_name": "puppies_resource_id_uq",
+        "is_unique": true,
+        "fields": [
+          "resource_id"
         ],
         "invisible": false
       }
