@@ -12,24 +12,24 @@ export const TinderCards = observer(() => {
 
     return (
         <div>
-            {store.home.puppies.map((puppy: any) => (
+            {store.home.puppies.map((pup: any) => (
                 // @ts-ignore
                 <TinderCard
                     onSwipe={direction => {
                         if (['up', 'right'].includes(direction)) {
-                            store.chat.to_user = puppy.users[0]
+                            store.chat.to_user = pup.users[0]
                             store.shared.tab = 'Chat'
                         }
                     }}
                     className='swipe'
-                    key={puppy.id}
+                    key={pup.id}
                     preventSwipe={['up', 'down']}
                 >
                     <div
-                        style={{ backgroundImage: `url(${puppy.photos[0].url})` }}
+                        style={{ backgroundImage: `url(${pup.photos[0].url})` }}
                         className='card'
                     >
-                        <h3>{puppy.name}</h3>
+                        <h3>{pup.name}, {pup.breed}</h3>
                     </div>
                 </TinderCard>
             ))}

@@ -8,6 +8,7 @@ export const fetch_puppies = wrap_loading(async () => {
         puppies: {
             id: true,
             name: true,
+            breed: true,
             photos: {
                 url: true
             },

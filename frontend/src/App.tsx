@@ -10,6 +10,7 @@ import { Setting } from './components/setting/setting_page'
 import { Toasts } from './components/toasts'
 import { commonTabGroupProps, commonTabProps, title_case } from './helpers/helpers'
 import { store } from './store'
+import logo from './assets/logo.png'
 import { TinderCards } from './components/TinderCards'
 import { observer } from 'mobx-react-lite'
 import { Signup } from './components/signup/signup_page'
@@ -27,13 +28,19 @@ export const App = observer(() => {
     }, [])
     return (
         <Center>
-            <Typography variant={'h4'}>Puppy Hangout</Typography>
+            <Typography variant={'h4'} align={'left'}>
+            <img style={{ marginLeft: '5px', marginBottom: '-5px', marginRight: '15px'}} width={35} src={logo} alt='Logo'>
+                
+            </img>
+            Puppy Hangout 
+            </Typography>
 
-            <AppToolbar />
+            
             <Tabs {...commonTabGroupProps(store, ['shared', 'tab'])}>
+            <AppToolbar/>
                 {store.shared.token.length === 0 && <Tab {...commonTabProps('Signup')} />}
                 {store.shared.token.length === 0 && <Tab {...commonTabProps('Login')} />}
-                <Tab {...commonTabProps('Home')} />
+
                 <Tab {...commonTabProps('Settings')} />
                 <Tab
                     {...commonTabProps('Chat')}
@@ -43,7 +50,7 @@ export const App = observer(() => {
             </Tabs>
             <div>
                 {store.shared.tab === 'Login' && <Login />}
-                {store.shared.tab === 'Home' && <TinderCards />}
+
                 {store.shared.tab === 'Signup' && <Signup />}
                 {store.shared.tab === 'Settings' && <Setting />}
                 {store.shared.tab === 'Chat' && (
@@ -57,15 +64,16 @@ export const App = observer(() => {
 
             <div id="footer">
             <Tabs {...commonTabGroupProps(store, ['shared', 'tab'])}>
+            <Tab {...commonTabProps('Home')} />
             <Tab {...commonTabProps('Contact')} />
             <Tab {...commonTabProps('About')} />
             </Tabs>
-            </div>            
+            </div>
             <div>
+            {store.shared.tab === 'Home' && <TinderCards />}
             {store.shared.tab === 'Contact' && <Contact />}
             {store.shared.tab === 'About' && <About />}
             </div>
-
         </Center>
                     
 
