@@ -8,9 +8,12 @@ import './setting_page.css'
 import { save_form } from '../../helpers/form'
 import { refresh_settings } from '../../helpers/setting_helpers'
 import { toBase64 } from '../signup/signup_page'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 export const Setting = observer(() => {
+
+    const [user_location, setLocation] = useState<Geolocation | null>(null);
+    console.log(user_location);
     useEffect(() => {
         refresh_settings()
     }, [])
@@ -107,6 +110,22 @@ export const Setting = observer(() => {
                 >
                     Save
                 </LoadingButton>
+
+
+
+                
+
+                <LoadingButton
+                    color='primary'
+                    variant='outlined'
+                    onClick={() => navigator.geolocation.getCurrentPosition((args) => { setLocation(args) })}
+                    loading={is_loading(save_form, [store.settings.form, refresh_settings])}
+                >
+                    Save location
+                </LoadingButton>
+                <p>
+                {/* {user_location && user_location.cords.latitude} */}
+                </p>
             </div>
         </div>
     )
