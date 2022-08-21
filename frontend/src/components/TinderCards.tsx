@@ -9,10 +9,10 @@ export const TinderCards = observer(() => {
     useEffect(() => {
         fetch_puppies()
     }, [])
-
+    console.log(store.home.puppies);
     return (
         <div>
-            {store.home.puppies.map((pup: any) => (
+            {store.home.puppies.slice(0,4).map((pup: any) => (
                 // @ts-ignore
                 <TinderCard
                     onSwipe={direction => {
