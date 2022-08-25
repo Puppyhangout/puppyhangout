@@ -12,7 +12,7 @@ import { useEffect, useState } from 'react'
 
 export const Setting = observer(() => {
 
-    const [user_location, setLocation] = useState<Geolocation | null>(null);
+    const [user_location, setLocation] = useState<GeolocationPosition | null>(null);
     console.log(user_location);
     useEffect(() => {
         refresh_settings()
