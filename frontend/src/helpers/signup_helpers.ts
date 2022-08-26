@@ -4,6 +4,36 @@ import { store } from '../store'
 import { show_toast } from './helpers'
 
 export const signup = wrap_loading(async () => {
+    if ( store.signup.users[0]?.user_info[0]?.photo_url.length === 0 ){
+        show_toast('error', 'upload picture please!')
+        return
+    }
+
+    if ( store.signup.users[0]?.email.length === 0 ){
+        show_toast('error', 'upload email please!')
+        return
+    }
+    
+    if ( store.signup.users[0]?.first_name.length < 3 ){
+        show_toast('error', 'First name not long enough')
+        return
+    }
+
+    if ( store.signup.users[0]?.last_name.length < 3 ){
+        show_toast('error', 'Last name not long enough')
+        return
+    }
+
+    if ( store.signup.users[0]?.password.length < 6 ){
+        show_toast('error', 'password not long enough')
+        return
+    }
+
+    if ( String(store.signup.has_puppy) === 'true' &&  store.signup.users[0]?.puppies[0]?.photos[0].url.length === 0 ){
+        show_toast('error', 'upload puppy photo please!')
+        return
+    }
+
     const response = orma_mutate({
         $operation: 'create',
         users: store.signup.users

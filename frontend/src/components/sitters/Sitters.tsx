@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import TinderCard from 'react-tinder-card'
 import { fetch_sitters } from '../../helpers/sitters_helpers'
 import { store } from '../../store'
+import { blank_photo } from '../signup/signup_page'
 import '../TinderCards.css'
 
 export const Sitters = observer(() => {
@@ -26,7 +27,7 @@ export const Sitters = observer(() => {
                     preventSwipe={['up', 'down']}
                 >
                     <div
-                        style={{ backgroundImage: `url(${abc.photo_url})` }}
+                        style={{ backgroundImage: `url(${abc.photo_url || blank_photo})` }}
                         className='card'
                     >
                         <h3>{abc.users[0].first_name},{abc.location}</h3>

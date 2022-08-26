@@ -17,12 +17,18 @@ export const store = observable({
         password: ''
     }),
     signup: {
+        has_puppy: false,
         users: [
             {
                 email: '',
                 password: '',
-                firstname:'',
-                lastname:'',
+                first_name:'',
+                last_name:'',
+                user_info: [
+                    {
+                        photo_url: ''
+                    }
+                ],
                 puppies: [
                     {
                         name: '',

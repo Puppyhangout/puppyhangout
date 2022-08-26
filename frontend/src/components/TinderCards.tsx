@@ -3,13 +3,14 @@ import { useEffect } from 'react'
 import TinderCard from 'react-tinder-card'
 import { fetch_puppies } from '../helpers/home_helpers'
 import { store } from '../store'
+import { blank_photo } from './signup/signup_page'
 import './TinderCards.css'
 
 export const TinderCards = observer(() => {
     useEffect(() => {
         fetch_puppies()
     }, [])
-    console.log(store.home.puppies);
+    // console.log
     return (
         <div>
             {store.home.puppies.slice(0,4).map((pup: any) => (
@@ -26,7 +27,11 @@ export const TinderCards = observer(() => {
                     preventSwipe={['up', 'down']}
                 >
                     <div
-                        style={{ backgroundImage: `url(${pup.photos[0].url})` }}
+                        style=
+                        {{
+                            backgroundImage: `url(${pup.photos[0].url || blank_photo})`                        
+                        }}
+                
                         className='card'
                     >
                         <h3>{pup.name}, {pup.breed}</h3>

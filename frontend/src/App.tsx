@@ -28,11 +28,11 @@ export const App = observer(() => {
     }, [])
     return (
         <Center>
-            <Typography variant={'h4'} align={'left'}>
-            <img style={{ marginLeft: '5px', marginBottom: '-5px', marginRight: '15px'}} width={35} src={logo} alt='Logo'>
+            <Typography variant={'h4'} align={'left'} fontFamily ={'Monospace'} >
+            <img style={{ marginLeft: '5px', marginBottom: '-5px', marginRight: '15px'}} width={40} src={logo} alt='Logo'>
                 
             </img>
-            Puppy Hangout 
+            Puppy Hangout
             </Typography>
 
             
@@ -40,12 +40,8 @@ export const App = observer(() => {
             <AppToolbar/>
                 {store.shared.token.length === 0 && <Tab {...commonTabProps('Signup')} />}
                 {store.shared.token.length === 0 && <Tab {...commonTabProps('Login')} />}
-
-                <Tab {...commonTabProps('Settings')} />
-                <Tab
-                    {...commonTabProps('Chat')}
-                    onClick={action(() => (store.chat.to_user = null))}
-                />
+                {store.shared.token.length > 0 && <Tab {...commonTabProps('Settings')} />}
+                {store.shared.token.length > 0 && <Tab {...commonTabProps('Chat')} onClick={action(() => (store.chat.to_user = null))}/>}
                 <Tab {...commonTabProps('Sitters')} />
             </Tabs>
             <div>

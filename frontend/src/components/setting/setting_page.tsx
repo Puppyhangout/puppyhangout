@@ -108,7 +108,7 @@ export const Setting = observer(() => {
                     onClick={() => save_form(store.settings.form, refresh_settings)}
                     loading={is_loading(save_form, [store.settings.form, refresh_settings])}
                 >
-                    Save
+                    Update
                 </LoadingButton>
 
 
@@ -121,7 +121,7 @@ export const Setting = observer(() => {
                     onClick={() => navigator.geolocation.getCurrentPosition((args) => { setLocation(args) })}
                     loading={is_loading(save_form, [store.settings.form, refresh_settings])}
                 >
-                    Save location
+                    Update location
                 </LoadingButton>
                 <p>
                 {/* {user_location && user_location.cords.latitude} */}
