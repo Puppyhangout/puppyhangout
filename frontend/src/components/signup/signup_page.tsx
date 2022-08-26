@@ -133,11 +133,10 @@ export const Signup = observer(() => {
                     />
                 </Button>
 
-
                 {String(store.signup.has_puppy) === 'true' && 
                 <>
                 <p>puppy's photo</p> 
-                <Button onClick={() => document.getElementById('image_uploader')?.click()}>
+                <Button onClick={() => document.getElementById('image_uploader2')?.click()}>
                     <img
                         style={{ objectFit: 'contain', width: '100px', height: '100px' }}
                         src={
@@ -168,9 +167,8 @@ export const Signup = observer(() => {
                     })}
                 />
 
-
-{/* <input
-                    id='image_uploader'
+                <input
+                    id='image_uploader2'
                     accept='image/*'
                     // capture='environment'
                     // multiple
@@ -186,8 +184,7 @@ export const Signup = observer(() => {
                                 new_pictures[0] as string
                         })
                     })}
-                /> */}
-
+                />
 
                 <LoadingButton
                     color='primary'

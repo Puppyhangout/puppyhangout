@@ -29,7 +29,7 @@ export const App = observer(() => {
     return (
         <Center>
             <Typography variant={'h4'} align={'left'} fontFamily ={'Monospace'} >
-            <img style={{ marginLeft: '5px', marginBottom: '-5px', marginRight: '15px'}} width={40} src={logo} alt='Logo'>
+            <img style={{ marginLeft: '5px', marginBottom: '-5px', marginRight: '15px'}} width={35} src={logo} alt='Logo'>
                 
             </img>
             Puppy Hangout
