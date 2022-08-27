@@ -7,6 +7,7 @@ import { show_toast } from './helpers'
 export const signup_update_location = wrap_loading(async (args) => {
     store.signup.users[0].user_info[0].lat = args.coords.latitude
     store.signup.users[0].user_info[0].lng = args.coords.longitude
+    signup();
 })
 
 export const signup = wrap_loading(async () => {
@@ -45,7 +46,7 @@ export const signup = wrap_loading(async () => {
 
     const response = orma_mutate({
         $operation: 'create',
-        users: store.signup.users,
+        users: store.signup.users
     })
 
 
