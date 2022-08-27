@@ -22,7 +22,7 @@ export const Setting = observer(() => {
     return (
         <div className='setting-root'>
             <div className='setting-container'>
-                <p>Welcome, {store.settings.form.original.users?.[0]?.email}</p>
+                <p>Welcome, {store.settings.form.original.users?.[0]?.first_name}</p>
 
                 <TextField
                     label='First Name'

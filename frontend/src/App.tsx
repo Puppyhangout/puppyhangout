@@ -40,7 +40,7 @@ export const App = observer(() => {
             <AppToolbar/>
                 {store.shared.token.length === 0 && <Tab {...commonTabProps('Signup')} />}
                 {store.shared.token.length === 0 && <Tab {...commonTabProps('Login')} />}
-                {store.shared.token.length > 0 && <Tab {...commonTabProps('Settings')} />}
+                {/* {store.shared.token.length > 0 && <Tab {...commonTabProps('Settings')} />} */}
                 {store.shared.token.length > 0 && <Tab {...commonTabProps('Chat')} onClick={action(() => (store.chat.to_user = null))}/>}
                 <Tab {...commonTabProps('Sitters')} />
             </Tabs>
@@ -89,7 +89,7 @@ const AppToolbar = observer(() => {
                     // @ts-ignore
                     onClick={event => setAnchorEl(event.currentTarget)}
                 >
-                    {store.shared.email}
+                    {store.shared.user?.first_name}
                 </Button>
                 <Menu
                     id='simple-menu'
@@ -99,13 +99,14 @@ const AppToolbar = observer(() => {
                     onClose={() => setAnchorEl(null)}
                 >
                     <MenuItem
-                        onClick={() => {
-                            // @ts-ignore
-                            window.location = `#/settings`
-                            setAnchorEl(null)
-                        }}
+                     
                     >
-                        <span style={{ marginLeft: '10px' }}>Settings</span>
+                        <span    onClick={action(() => {
+                            console.log('hi')
+                            // @ts-ignore
+                            store.shared.tab = 'Settings' 
+                            setAnchorEl(null)
+                        })} style={{ marginLeft: '10px' }}>Settings</span>
                     </MenuItem>
                     <MenuItem onClick={e => logout()}>
                         <span style={{ marginLeft: '10px' }}>Logout</span>

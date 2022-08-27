@@ -14,6 +14,7 @@ export const store = observable({
         token: '',
         user: null as any,
         email: '',
+        first_name: '',
         password: ''
     }),
     signup: {

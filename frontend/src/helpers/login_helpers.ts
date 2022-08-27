@@ -35,4 +35,5 @@ export const logout = action(() => {
     store.shared.tab = 'Login'
     store.shared.email = ''
     store.shared.password = ''
+    store.shared.first_name = ''
 })
