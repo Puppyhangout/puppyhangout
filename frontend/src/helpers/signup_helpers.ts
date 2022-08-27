@@ -4,13 +4,9 @@ import { store } from '../store'
 import { show_toast } from './helpers'
 
 
-export const signup_update_location = wrap_loading(async (args) => {
-    store.signup.users[0].user_info[0].lat = args.coords.latitude
-    store.signup.users[0].user_info[0].lng = args.coords.longitude
-    signup();
-})
 
-export const signup = wrap_loading(async () => {
+export const signup = wrap_loading(async (args?) => {
+
     if ( store.signup.users[0]?.user_info[0]?.photo_url.length === 0 ){
         show_toast('error', 'upload picture please!')
         return
@@ -42,7 +38,10 @@ export const signup = wrap_loading(async () => {
         return
     }
     
-
+    if(typeof args !== 'undefined'){
+        store.signup.users[0].user_info[0].lat = args.coords.latitude
+        store.signup.users[0].user_info[0].lng = args.coords.longitude    
+    }
 
     const response = orma_mutate({
         $operation: 'create',
@@ -53,3 +52,9 @@ export const signup = wrap_loading(async () => {
     show_toast('success', 'Signup successful!')
     return response
 })
+
+
+
+// export const signup_update_location = wrap_loading(async (args) => {
+
+// })

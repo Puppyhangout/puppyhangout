@@ -28,7 +28,9 @@ export const store = observable({
                 last_name:'',
                 user_info: [
                     {
-                        photo_url: ''
+                        photo_url: '',
+                        lat: '',
+                        lng: ''
                     }
                 ],
                
