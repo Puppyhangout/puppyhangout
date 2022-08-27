@@ -1,4 +1,4 @@
-import { get_base_url } from './api_helpers'
+import { get_base_url, orma_mutate } from './api_helpers'
 import { wrap_loading } from './is_loading'
 import axios from 'axios'
 import { action, runInAction } from 'mobx'
@@ -17,6 +17,14 @@ export const login = wrap_loading(async (email: string, password: string) => {
             store.shared.token = token
             store.shared.user = user
             store.shared.tab = 'Home'
+        })
+
+        await orma_mutate({
+            $operation: 'update',
+            user_info: [{
+                user_id: user.id,
+                lastlogin: new Date()
+            }]
         })
 
         localStorage.setItem('token', token)

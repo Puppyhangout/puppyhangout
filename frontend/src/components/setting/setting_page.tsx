@@ -6,14 +6,12 @@ import { is_loading } from '../../helpers/is_loading'
 import { LoadingButton } from '../loading_button'
 import './setting_page.css'
 import { save_form } from '../../helpers/form'
-import { refresh_settings } from '../../helpers/setting_helpers'
+import { refresh_settings, setLocation } from '../../helpers/setting_helpers'
 import { toBase64 } from '../signup/signup_page'
 import { useEffect, useState } from 'react'
 
 export const Setting = observer(() => {
 
-    const [user_location, setLocation] = useState<GeolocationPosition | null>(null);
-    console.log(user_location);
     useEffect(() => {
         refresh_settings()
     }, [])
@@ -44,6 +42,12 @@ export const Setting = observer(() => {
                     label='Phone'
                     value={user?.phone || ''}
                     onChange={action((e: any) => (user.phone = e.target.value))}
+                />
+                
+                <TextField
+                    label='Profile description'
+                    value={user?.user_info[0]?.user_description || ''}
+                    onChange={action((e: any) => (user.user_info[0].user_description = e.target.value))}
                 />
 
                 {/* <p>
@@ -108,7 +112,7 @@ export const Setting = observer(() => {
                     onClick={() => save_form(store.settings.form, refresh_settings)}
                     loading={is_loading(save_form, [store.settings.form, refresh_settings])}
                 >
-                    Update
+                    Save
                 </LoadingButton>
 
 
@@ -119,9 +123,9 @@ export const Setting = observer(() => {
                     color='primary'
                     variant='outlined'
                     onClick={() => navigator.geolocation.getCurrentPosition((args) => { setLocation(args) })}
-                    loading={is_loading(save_form, [store.settings.form, refresh_settings])}
+                    loading={is_loading(setLocation)}
                 >
-                    Update location
+                    Save location
                 </LoadingButton>
                 <p>
                 {/* {user_location && user_location.cords.latitude} */}

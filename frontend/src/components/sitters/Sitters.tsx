@@ -4,7 +4,7 @@ import TinderCard from 'react-tinder-card'
 import { fetch_sitters } from '../../helpers/sitters_helpers'
 import { store } from '../../store'
 import { blank_photo } from '../signup/signup_page'
-import '../TinderCards.css'
+import './sitters_page.css'
 
 export const Sitters = observer(() => {
     useEffect(() => {
@@ -27,10 +27,15 @@ export const Sitters = observer(() => {
                     preventSwipe={['up', 'down']}
                 >
                     <div
-                        style={{ backgroundImage: `url(${abc.photo_url || blank_photo})` }}
-                        className='card'
+                        style={{ backgroundImage: `url(${abc.photo_url || blank_photo})`,}}
+                        className = {'card'}
+            
                     >
-                        <h3>{abc.users[0].first_name},{abc.location}</h3>
+                        <h3>{abc.users?.[0]?.first_name}, {Math.round(abc._dist)} km 
+                        </h3>
+                        <h4>
+                        {abc?.user_description}
+                        </h4>
                     </div>
                 </TinderCard>
             ))}

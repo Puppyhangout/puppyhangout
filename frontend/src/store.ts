@@ -15,7 +15,8 @@ export const store = observable({
         user: null as any,
         email: '',
         first_name: '',
-        password: ''
+        password: '',
+        maxdist: 99999
     }),
     signup: {
         has_puppy: false,
@@ -30,18 +31,7 @@ export const store = observable({
                         photo_url: ''
                     }
                 ],
-                puppies: [
-                    {
-                        name: '',
-                        breed: '',
-                        size: '',
-                        photos: [
-                            {
-                                url: ''
-                            }
-                        ]
-                    }
-                ]
+               
             }
         ]
     },

@@ -40,7 +40,7 @@ export const App = observer(() => {
             <AppToolbar/>
                 {store.shared.token.length === 0 && <Tab {...commonTabProps('Signup')} />}
                 {store.shared.token.length === 0 && <Tab {...commonTabProps('Login')} />}
-                {/* {store.shared.token.length > 0 && <Tab {...commonTabProps('Settings')} />} */}
+                {store.shared.token.length > 0 && <Tab {...commonTabProps('Settings')} />}
                 {store.shared.token.length > 0 && <Tab {...commonTabProps('Chat')} onClick={action(() => (store.chat.to_user = null))}/>}
                 <Tab {...commonTabProps('Sitters')} />
             </Tabs>
@@ -59,11 +59,13 @@ export const App = observer(() => {
             
 
             <div id="footer">
+
             <Tabs {...commonTabGroupProps(store, ['shared', 'tab'])}>
             <Tab {...commonTabProps('Home')} />
             <Tab {...commonTabProps('Contact')} />
-            <Tab {...commonTabProps('About')} />
+            <Tab {...commonTabProps('About')} />    
             </Tabs>
+                
             </div>
             <div>
             {store.shared.tab === 'Home' && <TinderCards />}

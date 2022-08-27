@@ -17,6 +17,7 @@ export const login_user = async (email, password) => {
             id: true,
             email: true,
             password: true,
+            first_name: true,
             user_info: {
                 photo_url: true
             },

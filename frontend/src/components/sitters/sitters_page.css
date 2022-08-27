@@ -2,8 +2,8 @@
     position:relative;
     width:400px;
     padding:20px;
-    max-width:85vw;
-    height:45vh;
+    max-width:40vw;
+    height:55vh; /*used to be 45*/
     border-radius:40px;
     background-size:cover;
     background-position:center;
@@ -12,8 +12,15 @@
 
 .card >h3{
     position:absolute;
-    bottom:10px;
+    bottom:40px;
     color:white;
+}
+
+.card >h4{
+    position:absolute;
+    bottom:20px;
+    color:white;
+    font-size: 13px;
 }
 
 

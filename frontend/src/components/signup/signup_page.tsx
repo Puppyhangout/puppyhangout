@@ -30,7 +30,27 @@ export const Signup = observer(() => {
                     value={store.signup.has_puppy}
                     label="Do you have a dog?"
                     onChange={action(
-                        (e: any) => (store.signup.has_puppy = e.target.value)
+                        (e: any) => {
+                            if (e.target.value === 'true') {
+                                // @ts-ignore
+                                store.signup.users[0].puppies =  [
+                                    {
+                                        name: '',
+                                        breed: '',
+                                        size: '',
+                                        photos: [
+                                            {
+                                                url: ''
+                                            }
+                                        ]
+                                    }
+                                ]
+                            } else {
+                                //@ts-ignore
+                                delete store.signup.users[0].puppies
+                            }
+                            store.signup.has_puppy = e.target.value
+                        }
                     )}
                 >
                 <MenuItem value={String(true)}>Yes</MenuItem>

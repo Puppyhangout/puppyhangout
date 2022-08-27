@@ -88,14 +88,6 @@ export const orma_schema = {
     },
     "$indexes": [
       {
-        "index_name": "users_email_uq",
-        "is_unique": true,
-        "fields": [
-          "email"
-        ],
-        "invisible": false
-      },
-      {
         "index_name": "users_phone_uq",
         "is_unique": true,
         "fields": [
@@ -116,6 +108,14 @@ export const orma_schema = {
         "is_unique": true,
         "fields": [
           "id"
+        ],
+        "invisible": false
+      },
+      {
+        "index_name": "users_email_uq",
+        "is_unique": true,
+        "fields": [
+          "email"
         ],
         "invisible": false
       }
@@ -236,6 +236,14 @@ export const orma_schema = {
     },
     "$indexes": [
       {
+        "index_name": "user_has_roles_pkey",
+        "is_unique": true,
+        "fields": [
+          "id"
+        ],
+        "invisible": false
+      },
+      {
         "index_name": "user_has_roles_user_id_role_id_uq",
         "is_unique": true,
         "fields": [
@@ -249,14 +257,6 @@ export const orma_schema = {
         "is_unique": true,
         "fields": [
           "resource_id"
-        ],
-        "invisible": false
-      },
-      {
-        "index_name": "user_has_roles_pkey",
-        "is_unique": true,
-        "fields": [
-          "id"
         ],
         "invisible": false
       }
@@ -298,14 +298,6 @@ export const orma_schema = {
     },
     "$indexes": [
       {
-        "index_name": "permissions_name_uq",
-        "is_unique": true,
-        "fields": [
-          "name"
-        ],
-        "invisible": false
-      },
-      {
         "index_name": "permissions_resource_id_uq",
         "is_unique": true,
         "fields": [
@@ -318,6 +310,14 @@ export const orma_schema = {
         "is_unique": true,
         "fields": [
           "id"
+        ],
+        "invisible": false
+      },
+      {
+        "index_name": "permissions_name_uq",
+        "is_unique": true,
+        "fields": [
+          "name"
         ],
         "invisible": false
       }
@@ -484,11 +484,6 @@ export const orma_schema = {
         }
       }
     },
-    "location": {
-      "data_type": "character varying",
-      "ordinal_position": 3,
-      "character_count": 10485760
-    },
     "photo_url": {
       "data_type": "character varying",
       "ordinal_position": 4,
@@ -513,6 +508,29 @@ export const orma_schema = {
       "ordinal_position": 7,
       "not_null": true,
       "character_count": 10485760
+    },
+    "lat": {
+      "data_type": "character varying",
+      "ordinal_position": 8
+    },
+    "lng": {
+      "data_type": "character varying",
+      "ordinal_position": 9
+    },
+    "user_description": {
+      "data_type": "character varying",
+      "ordinal_position": 10
+    },
+    "user_description2": {
+      "data_type": "character varying",
+      "ordinal_position": 11
+    },
+    "lastlogin": {
+      "data_type": "timestamp without time zone",
+      "ordinal_position": 12,
+      "not_null": true,
+      "decimal_places": 6,
+      "default": "now():::TIMESTAMP"
     },
     "$indexes": [
       {
