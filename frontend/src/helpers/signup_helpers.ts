@@ -29,7 +29,8 @@ export const signup = wrap_loading(async () => {
         return
     }
 
-    if ( String(store.signup.has_puppy) === 'true' &&  store.signup.users[0]?.puppies[0]?.photos[0].url.length === 0 ){
+     // @ts-ignore
+    if ( String(store.signup.has_puppy) === 'true' &&  store.signup.users[0]?.puppies?.[0]?.photos?.[0]?.url?.length === 0 ){
         show_toast('error', 'upload puppy photo please!')
         return
     }

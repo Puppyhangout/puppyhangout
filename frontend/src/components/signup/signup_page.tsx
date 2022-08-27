@@ -106,8 +106,10 @@ export const Signup = observer(() => {
                     id='outlined-basic'
                     label='Puppy Name'
                     variant='outlined'
+                    // @ts-ignore
                     value={store.signup.users[0].puppies[0].name}
                     onChange={action(
+                        // @ts-ignore
                         (e: any) => (store.signup.users[0].puppies[0].name = e.target.value)
                     )}
                 />      
@@ -122,8 +124,10 @@ export const Signup = observer(() => {
                     id='outlined-basic'
                     label='Puppy Breed'
                     variant='outlined'
+                     // @ts-ignore
                     value={store.signup.users[0].puppies[0].breed}
                     onChange={action(
+                         // @ts-ignore
                         (e: any) => (store.signup.users[0].puppies[0].breed = e.target.value)
                     )}
                 />
@@ -136,8 +140,10 @@ export const Signup = observer(() => {
                     id='outlined-basic'
                     label='Puppy Size'
                     variant='outlined'
+                     // @ts-ignore
                     value={store.signup.users[0].puppies[0].size}
                     onChange={action(
+                         // @ts-ignore
                         (e: any) => (store.signup.users[0].puppies[0].size = e.target.value)
                     )}
                 />}
@@ -160,7 +166,8 @@ export const Signup = observer(() => {
                     <img
                         style={{ objectFit: 'contain', width: '100px', height: '100px' }}
                         src={
-                            store.signup.users[0]?.puppies[0]?.photos[0].url || blank_photo
+                             // @ts-ignore
+                            store.signup.users[0]?.puppies?.[0]?.photos?.[0]?.url || blank_photo
                         }
                         alt='click to add'
                     />
@@ -200,6 +207,7 @@ export const Signup = observer(() => {
                         )
                         console.log(new_pictures)
                         runInAction(() => {
+                             // @ts-ignore
                             store.signup.users[0].puppies[0].photos[0].url =
                                 new_pictures[0] as string
                         })
