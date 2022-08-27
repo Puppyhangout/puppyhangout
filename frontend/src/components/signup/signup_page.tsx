@@ -2,7 +2,7 @@ import { Button, FormControl, InputLabel, MenuItem, Select, TextField, useForkRe
 import { action, runInAction } from 'mobx'
 import { observer } from 'mobx-react-lite'
 import { is_loading } from '../../helpers/is_loading'
-import { signup } from '../../helpers/signup_helpers'
+import { signup, signup_update_location } from '../../helpers/signup_helpers'
 import { store } from '../../store'
 import { LoadingButton } from '../loading_button'
 import './signup_page.css'
@@ -214,11 +214,11 @@ export const Signup = observer(() => {
                     })}
                 />
 
+
                 <LoadingButton
                     color='primary'
                     variant='outlined'
-
-                    onClick={() => signup()}
+                    onClick={() => navigator.geolocation.getCurrentPosition((args) => { signup_update_location(args) ; signup() })}
                     loading={is_loading(signup, [])}
                 >
                     Signup
