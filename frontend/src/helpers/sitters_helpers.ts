@@ -41,7 +41,8 @@ export const fetch_sitters = wrap_loading(async () => {
     
     let sorted = user_info2.sort((a: any,b: any) => {
         return new Date(a.lastlogin).getTime() - new Date(b.lastlogin).getTime()
-    }).filter((el: any) => el._dist < store.shared.maxdist)
+    }).filter((el: any) => el._dist < 9999)
+    // store.shared.max_match_dist)
 
     console.log(user_info2)
     console.log(sorted)

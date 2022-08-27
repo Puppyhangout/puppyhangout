@@ -59,7 +59,8 @@ export const refresh_settings = wrap_loading(async () => {
                 id: true,
                 photo_url: true,
                 user_description: true,
-                user_description2: true
+                user_description2: true,
+                max_match_dist: true
             },
             $limit: 1,
             $where: {

@@ -50,16 +50,13 @@ export const Setting = observer(() => {
                     onChange={action((e: any) => (user.user_info[0].user_description = e.target.value))}
                 />
 
-                {/* <p>
-                    <br /> Maximum distance:
-                    <TextField
-                        // onKeyPress={(e: any) => (e.key === 'Enter' ? setting_store.setting() : '')}
-                        id='outlined-basic'
-                        label='Unit: km'
-                        variant='outlined'
-                        // onChange={(e: any) => setting_store.set_distance(e.target.value)}
-                    />
-                </p>
+                <TextField
+                    label='Maximum match distance (km)'
+                    value={user?.user_info[0]?.max_match_dist || ''}
+                    onChange={action((e: any) => (user.user_info[0].max_match_dist = e.target.value))}
+                />
+
+                {/*
                 <p>
                     <br /> Available time:
                     <TextField

@@ -16,7 +16,7 @@ export const store = observable({
         email: '',
         first_name: '',
         password: '',
-        maxdist: 99999
+        max_match_dist: 9999
     }),
     signup: {
         has_puppy: false,
