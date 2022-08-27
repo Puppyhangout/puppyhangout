@@ -59,7 +59,6 @@ export const App = observer(() => {
             
 
             <div id="footer">
-
             <Tabs {...commonTabGroupProps(store, ['shared', 'tab'])}>
             <Tab {...commonTabProps('Home')} />
             <Tab {...commonTabProps('Contact')} />
@@ -100,9 +99,7 @@ const AppToolbar = observer(() => {
                     open={Boolean(anchorEl)}
                     onClose={() => setAnchorEl(null)}
                 >
-                    <MenuItem
-                     
-                    >
+                    <MenuItem>
                         <span    onClick={action(() => {
                             console.log('hi')
                             // @ts-ignore
