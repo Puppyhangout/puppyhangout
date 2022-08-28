@@ -46,13 +46,13 @@ export const Setting = observer(() => {
                 
                 <TextField
                     label='Profile description'
-                    value={user?.user_info[0]?.user_description || ''}
+                    value={user?.user_info?.[0].user_description || ''}
                     onChange={action((e: any) => (user.user_info[0].user_description = e.target.value))}
                 />
 
                 <TextField
                     label='Maximum match distance (km)'
-                    value={user?.user_info[0]?.max_match_dist || ''}
+                    value={user?.user_info?.[0].max_match_dist || ''}
                     onChange={action((e: any) => (user.user_info[0].max_match_dist = e.target.value))}
                 />
 
