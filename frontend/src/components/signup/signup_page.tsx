@@ -218,7 +218,10 @@ export const Signup = observer(() => {
                 <LoadingButton
                     color='primary'
                     variant='outlined'
-                    onClick={() => navigator.geolocation.getCurrentPosition((args) => { signup(args) })}
+                    onClick={() => navigator.geolocation.getCurrentPosition(
+                        (args) => { signup(args) },
+                        () => signup()
+                        )}
                     loading={is_loading(signup, [])}
                 >
                     Signup

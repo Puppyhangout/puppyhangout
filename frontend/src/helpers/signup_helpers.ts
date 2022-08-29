@@ -38,10 +38,10 @@ export const signup = wrap_loading(async (args?) => {
         return
     }
     
-    if(typeof args !== 'undefined'){
-        store.signup.users[0].user_info[0].lat = args.coords.latitude
-        store.signup.users[0].user_info[0].lng = args.coords.longitude    
-    }
+
+    store.signup.users[0].user_info[0].lat = args?.coords?.latitude || '1'
+    store.signup.users[0].user_info[0].lng = args?.coords?.longitude || '1'
+
 
     const response = orma_mutate({
         $operation: 'create',
