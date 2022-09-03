@@ -58,6 +58,8 @@ export const store = observable({
     chat: {
         to_user: null as any,
         messages: [] as any[],
-        pending_message: ''
+        pending_message: '',
+        unread_message_count: 0,
+        last_visited: null as any 
     }
 })

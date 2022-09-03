@@ -57,6 +57,27 @@ export const fetch_messages = wrap_loading(async () => {
     })
 })
 
+
+export const fetch_unread_message_count = wrap_loading(async () => {
+    const to_user_id = store.shared.user?.id
+    const { unread_messages } = await orma_query({
+        messages: {
+            id: true,
+            from_user_id: true,
+            created_at: true,
+            $where: {
+                $or: [
+                    { $eq: ['to_user_id', { $escape: to_user_id }] },
+                    { $gt: ['created_at', {$escape: store.chat.last_visited}]}
+                ]
+            }
+        }
+    })
+    runInAction(() => {
+        store.chat.unread_message_count = unread_messages.length
+    })
+})
+
 export const send_message = wrap_loading(async () => {
     const { messages } = await orma_mutate({
         $operation: 'create',
