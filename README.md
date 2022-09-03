@@ -22,4 +22,3 @@ should be in backend folder
 
 put alter table commands in a folder, then
 `./node_modules/db-migrate/bin/db-migrate up`
-![image](https://user-images.githubusercontent.com/47611860/188281279-e7d0ea2d-10be-4c88-906e-c9a640aa20fb.png)
