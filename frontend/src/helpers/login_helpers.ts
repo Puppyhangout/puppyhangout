@@ -46,5 +46,5 @@ export const logout = action(() => {
     store.shared.email = ''
     store.shared.password = ''
     store.shared.first_name = ''
-    store.shared.max_match_dist = null
+    store.shared.max_match_dist = 9999
 })
