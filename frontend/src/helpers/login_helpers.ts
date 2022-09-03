@@ -14,8 +14,10 @@ export const login = wrap_loading(async (email: string, password: string) => {
             password
         })
         runInAction(() => {
+            console.log("login",user.user_info[0])
             store.shared.token = token
             store.shared.user = user
+            store.shared.max_match_dist = user.user_info[0].max_match_dist
             store.shared.tab = 'Home'
         })
 
@@ -44,4 +46,5 @@ export const logout = action(() => {
     store.shared.email = ''
     store.shared.password = ''
     store.shared.first_name = ''
+    store.shared.max_match_dist = null
 })

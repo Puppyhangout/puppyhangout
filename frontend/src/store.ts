@@ -16,7 +16,7 @@ export const store = observable({
         email: '',
         first_name: '',
         password: '',
-        max_match_dist: 9999
+        max_match_dist: 8888
     }),
     signup: {
         has_puppy: false,
@@ -42,6 +42,9 @@ export const store = observable({
     },
     sitters_list: {
         user_info: []
+    },
+    puppies_list: {
+        puppies: []
     },
     chats: {
         users: [] as any[]
