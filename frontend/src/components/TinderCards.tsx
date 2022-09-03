@@ -1,4 +1,4 @@
-import { IconButton } from "@mui/material";
+import { Button, IconButton } from "@mui/material";
 import { observer } from "mobx-react-lite";
 import { createRef, useEffect, useMemo, useState, useRef } from "react";
 import TinderCard from "react-tinder-card";
@@ -14,7 +14,7 @@ export const TinderCards = observer(() => {
   }, []);
   useEffect(() => {
     updatecurrentIndex(store.home.puppies.slice(0, 4).length - 1);
-  }, [store.home.puppies.slice(0, 4).length]);
+  }, [store.home.puppies]);
   const [currentIndex, updatecurrentIndex] = useState(-1);
   const currentIndexRef = useRef(currentIndex);
 
@@ -56,6 +56,12 @@ export const TinderCards = observer(() => {
     }
   };
 
+  const chat = (idx: number) => {
+    const pup = store.home.puppies[idx];
+    store.chat.to_user = pup.users[0];
+    store.shared.tab = "Chat";
+  };
+
   // console.log
   return (
     <div>
@@ -65,8 +71,7 @@ export const TinderCards = observer(() => {
           <TinderCard
             onSwipe={(direction: string) => {
               if (["up", "right"].includes(direction)) {
-                store.chat.to_user = pup.users[0];
-                store.shared.tab = "Chat";
+                chat(index);
               } else {
                 swiped(direction, index);
               }
@@ -98,6 +103,15 @@ export const TinderCards = observer(() => {
         >
           <KeyboardArrowRightIcon />
         </IconButton>
+      )}
+      {canSwipe && (
+        <Button
+          onClick={() => {
+            chat(currentIndex);
+          }}
+        >
+          Chat
+        </Button>
       )}
     </div>
   );
