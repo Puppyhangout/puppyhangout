@@ -53,6 +53,7 @@ export const fetch_messages = wrap_loading(async () => {
         }
     })
     runInAction(() => {
+        console.log(messages)
         store.chat.messages = messages
     })
 })
@@ -68,13 +69,15 @@ export const fetch_unread_message_count = wrap_loading(async () => {
             $where: {
                 $or: [
                     { $eq: ['to_user_id', { $escape: to_user_id }] },
-                    { $gt: ['created_at', {$escape: store.chat.last_visited}]}
+                    //{ $gt: ['created_at', {$escape: store.chat.last_visited}]}
                 ]
             }
         }
     })
+   
     runInAction(() => {
-        store.chat.unread_message_count = unread_messages.length
+        console.log(unread_messages)
+        store.chat.unread_message_count = unread_messages?.length
     })
 })
 

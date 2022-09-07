@@ -10,6 +10,7 @@ export const Chats = observer(() => {
     useEffect(() => {
         fetch_users_im_talking_to()
     }, [])
+    store.chat.last_visited = new Date()
     return (
         <Table>
             <TableHead>

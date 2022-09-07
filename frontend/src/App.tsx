@@ -4,6 +4,7 @@ import { About } from './components/about/About'
 import { Sitters } from './components/sitters/Sitters'
 import { Center } from './components/center'
 import { Chats } from './components/chats/Chats'
+import { ChatTab } from './components/chats/ChatTab'
 import { Contact } from './pages/Contact'
 import { Login } from './components/login/login_page'
 import { Setting } from './components/setting/setting_page'
@@ -26,6 +27,8 @@ export const App = observer(() => {
             save_to_local_storage(shared_store_prop, store.shared)
         })
     }, [])
+    console.log("Called App.tsx")
+    
     return (
         <Center>
             <Typography variant={'h4'} align={'left'} fontFamily ={'Monospace'} >
@@ -52,6 +55,9 @@ export const App = observer(() => {
                 {store.shared.tab === 'Chat' && (
                     <>{!!store.chat.to_user?.id ? <ChatScreen /> : <Chats />}</>
                 )}
+                <div>
+                    {"UN: " + store.chat.unread_message_count}
+                </div>
                 {store.shared.tab === 'Sitters' && <Sitters />}
             </div>
 

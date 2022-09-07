@@ -4,6 +4,7 @@ import axios from 'axios'
 import { action, runInAction } from 'mobx'
 import { store } from '../store'
 import { show_toast } from './helpers'
+import { fetch_unread_message_count } from './chat_helpers'
 
 export const login = wrap_loading(async (email: string, password: string) => {
     try {
@@ -19,6 +20,11 @@ export const login = wrap_loading(async (email: string, password: string) => {
             store.shared.user = user
             store.shared.max_match_dist = user.user_info[0].max_match_dist
             store.shared.tab = 'Home'
+            setInterval(checkNewMessages, 1000)
+            function checkNewMessages() {
+                console.log("Checking for new messages...")
+                fetch_unread_message_count()
+            }
         })
 
         await orma_mutate({
