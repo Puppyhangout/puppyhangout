@@ -1,4 +1,4 @@
-import { Button, Grid, Menu, MenuItem, Tab, Tabs, Typography } from '@mui/material'
+import { Button, Grid, Menu, MenuItem, Tab, Tabs, Typography, Badge } from '@mui/material'
 import './app.css'
 import { About } from './components/about/About'
 import { Sitters } from './components/sitters/Sitters'
@@ -44,7 +44,15 @@ export const App = observer(() => {
                 {store.shared.token.length === 0 && <Tab {...commonTabProps('Signup')} />}
                 {store.shared.token.length === 0 && <Tab {...commonTabProps('Login')} />}
                 {store.shared.token.length > 0 && <Tab {...commonTabProps('Settings')} />}
-                {store.shared.token.length > 0 && <Tab {...commonTabProps('Chat')} onClick={action(() => (store.chat.to_user = null))}/>}
+                {store.shared.token.length > 0 && 
+
+                <Tab 
+                value='Chat' 
+                label={<Badge badgeContent={store.chat.unread_message_count} color="primary">Chat&nbsp;&nbsp;&nbsp;</Badge>}
+                onClick={action(() => (store.chat.to_user = null))}
+                />
+                
+                }
                 <Tab {...commonTabProps('Sitters')} />
             </Tabs>
             <div>
