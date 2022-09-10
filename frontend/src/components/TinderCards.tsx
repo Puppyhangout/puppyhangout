@@ -1,4 +1,4 @@
-import { Button, IconButton } from "@mui/material";
+import { Box, Button, IconButton, SxProps, Theme } from "@mui/material";
 import { observer } from "mobx-react-lite";
 import { createRef, useEffect, useMemo, useState, useRef } from "react";
 import TinderCard from "react-tinder-card";
@@ -7,6 +7,21 @@ import { store } from "../store";
 import { blank_photo } from "./signup/signup_page";
 import "./TinderCards.css";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+
+const style: { [key: string]: SxProps<Theme> } = {
+  root: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  top: {
+    "max-width": "85vw",
+    flexDirection: "column",
+  },
+  tinderCard: {
+    height: "55vh",
+  },
+};
 
 export const TinderCards = observer(() => {
   useEffect(() => {
@@ -18,7 +33,7 @@ export const TinderCards = observer(() => {
   const [currentIndex, updatecurrentIndex] = useState(-1);
   const currentIndexRef = useRef(currentIndex);
 
-  const childRefs = useMemo<any []>(
+  const childRefs = useMemo<any[]>(
     () =>
       Array(4)
         .fill(0)
@@ -62,12 +77,11 @@ export const TinderCards = observer(() => {
     store.shared.tab = "Chat";
   };
 
-  // console.log
   return (
-    <div>
-      {store.home.puppies.slice(0, 4).map((pup: any, index: number) => (
-        // @ts-ignore
-        <>
+    <Box sx={{ ...style.root, ...style.top } as SxProps<Theme>}>
+      <Box sx={{ ...style.root, ...style.tinderCard } as SxProps<Theme>}>
+        {store.home.puppies.slice(0, 4).map((pup: any, index: number) => (
+          // @ts-ignore
           <TinderCard
             onSwipe={(direction: string) => {
               if (["up", "right"].includes(direction)) {
@@ -93,26 +107,28 @@ export const TinderCards = observer(() => {
               </h3>
             </div>
           </TinderCard>
-        </>
-      ))}
-      {canSwipe && (
-        <IconButton
-          onClick={() => {
-            swipe("left");
-          }}
-        >
-          <KeyboardArrowRightIcon />
-        </IconButton>
-      )}
-      {canSwipe && (
-        <Button
-          onClick={() => {
-            chat(currentIndex);
-          }}
-        >
-          Chat
-        </Button>
-      )}
-    </div>
+        ))}
+      </Box>
+      <Box sx={style.root}>
+        {canSwipe && (
+          <IconButton
+            onClick={() => {
+              swipe("left");
+            }}
+          >
+            <KeyboardArrowRightIcon />
+          </IconButton>
+        )}
+        {canSwipe && (
+          <Button
+            onClick={() => {
+              chat(currentIndex);
+            }}
+          >
+            Chat
+          </Button>
+        )}
+      </Box>
+    </Box>
   );
 });
