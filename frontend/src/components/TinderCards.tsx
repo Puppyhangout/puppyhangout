@@ -28,7 +28,7 @@ export const TinderCards = observer(() => {
     fetch_puppies();
   }, []);
   useEffect(() => {
-    updatecurrentIndex(store.home.puppies.slice(0, 4).length - 1);
+    updatecurrentIndex(store.home.puppies.length - 1);
   }, [store.home.puppies]);
   const [currentIndex, updatecurrentIndex] = useState(-1);
   const currentIndexRef = useRef(currentIndex);
@@ -80,7 +80,7 @@ export const TinderCards = observer(() => {
   return (
     <Box sx={{ ...style.root, ...style.top } as SxProps<Theme>}>
       <Box sx={{ ...style.root, ...style.tinderCard } as SxProps<Theme>}>
-        {store.home.puppies.slice(0, 4).map((pup: any, index: number) => (
+        {store.home.puppies.map((pup: any, index: number) => (
           // @ts-ignore
           <TinderCard
             onSwipe={(direction: string) => {
