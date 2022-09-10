@@ -38,7 +38,7 @@ export const store = observable({
         ]
     },
     home: {
-        puppies: []
+        puppies: [] as any[]
     },
     sitters_list: {
         user_info: []

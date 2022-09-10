@@ -18,7 +18,7 @@ export const TinderCards = observer(() => {
   const [currentIndex, updatecurrentIndex] = useState(-1);
   const currentIndexRef = useRef(currentIndex);
 
-  const childRefs = useMemo(
+  const childRefs = useMemo<any []>(
     () =>
       Array(4)
         .fill(0)
