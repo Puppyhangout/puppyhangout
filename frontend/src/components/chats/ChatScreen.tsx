@@ -24,7 +24,7 @@ export const ChatScreen = observer(() => {
                                 src={
                                     message.from_user_id === store.shared.user?.id
                                         ? store.shared.user.user_info?.[0].photo_url
-                                        : message.users?.[0]?.photo_url
+                                        : store.chat.to_user?.user_info?.[0].photo_url
                                 }
                             />
                             <p className='chatScreen_text'>{message.message} </p>
