@@ -7,6 +7,7 @@ import { store } from "../store";
 import { blank_photo } from "./signup/signup_page";
 import "./TinderCards.css";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+import _ from 'lodash';
 
 const style: { [key: string]: SxProps<Theme> } = {
   root: {
@@ -24,14 +25,23 @@ const style: { [key: string]: SxProps<Theme> } = {
 };
 
 export const TinderCards = observer(() => {
-  useEffect(() => {
-    fetch_puppies();
-  }, []);
-  useEffect(() => {
-    updatecurrentIndex(store.home.puppies.length - 1);
-  }, [store.home.puppies]);
   const [currentIndex, updatecurrentIndex] = useState(-1);
-  const currentIndexRef = useRef(currentIndex);
+  const currentIndexRef = useRef(-1);
+  useEffect(() => {
+    const a = async () => {
+      const prev = _.cloneDeep(store.home.puppies)
+      await fetch_puppies()
+      const fetched = _.cloneDeep(store.home.puppies)
+      if (! _.isEqual(prev, fetched)){
+        updatecurrentIndex(store.home.puppies.length - 1);
+        currentIndexRef.current = store.home.puppies.length - 1
+      }
+      else{
+        console.log("DUPLICAET!!!")
+      }
+    };
+    a()
+  }, []);
 
   const childRefs = useMemo<any[]>(
     () =>
