@@ -21,8 +21,10 @@ export const fetch_sitters = wrap_loading(async () => {
     })
 
     const coords: any = await new Promise((resolve, reject) => {
-        navigator.geolocation.getCurrentPosition((args) => { resolve(args.coords) })
-
+        navigator.geolocation.getCurrentPosition((args) => { 
+            resolve(args.coords) },
+            (e)=>console.error(e)
+            )
     })
 
     let user_info2 = user_info.map( (el: any) => {
