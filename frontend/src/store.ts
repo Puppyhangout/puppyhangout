@@ -30,7 +30,8 @@ export const store = observable({
                     {
                         photo_url: '',
                         lat: '',
-                        lng: ''
+                        lng: '',
+                        user_description: ''
                     }
                 ],
                

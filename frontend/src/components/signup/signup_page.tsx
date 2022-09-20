@@ -59,7 +59,6 @@ export const Signup = observer(() => {
                 </FormControl>                
 
                 <TextField
-                    autoComplete='new-password'
                     onKeyPress={e => (e.key === 'Enter' ? signup() : '')}
                     id='outlined-basic'
                     label='Email'
@@ -69,7 +68,6 @@ export const Signup = observer(() => {
                 />
 
                 <TextField
-                    autoComplete='new-password'
                     onKeyPress={e => (e.key === 'Enter' ? signup() : '')}
                     id='outlined-basic'
                     label='First Name'
@@ -79,7 +77,6 @@ export const Signup = observer(() => {
                 />
 
                 <TextField
-                    autoComplete='new-password'
                     onKeyPress={e => (e.key === 'Enter' ? signup() : '')}
                     id='outlined-basic'
                     label='Last Name'
@@ -99,9 +96,21 @@ export const Signup = observer(() => {
                     onChange={action((e: any) => (store.signup.users[0].password = e.target.value))}
                 />
 
+                <TextField
+                    onKeyPress={e => (e.key === 'Enter' ? signup() : '')}
+                    id='outlined-multiline-static'
+                    label='User Description'
+                    variant='outlined'
+                    type="textarea" 
+                    multiline
+                    rows={5}
+                    defaultValue="                           Have you had pets? What's your sitting experience?"
+                    value={store.signup.users[0]?.user_info[0]?.user_description}
+                    onChange={action((e: any) => (store.signup.users[0].user_info[0].user_description = e.target.value))}
+                />
+
                 {String(store.signup.has_puppy) === 'true' && 
                 <TextField
-                    autoComplete='new-password'
                     onKeyPress={e => (e.key === 'Enter' ? signup() : '')}
                     id='outlined-basic'
                     label='Puppy Name'
@@ -119,7 +128,6 @@ export const Signup = observer(() => {
                 
                 {String(store.signup.has_puppy) === 'true' && 
                 <TextField
-                    autoComplete='new-password'
                     onKeyPress={e => (e.key === 'Enter' ? signup() : '')}
                     id='outlined-basic'
                     label='Puppy Breed'
@@ -135,7 +143,6 @@ export const Signup = observer(() => {
 
                 {String(store.signup.has_puppy) === 'true' && 
                 <TextField
-                    autoComplete='new-password'
                     onKeyPress={e => (e.key === 'Enter' ? signup() : '')}
                     id='outlined-basic'
                     label='Puppy Size'
