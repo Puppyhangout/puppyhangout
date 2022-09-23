@@ -20,12 +20,7 @@ export const login = wrap_loading(async (email: string, password: string) => {
             store.shared.user = user
             store.shared.max_match_dist = user.user_info[0].max_match_dist
             store.shared.tab = 'Home'
-            setInterval(checkNewMessages, 1000)
             store.chat.last_visited = new Date()
-            function checkNewMessages() {
-                console.log("Checking for new messages...")
-                fetch_unread_message_count()
-            }
         })
 
         await orma_mutate({

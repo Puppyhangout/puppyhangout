@@ -4,7 +4,7 @@ import { About } from './components/about/About'
 import { Sitters } from './components/sitters/Sitters'
 import { Center } from './components/center'
 import { Chats } from './components/chats/Chats'
-import { ChatTab } from './components/chats/ChatTab'
+import { ChatNotificationCounter } from './components/chats/ChatNotificationCounter'
 import { Contact } from './pages/Contact'
 import { Login } from './components/login/login_page'
 import { Setting } from './components/setting/setting_page'
@@ -48,7 +48,7 @@ export const App = observer(() => {
 
                 <Tab 
                 value='Chat' 
-                label={<Badge badgeContent={store.chat.unread_message_count} color="primary">Chat&nbsp;&nbsp;&nbsp;</Badge>}
+                label={<ChatNotificationCounter />}
                 onClick={action(() => (store.chat.to_user = null))}
                 />
                 
