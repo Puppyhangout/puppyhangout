@@ -28,8 +28,10 @@ export const fetch_puppies = wrap_loading(async () => {
     })
     console.log("pupp",puppies)
     const coords: any = await new Promise((resolve, reject) => {
-        navigator.geolocation.getCurrentPosition((args) => { resolve(args.coords) })
-
+        navigator.geolocation.getCurrentPosition((args) => { 
+            resolve(args.coords) },
+            (e)=>console.error(e)
+            )
     })
     console.log(coords)
     let user_info2 = puppies.map( (el: any) => {
