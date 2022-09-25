@@ -42,7 +42,7 @@ export const Sitters = observer(() => {
                         style={{ backgroundImage: `url(${abc.photo_url || blank_photo})`,}}
                         className = {'card'}
                     >
-                    <h3>{abc?.users[0].first_name}, {Math.round(abc._dist)} km 
+                    <h3>{abc.users?.[0]?.first_name}, {Math.round(abc._dist)} km
                     </h3>
                     <h4>
                     {abc?.user_description}
