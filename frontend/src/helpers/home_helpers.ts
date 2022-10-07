@@ -30,7 +30,7 @@ export const fetch_puppies = wrap_loading(async () => {
     const coords: any = await new Promise((resolve, reject) => {
         navigator.geolocation.getCurrentPosition((args) => { 
             resolve(args.coords) },
-            (e)=>console.error(e)
+            (e)=>reject("Please allow the location for the cards to be shown.")
             )
     })
     console.log(coords)
