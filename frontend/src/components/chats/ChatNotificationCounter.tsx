@@ -6,8 +6,12 @@ import { store } from '../../store'
 import './Chat.css'
 
 export const ChatNotificationCounter = observer(() => {
+    const fetchUnread = () => {
+        console.log("Last visited " + store.chat.last_visited)
+        fetch_unread_message_count();
+    }
     useEffect(() => {
-        const notificationCheckInterval = setInterval(fetch_unread_message_count, 1000);
+        const notificationCheckInterval = setInterval(fetchUnread, 1000);
         return () => {
             clearInterval(notificationCheckInterval);
         }

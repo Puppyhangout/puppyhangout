@@ -63,9 +63,6 @@ export const App = observer(() => {
                 {store.shared.tab === 'Chat' && (
                     <>{!!store.chat.to_user?.id ? <ChatScreen /> : <Chats />}</>
                 )}
-                <div>
-                    {"UN: " + store.chat.unread_message_count}
-                </div>
                 {store.shared.tab === 'Sitters' && <Sitters />}
             </div>
 

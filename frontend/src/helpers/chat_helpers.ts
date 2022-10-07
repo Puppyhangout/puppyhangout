@@ -61,6 +61,7 @@ export const fetch_messages = wrap_loading(async () => {
 
 export const fetch_unread_message_count = wrap_loading(async () => {
     const from_user_id = store.shared.user?.id
+    const last_visited = store.chat.last_visited
     const { messages } = await orma_query({
         messages: {
             id: true,
@@ -88,15 +89,13 @@ export const fetch_unread_message_count = wrap_loading(async () => {
             },
             $where: {
                 $and: [
-                    { $gt: ['created_at', { $escape: store.chat.last_visited }] },
+                    { $gt: ['created_at', { $escape: last_visited }] },
                     { $eq: ['to_user_id', { $escape: from_user_id }] }
                 ]
             }
         }
     })
     runInAction(() => {
-        console.log("Last Visited", store.chat.last_visited)
-        console.log("Messages: ", messages)
         store.chat.unread_message_count = messages?.length
     })
 })
@@ -114,6 +113,18 @@ export const send_message = wrap_loading(async () => {
     })
     runInAction(() => {
         store.chat.messages = messages
+    })
+})
+
+export const update_last_check_msg = wrap_loading(async () => {
+    const last_visited = new Date()
+    store.chat.last_visited = last_visited
+    await orma_mutate({
+        $operation: 'update',
+        user_info: [{
+            user_id: store.shared.user?.id,
+            lastcheckmsg: last_visited
+        }]
     })
 })
 
