@@ -46,15 +46,12 @@ export const App = observer(() => {
                 {store.shared.token.length === 0 && <Tab {...commonTabProps('Login')} />}
                 {store.shared.token.length > 0 && <Tab {...commonTabProps('Settings')} />}
                 {store.shared.token.length > 0 && 
-
-                <Tab 
-                value='Chat' 
-                label={<ChatNotificationCounter />}
-                onClick={action(() => (store.chat.to_user = null))}
-                />
-                
+                    <Tab 
+                        value='Chat' 
+                        label={<ChatNotificationCounter />}
+                        onClick={action(() => (store.chat.to_user = null))}
+                    />
                 }
-                {store.shared.token.length > 0 && <Tab {...commonTabProps('Chat')} onClick={action(() => (store.chat.to_user = null))}/>}
                 <Tab {...commonTabProps('Puppies')} />
                 <Tab {...commonTabProps('Sitters')} />
             </Tabs>
