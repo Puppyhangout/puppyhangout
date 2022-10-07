@@ -4,9 +4,11 @@ import axios from 'axios'
 import { action, runInAction } from 'mobx'
 import { store } from '../store'
 import { show_toast } from './helpers'
+import { fetch_unread_message_count } from './chat_helpers'
 
 export const login = wrap_loading(async (email: string, password: string) => {
     try {
+
         const {
             data: { token, user }
         } = await axios.post(get_base_url(window.location.host) + '/login', {
@@ -19,6 +21,7 @@ export const login = wrap_loading(async (email: string, password: string) => {
             store.shared.user = user
             store.shared.max_match_dist = user.user_info[0].max_match_dist
             store.shared.tab = 'Home'
+            store.chat.last_visited = user.user_info[0].lastcheckmsg
         })
 
         await orma_mutate({

@@ -1,9 +1,10 @@
-import { Button, Grid, Menu, MenuItem, Tab, Tabs, Typography } from '@mui/material'
+import { Button, Grid, Menu, MenuItem, Tab, Tabs, Typography, Badge } from '@mui/material'
 import './app.css'
 import { About } from './components/about/About'
 import { Sitters } from './components/sitters/Sitters'
 import { Center } from './components/center'
 import { Chats } from './components/chats/Chats'
+import { ChatNotificationCounter } from './components/chats/ChatNotificationCounter'
 import { Contact } from './pages/Contact'
 import { Login } from './components/login/login_page'
 import { Guide } from './components/guide/Guide'
@@ -27,6 +28,8 @@ export const App = observer(() => {
             save_to_local_storage(shared_store_prop, store.shared)
         })
     }, [])
+    console.log("Called App.tsx")
+    
     return (
         <Center>
             <Typography variant={'h4'} align={'left'} fontFamily ={'Monospace'} >
@@ -41,7 +44,14 @@ export const App = observer(() => {
             <AppToolbar/>
                 {store.shared.token.length === 0 && <Tab {...commonTabProps('Signup')} />}
                 {store.shared.token.length === 0 && <Tab {...commonTabProps('Login')} />}
-                {store.shared.token.length > 0 && <Tab {...commonTabProps('Chat')} onClick={action(() => (store.chat.to_user = null))}/>}
+                {store.shared.token.length > 0 && <Tab {...commonTabProps('Settings')} />}
+                {store.shared.token.length > 0 && 
+                    <Tab 
+                        value='Chat' 
+                        label={<ChatNotificationCounter />}
+                        onClick={action(() => (store.chat.to_user = null))}
+                    />
+                }
                 <Tab {...commonTabProps('Puppies')} />
                 <Tab {...commonTabProps('Sitters')} />
             </Tabs>

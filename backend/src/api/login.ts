@@ -20,7 +20,8 @@ export const login_user = async (email, password) => {
             first_name: true,
             user_info: {
                 photo_url: true,
-                max_match_dist: true
+                max_match_dist: true,
+                lastcheckmsg: true
             },
             $where
         }

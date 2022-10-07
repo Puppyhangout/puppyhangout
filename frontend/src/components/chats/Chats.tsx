@@ -2,12 +2,13 @@ import { Avatar, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/m
 import { action } from 'mobx'
 import { observer } from 'mobx-react-lite'
 import { useEffect } from 'react'
-import { fetch_messages, fetch_users_im_talking_to } from '../../helpers/chat_helpers'
+import { fetch_messages, fetch_users_im_talking_to , update_last_check_msg} from '../../helpers/chat_helpers'
 import { store } from '../../store'
 import './Chat.css'
 
 export const Chats = observer(() => {
     useEffect(() => {
+        update_last_check_msg()
         fetch_users_im_talking_to()
     }, [])
     return (
