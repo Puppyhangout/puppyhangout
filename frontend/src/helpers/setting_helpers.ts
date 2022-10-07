@@ -78,7 +78,7 @@ export const refresh_settings = wrap_loading(async () => {
         runInAction(() => {
             store.settings.form.original = { users: users }
             store.settings.form.modified = { users: clone(users) }
-            store.shared.max_match_dist = users.user_info.max_match_dist
+            store.shared.max_match_dist = users[0].user_info[0].max_match_dist
         })
     }
 })

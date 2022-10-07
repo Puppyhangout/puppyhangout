@@ -10,7 +10,7 @@ export const store = observable({
         toast_is_open: false
     },
     shared: load_from_local_storage(shared_store_prop, {
-        tab: 'Login' as 'Login' | 'Signup' | 'Settings' | 'Chat' | 'Contact' | 'About' | 'Sitters' |'Home',
+        tab: 'Login' as 'Login' | 'Signup' | 'Settings' | 'Chat' | 'Contact' | 'About' | 'Sitters' |'Home' | 'Guide' | 'Puppies',
         token: '',
         user: null as any,
         email: '',
@@ -30,7 +30,8 @@ export const store = observable({
                     {
                         photo_url: '',
                         lat: '',
-                        lng: ''
+                        lng: '',
+                        user_description: ''
                     }
                 ],
                

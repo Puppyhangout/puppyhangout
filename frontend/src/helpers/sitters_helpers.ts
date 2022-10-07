@@ -21,8 +21,10 @@ export const fetch_sitters = wrap_loading(async () => {
     })
 
     const coords: any = await new Promise((resolve, reject) => {
-        navigator.geolocation.getCurrentPosition((args) => { resolve(args.coords) })
-
+        navigator.geolocation.getCurrentPosition((args) => { 
+            resolve(args.coords) },
+            (e)=>reject("Please allow the location for the cards to be shown.")
+            )
     })
 
     let user_info2 = user_info.map( (el: any) => {
@@ -43,7 +45,6 @@ export const fetch_sitters = wrap_loading(async () => {
         return new Date(a.lastlogin).getTime() - new Date(b.lastlogin).getTime()
     }).filter((el: any) => el._dist < store.shared.max_match_dist)
     // store.shared.max_match_dist)
-    console.log("max match dist in sitters helper",store.shared.max_match_dist)
 
 
     runInAction(() => {

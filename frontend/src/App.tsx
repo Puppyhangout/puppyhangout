@@ -7,6 +7,7 @@ import { Chats } from './components/chats/Chats'
 import { ChatNotificationCounter } from './components/chats/ChatNotificationCounter'
 import { Contact } from './pages/Contact'
 import { Login } from './components/login/login_page'
+import { Guide } from './components/guide/Guide'
 import { Setting } from './components/setting/setting_page'
 import { Toasts } from './components/toasts'
 import { commonTabGroupProps, commonTabProps, title_case } from './helpers/helpers'
@@ -53,38 +54,36 @@ export const App = observer(() => {
                 />
                 
                 }
+                {store.shared.token.length > 0 && <Tab {...commonTabProps('Chat')} onClick={action(() => (store.chat.to_user = null))}/>}
+                <Tab {...commonTabProps('Puppies')} />
                 <Tab {...commonTabProps('Sitters')} />
             </Tabs>
             <div>
                 {store.shared.tab === 'Login' && <Login />}
-
                 {store.shared.tab === 'Signup' && <Signup />}
                 {store.shared.tab === 'Settings' && <Setting />}
                 {store.shared.tab === 'Chat' && (
                     <>{!!store.chat.to_user?.id ? <ChatScreen /> : <Chats />}</>
                 )}
+                {store.shared.tab === 'Puppies' && <TinderCards />}
                 {store.shared.tab === 'Sitters' && <Sitters />}
             </div>
-
             <Toasts />
             
-
             <div id="footer">
             <Tabs {...commonTabGroupProps(store, ['shared', 'tab'])}>
-            <Tab {...commonTabProps('Home')} />
+            <Tab {...commonTabProps('Guide')} />
             <Tab {...commonTabProps('Contact')} />
             <Tab {...commonTabProps('About')} />    
             </Tabs>
-                
             </div>
+
             <div>
-            {store.shared.tab === 'Home' && <TinderCards />}
+            {store.shared.tab === 'Guide' && <Guide />}
             {store.shared.tab === 'Contact' && <Contact />}
             {store.shared.tab === 'About' && <About />}
             </div>
         </Center>
-                    
-
     )
 })
 
@@ -111,15 +110,14 @@ const AppToolbar = observer(() => {
                     onClose={() => setAnchorEl(null)}
                 >
                     <MenuItem>
-                        <span    onClick={action(() => {
-                            console.log('hi')
+                        <span onClick={action(() =>  {
                             // @ts-ignore
                             store.shared.tab = 'Settings' 
                             setAnchorEl(null)
-                        })} style={{ marginLeft: '10px' }}>Settings</span>
+                        })} style={{ marginLeft: '5px' }}>Settings</span>
                     </MenuItem>
                     <MenuItem onClick={e => logout()}>
-                        <span style={{ marginLeft: '10px' }}>Logout</span>
+                        <span style={{ marginLeft: '5px' }}>Logout</span>
                     </MenuItem>
                 </Menu>
             </div>

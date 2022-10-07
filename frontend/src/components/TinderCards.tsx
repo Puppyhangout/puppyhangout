@@ -1,5 +1,6 @@
+import { Box } from '@mui/material'
 import { observer } from 'mobx-react-lite'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import TinderCard from 'react-tinder-card'
 import { fetch_puppies } from '../helpers/home_helpers'
 import { store } from '../store'
@@ -7,13 +8,24 @@ import { blank_photo } from './signup/signup_page'
 import './TinderCards.css'
 
 export const TinderCards = observer(() => {
+    const [error, setError] = useState<any>(null)
     useEffect(() => {
-        fetch_puppies()
+        const a = async ()=>{
+            try{
+                await fetch_puppies()
+            }
+            catch(e){
+                console.error(e)
+                setError(e)
+            } 
+        }
+        a()
     }, [])
 
     return (
         <div>
-            {store.puppies_list.puppies.map((pup: any) => (
+            {error && <Box>{error}</Box>}
+            {!error && store.puppies_list.puppies.map((pup: any) => (
                 // @ts-ignore
                 <TinderCard
                     onSwipe={direction => {
