@@ -88,14 +88,6 @@ export const orma_schema = {
     },
     "$indexes": [
       {
-        "index_name": "users_phone_uq",
-        "is_unique": true,
-        "fields": [
-          "phone"
-        ],
-        "invisible": false
-      },
-      {
         "index_name": "users_resource_id_uq",
         "is_unique": true,
         "fields": [
@@ -116,6 +108,14 @@ export const orma_schema = {
         "is_unique": true,
         "fields": [
           "email"
+        ],
+        "invisible": false
+      },
+      {
+        "index_name": "users_phone_uq",
+        "is_unique": true,
+        "fields": [
+          "phone"
         ],
         "invisible": false
       }
@@ -236,14 +236,6 @@ export const orma_schema = {
     },
     "$indexes": [
       {
-        "index_name": "user_has_roles_pkey",
-        "is_unique": true,
-        "fields": [
-          "id"
-        ],
-        "invisible": false
-      },
-      {
         "index_name": "user_has_roles_user_id_role_id_uq",
         "is_unique": true,
         "fields": [
@@ -257,6 +249,14 @@ export const orma_schema = {
         "is_unique": true,
         "fields": [
           "resource_id"
+        ],
+        "invisible": false
+      },
+      {
+        "index_name": "user_has_roles_pkey",
+        "is_unique": true,
+        "fields": [
+          "id"
         ],
         "invisible": false
       }
@@ -298,6 +298,14 @@ export const orma_schema = {
     },
     "$indexes": [
       {
+        "index_name": "permissions_name_uq",
+        "is_unique": true,
+        "fields": [
+          "name"
+        ],
+        "invisible": false
+      },
+      {
         "index_name": "permissions_resource_id_uq",
         "is_unique": true,
         "fields": [
@@ -310,14 +318,6 @@ export const orma_schema = {
         "is_unique": true,
         "fields": [
           "id"
-        ],
-        "invisible": false
-      },
-      {
-        "index_name": "permissions_name_uq",
-        "is_unique": true,
-        "fields": [
-          "name"
         ],
         "invisible": false
       }
@@ -439,14 +439,6 @@ export const orma_schema = {
     },
     "$indexes": [
       {
-        "index_name": "groups_name_uq",
-        "is_unique": true,
-        "fields": [
-          "name"
-        ],
-        "invisible": false
-      },
-      {
         "index_name": "groups_resource_id_uq",
         "is_unique": true,
         "fields": [
@@ -459,6 +451,14 @@ export const orma_schema = {
         "is_unique": true,
         "fields": [
           "id"
+        ],
+        "invisible": false
+      },
+      {
+        "index_name": "groups_name_uq",
+        "is_unique": true,
+        "fields": [
+          "name"
         ],
         "invisible": false
       }
@@ -528,6 +528,17 @@ export const orma_schema = {
     "lastlogin": {
       "data_type": "timestamp without time zone",
       "ordinal_position": 12,
+      "not_null": true,
+      "decimal_places": 6,
+      "default": "now():::TIMESTAMP"
+    },
+    "max_match_dist": {
+      "data_type": "character varying",
+      "ordinal_position": 13
+    },
+    "lastcheckmsg": {
+      "data_type": "timestamp without time zone",
+      "ordinal_position": 14,
       "not_null": true,
       "decimal_places": 6,
       "default": "now():::TIMESTAMP"
@@ -619,18 +630,18 @@ export const orma_schema = {
     },
     "$indexes": [
       {
-        "index_name": "puppies_pkey",
-        "is_unique": true,
-        "fields": [
-          "id"
-        ],
-        "invisible": false
-      },
-      {
         "index_name": "puppies_resource_id_uq",
         "is_unique": true,
         "fields": [
           "resource_id"
+        ],
+        "invisible": false
+      },
+      {
+        "index_name": "puppies_pkey",
+        "is_unique": true,
+        "fields": [
+          "id"
         ],
         "invisible": false
       }
@@ -772,6 +783,48 @@ export const orma_schema = {
         "is_unique": true,
         "fields": [
           "id"
+        ],
+        "invisible": false
+      }
+    ]
+  },
+  "swipe_actions": {
+    "from_user_id": {
+      "data_type": "bigint",
+      "ordinal_position": 1,
+      "character_count": 64
+    },
+    "to_user_id": {
+      "data_type": "bigint",
+      "ordinal_position": 2,
+      "character_count": 64
+    },
+    "action_id": {
+      "data_type": "bigint",
+      "ordinal_position": 3,
+      "not_null": true,
+      "character_count": 64
+    },
+    "action_time": {
+      "data_type": "timestamp without time zone",
+      "ordinal_position": 4,
+      "not_null": true,
+      "decimal_places": 6,
+      "default": "now():::TIMESTAMP"
+    },
+    "rowid": {
+      "data_type": "bigint",
+      "ordinal_position": 5,
+      "not_null": true,
+      "character_count": 64,
+      "default": "unique_rowid()"
+    },
+    "$indexes": [
+      {
+        "index_name": "swipe_actions_pkey",
+        "is_unique": true,
+        "fields": [
+          "rowid"
         ],
         "invisible": false
       }
