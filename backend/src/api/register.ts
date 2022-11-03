@@ -13,10 +13,10 @@ export const send_verification_email = async (email) => {
   }
 
   const verificationToken = await VerificationToken.create({
-    username: email,
+    email: email,
     token: cryptoRandomString({ length: 20, type: "url-safe" }),
-    createdat: new Date(),
-    updatedat: new Date(),
+    created_at: new Date(),
+    updated_at: new Date(),
   });
   //jwt token
   let jwtTokenEmailVerify = jwt.sign({ email: email }, "secret", {
@@ -65,6 +65,7 @@ export const verify_email = async (email, token) => {
       });
       if (foundToken) {
         console.log("Token found!");
+
         // await User.update(
         //   { isVerified: true },
         //   { returning: true, where: { email: email } }

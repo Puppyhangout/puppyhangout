@@ -1,32 +1,41 @@
 //const transporter = require('./initService').transporter;
 const hbs = require("nodemailer-express-handlebars");
 let nodeMailer = require("nodemailer");
+
 const transporter = nodeMailer.createTransport({
-  host: "smtp-mail.outlook.com", // hostname
-  secureConnection: false, // TLS requires secureConnection to be false
-  port: 587, // port for secure SMTP
-  tls: {
-    ciphers: "SSLv3",
-    rejectUnauthorized: false,
-  },
+  service: "gmail",
+  host: "smtp.gmail.com",
   auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASSWORD,
+    user: process.env.GMAIL_USER,
+    pass: process.env.GMAIL_PASSWORD,
   },
 });
+// const transporter = nodeMailer.createTransport({
+//   host: "smtp-mail.outlook.com", // hostname
+//   secureConnection: false, // TLS requires secureConnection to be false
+//   port: 587, // port for secure SMTP
+//   tls: {
+//     ciphers: "SSLv3",
+//     rejectUnauthorized: false,
+//   },
+//   auth: {
+//     user: process.env.EMAIL_USER,
+//     pass: process.env.EMAIL_PASSWORD,
+//   },
+// });
 
 transporter.use(
   "compile",
   hbs({
     viewEngine: {
       extName: ".hbs",
-      partialsDir: "./email_templates/",
-      layoutsDir: "./email_templates/",
+      partialsDir: "src/email_templates/",
+      layoutsDir: "src/email_templates/",
       defaultLayout: "verification.hbs",
     },
 
     //viewEngine: 'express-handlebars',
-    viewPath: "./email_templates/",
+    viewPath: "src/email_templates/",
     extName: ".hbs",
   })
 );
@@ -34,7 +43,7 @@ transporter.use(
 function sendVerificationEmail(email, token, jwtToken) {
   return new Promise((resolve, reject) => {
     let mailOptions = {
-      from: "<info@bis-mart.com>", // sender address
+      from: process.env.GMAIL_USER, // sender address
       to: email, // list of receivers
       subject: "Verify Your Account", // Subject line
       context: {

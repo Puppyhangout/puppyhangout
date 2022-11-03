@@ -3,7 +3,7 @@ const { Sequelize } = require("sequelize");
 const async = require("async");
 let nodeMailer = require("nodemailer");
 const connectionString = `postgresql://${process.env.POSTGRES_USER}:${process.env.POSTGRES_PASSWORD}@${process.env.POSTGRES_HOST}:${process.env.POSTGRES_PORT}/${process.env.POSTGRES_DATABASE}?sslmode=verify-full`;
-console.log({ connectionString });
+
 const sequelize = new Sequelize(connectionString, {
   dialact: "postgres",
   logging: false,
