@@ -1,35 +1,61 @@
-import { Button, Grid, Menu, MenuItem, Tab, Tabs, Typography, Badge } from '@mui/material'
+import { Button, Menu, MenuItem, Tab, Tabs, Typography } from '@mui/material'
+import axios from "axios"
+import { action, autorun, toJS } from 'mobx'
+import { observer } from 'mobx-react-lite'
+import { useEffect, useState } from 'react'
 import './app.css'
 import { About } from './components/about/About'
-import { Sitters } from './components/sitters/Sitters'
 import { Center } from './components/center'
-import { Chats } from './components/chats/Chats'
 import { ChatNotificationCounter } from './components/chats/ChatNotificationCounter'
-import { Contact } from './pages/Contact'
-import { Login } from './components/login/login_page'
-import { Guide } from './components/guide/Guide'
-import { Setting } from './components/setting/setting_page'
-import { Toasts } from './components/toasts'
-import { commonTabGroupProps, commonTabProps, title_case } from './helpers/helpers'
-import { store } from './store'
-import logo from './logo.png'
-import { TinderCards } from './components/TinderCards'
-import { observer } from 'mobx-react-lite'
-import { Signup } from './components/signup/signup_page'
-import { action, autorun, toJS } from 'mobx'
+import { Chats } from './components/chats/Chats'
 import { ChatScreen } from './components/chats/ChatScreen'
-import React, { useEffect, useState } from 'react'
+import { Guide } from './components/guide/Guide'
+import { Login } from './components/login/login_page'
+import { Setting } from './components/setting/setting_page'
+import { Signup } from './components/signup/signup_page'
+import { Sitters } from './components/sitters/Sitters'
+import { TinderCards } from './components/TinderCards'
+import { Toasts } from './components/toasts'
+import { get_base_url } from './helpers/api_helpers'
+import { commonTabGroupProps, commonTabProps } from './helpers/helpers'
 import { save_to_local_storage, shared_store_prop } from './helpers/local_storage'
 import { logout } from './helpers/login_helpers'
+import logo from './logo.png'
+import { Contact } from './pages/Contact'
+import { store } from './store'
 
 export const App = observer(() => {
+    const verifyEmail = async (search: string) => {
+        let searchArray:string[] = search.split("&jwtToken=");
+        if (searchArray.length > 1) {
+            const jwtToken : string = searchArray[1];
+            const verifyEmailUrl : string = get_base_url(window.location.host) +`/api/verify_email/${searchArray[0]}`;
+            try {
+                const res = await axios.get(verifyEmailUrl, { headers: { authorization: jwtToken } });
+                alert(res.data);
+            } catch (err: any) {
+                // if err.response.data is of type string, show it
+                // otherwise, check if err.response.data.message exists. If it does, show it.
+                // otherwise, show a generic error
+                alert(err && err.response && typeof err.response.data === "string" ? err.response.data : err.response.data && err.response.data.message ? err.response.data.message : "A server-side error occurred. Please try again later.");
+            }
+        } 
+    }
+
+    
     useEffect(() => {
+        const search: string = window.location.search;
+        if (search && search.includes("?token=")) {
+            // if url contains '?token=', we attempt to verify one's email on page load
+            verifyEmail(search);
+        }
+
         return autorun(() => {
             save_to_local_storage(shared_store_prop, store.shared)
         })
     }, [])
     console.log("Called App.tsx")
-    
+
     return (
         <Center>
             <Typography variant={'h4'} align={'left'} fontFamily ={'Monospace'} >

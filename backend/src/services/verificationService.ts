@@ -1,6 +1,5 @@
-//const transporter = require('./initService').transporter;
 const hbs = require("nodemailer-express-handlebars");
-let nodeMailer = require("nodemailer");
+const nodeMailer = require("nodemailer");
 
 const transporter = nodeMailer.createTransport({
   service: "gmail",
@@ -10,6 +9,8 @@ const transporter = nodeMailer.createTransport({
     pass: process.env.GMAIL_PASSWORD,
   },
 });
+
+// ARCHIVED: use this to send email via outlook
 // const transporter = nodeMailer.createTransport({
 //   host: "smtp-mail.outlook.com", // hostname
 //   secureConnection: false, // TLS requires secureConnection to be false
@@ -40,14 +41,15 @@ transporter.use(
   })
 );
 
-function sendVerificationEmail(email, token, jwtToken) {
+function sendVerificationEmail(email: string, token: string, jwtToken: string) {
   return new Promise((resolve, reject) => {
     let mailOptions = {
       from: process.env.GMAIL_USER, // sender address
       to: email, // list of receivers
       subject: "Verify Your Account", // Subject line
       context: {
-        verificationLink: `http://localhost:3001/verification?token=${token}&email=${email}&jwtToken=${jwtToken}`,
+        // TODO: change url accordingly in production
+        verificationLink: `${process.env.BASE_URL}/?token=${token}&email=${email}&jwtToken=${jwtToken}`,
       },
       template: "verification",
     };
