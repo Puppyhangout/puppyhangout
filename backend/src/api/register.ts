@@ -36,7 +36,7 @@ export const send_verification_email = async (email) => {
 export const verify_email = async (res, email, token) => {
   try {
     const $where: any = {
-      $eq: ["email", { $escape: "sean_chen@mymail.sutd.edu.sg" }],
+      $eq: ["email", { $escape: email }],
     };
 
     const query = {
