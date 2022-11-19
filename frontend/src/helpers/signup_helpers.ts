@@ -3,7 +3,7 @@ import { wrap_loading } from "./is_loading";
 import { store } from "../store";
 import { show_toast } from "./helpers";
 
-export const signup = wrap_loading(async (args?) => {
+export const signup = wrap_loading(async (setIsSuccessful, args?) => {
   if (store.signup.users[0]?.user_info[0]?.photo_url.length === 0) {
     show_toast("error", "upload picture please!");
     return;
@@ -50,7 +50,13 @@ export const signup = wrap_loading(async (args?) => {
     email: store.signup.users[0].email,
   });
 
+  alert(
+    "Please confirm your email by clicking the verification link in your inbox"
+  );
+
   show_toast("success", "Signup successful!");
+
+  setIsSuccessful(true);
   return response;
 });
 
