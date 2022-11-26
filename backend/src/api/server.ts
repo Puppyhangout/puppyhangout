@@ -4,6 +4,7 @@ import { handler } from 'express_phandler'
 import { mutate_handler, query_handler } from '../config/orma'
 import { introspect } from '../scripts/introspect'
 import { login_user } from './login'
+import { default as package_json } from '../../package.json'
 
 const port = process.env.PORT || 3001
 
@@ -14,6 +15,11 @@ export const start = async (env: 'production' | 'development') => {
     app.use(cors())
     app.use(express.json({ limit: '50mb' }))
     app.use(express.urlencoded({ extended: true, limit: '50mb' }))
+
+    app.get(
+        '/',
+        handler(_ => `Welcome to api version ${package_json.version}`)
+    )
 
     app.post(
         '/login',
@@ -36,7 +42,7 @@ export const start = async (env: 'production' | 'development') => {
     )
 
     await new Promise(r => app.listen(port, r as any))
-    console.log(`Listening started on port ${port}`)
+    console.log(`🟢 Server running on port ${port}`)
 }
 
 // Override default nodejs default uncaught exception behaviour

@@ -1,5 +1,4 @@
 import { Pool, types } from 'pg'
-import * as env from '../../env.json'
 
 // Enable postgres numbers to cast into JS numbers
 types.setTypeParser(20, function (val) {
