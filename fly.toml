@@ -1,0 +1,46 @@
+# fly.toml file generated for puppyhangout-backend on 2022-11-25T22:30:05-05:00
+
+app = "puppyhangout-backend"
+kill_signal = "SIGINT"
+kill_timeout = 5
+processes = []
+
+[env]
+GOOGLE_CLIENT_ID = "252312405510-jc5m5sejl8tip6umiugrunvo0ar8oj0s.apps.googleusercontent.com"
+GOOGLE_CLIENT_SECRET = "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"
+SERVER_ROOT_URI = "http://localhost:3001"
+jwt_secret = "default"
+pg = "postgresql://olivia:fJF5kqBo2IY0wjVovXHuYg@free-tier14.aws-us-east-1.cockroachlabs.cloud:26257/defaultdb?sslmode=verify-full&options=--cluster%3Dsiege-wisp-3623"
+
+[experimental]
+allowed_public_ports = []
+auto_rollback = true
+
+[[services]]
+http_checks = []
+internal_port = 3001
+processes = ["app"]
+protocol = "tcp"
+script_checks = []
+[services.concurrency]
+hard_limit = 25
+soft_limit = 20
+type = "connections"
+
+[[services.ports]]
+force_https = true
+handlers = ["http"]
+port = 80
+
+[[services.ports]]
+handlers = ["tls", "http"]
+port = 443
+
+[[services.tcp_checks]]
+grace_period = "1s"
+interval = "15s"
+restart_limit = 0
+timeout = "2s"
+
+[build]
+dockerfile = "backend/src/hosting/Dockerfile"
