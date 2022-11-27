@@ -73,7 +73,7 @@ export const Signup = observer(() => {
         </FormControl>
 
         <TextField
-          onKeyPress={(e) => (e.key === "Enter" ? signup() : "")}
+          onKeyPress={(e) => (e.key === "Enter" ? signup(setIsSuccessful) : "")}
           id="outlined-basic"
           label="Email"
           variant="outlined"
@@ -84,7 +84,7 @@ export const Signup = observer(() => {
         />
 
         <TextField
-          onKeyPress={(e) => (e.key === "Enter" ? signup() : "")}
+          onKeyPress={(e) => (e.key === "Enter" ? signup(setIsSuccessful) : "")}
           id="outlined-basic"
           label="First Name"
           variant="outlined"
@@ -95,7 +95,7 @@ export const Signup = observer(() => {
         />
 
         <TextField
-          onKeyPress={(e) => (e.key === "Enter" ? signup() : "")}
+          onKeyPress={(e) => (e.key === "Enter" ? signup(setIsSuccessful) : "")}
           id="outlined-basic"
           label="Last Name"
           variant="outlined"
@@ -107,7 +107,7 @@ export const Signup = observer(() => {
 
         <TextField
           autoComplete="new-password"
-          onKeyPress={(e) => (e.key === "Enter" ? signup() : "")}
+          onKeyPress={(e) => (e.key === "Enter" ? signup(setIsSuccessful) : "")}
           id="outlined-basic"
           label="Password"
           variant="outlined"
@@ -119,7 +119,7 @@ export const Signup = observer(() => {
         />
 
         <TextField
-          onKeyPress={(e) => (e.key === "Enter" ? signup() : "")}
+          onKeyPress={(e) => (e.key === "Enter" ? signup(setIsSuccessful) : "")}
           id="outlined-multiline-static"
           label="User Description"
           variant="outlined"
@@ -137,7 +137,9 @@ export const Signup = observer(() => {
 
         {String(store.signup.has_puppy) === "true" && (
           <TextField
-            onKeyPress={(e) => (e.key === "Enter" ? signup() : "")}
+            onKeyPress={(e) =>
+              e.key === "Enter" ? signup(setIsSuccessful) : ""
+            }
             id="outlined-basic"
             label="Puppy Name"
             variant="outlined"
@@ -153,7 +155,9 @@ export const Signup = observer(() => {
 
         {String(store.signup.has_puppy) === "true" && (
           <TextField
-            onKeyPress={(e) => (e.key === "Enter" ? signup() : "")}
+            onKeyPress={(e) =>
+              e.key === "Enter" ? signup(setIsSuccessful) : ""
+            }
             id="outlined-basic"
             label="Puppy Breed"
             variant="outlined"
@@ -169,7 +173,9 @@ export const Signup = observer(() => {
 
         {String(store.signup.has_puppy) === "true" && (
           <TextField
-            onKeyPress={(e) => (e.key === "Enter" ? signup() : "")}
+            onKeyPress={(e) =>
+              e.key === "Enter" ? signup(setIsSuccessful) : ""
+            }
             id="outlined-basic"
             label="Puppy Size"
             variant="outlined"
@@ -269,7 +275,7 @@ export const Signup = observer(() => {
               () => signup(setIsSuccessful)
             )
           }
-          loading={is_loading(signup, [])}
+          loading={is_loading(signup, [setIsSuccessful])}
         >
           Signup
         </LoadingButton>
